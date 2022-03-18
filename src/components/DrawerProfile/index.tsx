@@ -23,7 +23,7 @@ export const DrawerProfile: React.FC<IProps> = (props) => {
 			onClose={onClose}
 		>
 			<DrawerOverlay />
-			<DrawerContent onClose={onClose} >
+			<DrawerContent >
 				<DrawerCloseButton />
 				<DrawerBody>
 					<EditProfile onClose={onClose} />

@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, Box, Icon, Image, Flex } from "@chakra-ui/react";
-// import strings from "../../../resources/strings";
+import strings from "../../../resources/strings";
 // import useMainRoutes from "../../../hooks/useMainRoutes";
 import { useGlobalStore } from "../../../contexts/useGlobalContext";
 import { AiOutlineLogout } from "react-icons/ai";
@@ -14,7 +14,6 @@ export const DrawerLinks: React.FC<IProps> = () => {
 
 	// const { onClose } = props;
 	const { authStore } = useGlobalStore();
-
 	// const routes = useMainRoutes(authStore.currentAdminUser);
 	const fontSizeBreakPoint = { base: "sm", lg: "md" };
 	const history = useHistory();
@@ -85,7 +84,7 @@ export const DrawerLinks: React.FC<IProps> = () => {
 						fontWeight="bold"
 						cursor="pointer"
 					>
-						{/* {strings.nav.logout} */}
+						{strings.nav?.logout}
 					</Text>
 
 				</Flex>

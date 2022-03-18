@@ -22,7 +22,7 @@ export const DrawerContainer: React.FC<IProps> = (props) => {
 			onClose={onClose}
 		>
 			<DrawerOverlay />
-			<DrawerContent onClose={onClose} >
+			<DrawerContent >
 				<DrawerCloseButton />
 				<DrawerBody>
 					<DrawerLinks onClose={onClose} />

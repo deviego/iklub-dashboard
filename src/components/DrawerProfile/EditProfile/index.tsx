@@ -1,8 +1,7 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
-import { Flex, Button, Stack, useToast } from "@chakra-ui/react";
+import { Flex, Button, Stack } from "@chakra-ui/react";
 import {
-	ImagePicker,
 	PageLoading,
 	TextInput,
 } from "../..";
@@ -13,27 +12,26 @@ interface IProps {
 	onClose: () => void;
 }
 
-const EditProfile: React.FC<IProps> = (props) => {
-	const componentStrings = strings.components.editProfile;
-	const commonStrings = strings.common;
-	const { onClose } = props;
-	const toast = useToast();
+const EditProfile: React.FC<IProps> = () => {
+	const commonStrings = strings.common.fields;
+	// const { onClose } = props;
+	// const toast = useToast();
 	const { authStore } = useGlobalStore();
 
-	const onSuccess = () => {
-		toast({ status: "success", title: componentStrings.success });
-		onClose();
-	};
+	// const onSuccess = () => {
+	// 	toast({ status: "success", title: componentStrings.success });
+	// 	onClose();
+	// };
 
-	const onError = (errorMessage: string) => {
-		toast({status: "error", title: errorMessage});
-	};
+	// const onError = (errorMessage: string) => {
+	// 	toast({status: "error", title: errorMessage});
+	// };
 
-	const editAdminUser = () => {
-		if (authStore.currentAdminUser?.id) {
-			authStore.editAdminUser(authStore.currentAdminUser?.id, {onSuccess, onError});
-		}
-	};
+	// const editAdminUser = () => {
+	// 	if (authStore.currentAdminUser?.id) {
+	// 		authStore.editAdminUser(authStore.currentAdminUser?.id, {onSuccess, onError});
+	// 	}
+	// };
 
 	return (
 		<PageLoading loading={authStore.loader.isLoading}>
@@ -45,25 +43,25 @@ const EditProfile: React.FC<IProps> = (props) => {
 			>
 				<Stack w="100%" spacing={8}>
 					<Flex flexDir="column" alignItems="center">
-						<ImagePicker
+						{/* <ImagePicker
 							pickImage={authStore.profileImage.getPickerFields().pick}
 							src={authStore.profileImage.src}
-						/>
+						/> */}
 					</Flex>
 					<TextInput
-						labelText={commonStrings.fields.name}
+						labelText={commonStrings.name}
 						type="text"
 						isDisabled={authStore.loader.isLoading}
 						{...authStore.formProfile.field("name")}
 					/>
 					<TextInput
-						labelText={commonStrings.fields.email}
+						labelText={commonStrings.email}
 						type="email"
 						isDisabled={authStore.loader.isLoading}
 						{...authStore.formProfile.field("email")}
 					/>
 					<Button
-						onClick={editAdminUser}
+						// onClick={editAdminUser}
 						variant="larger"
 						colorScheme="primary"
 						isLoading={authStore.loader.isLoading}
