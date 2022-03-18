@@ -1,15 +1,15 @@
-dashboard.medpoo.startapp.one {
+dashboard.cbwhiski.startapp.one {
 	import helpers/base
 	import helpers/tls_cloudflare_wildcard
 	import helpers/react
 
-	root /data/medpoo/dashboard.medpoo.startapp.one
+	root /data/cbwhiski/dashboard.cbwhiski.startapp.one
 }
 
-staging.dashboard.medpoo.startapp.one {
+staging.dashboard.cbwhiski.startapp.one {
 	import helpers/base
 	import helpers/tls_cloudflare_wildcard
 	import helpers/react
 
-	root /data/medpoo/staging.dashboard.medpoo.startapp.one
+	root /data/cbwhiski/staging.dashboard.cbwhiski.startapp.one
 }

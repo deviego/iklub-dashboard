@@ -1,31 +1,17 @@
-const blue = {
-	50: "#E5FDFF",
-	100: "#B8F9FF",
-	200: "#8AF6FF",
-	300: "#5CF2FF",
-	400: "#2EEFFF",
+const yellow = {
+	50: "#d8ffff",
+	100: "#acfaff",
+	200: "#7df5ff",
+	300: "#4df1ff",
+	400: "#27edfe",
 	500: "#00B0BF",
-	600: "#00BCCC",
-	700: "#008D99",
-	800: "#005E66",
-	900: "#002F33",
-};
-
-const green = {
-	50: "#F2F9EC",
-	100: "#DAEEC9",
-	200: "#C3E3A6",
-	300: "#ACD883",
-	400: "#94CC60",
-	500: "#7DC13E",
-	600: "#649B31",
-	700: "#4B7425",
-	800: "#324D19",
-	900: "#19270C",
+	600: "#00a4b3",
+	700: "#007581",
+	800: "#00474f",
+	900: "#00191e",
 };
 
 export const colors = {
-	blue,
-	green,
-	primary: blue,
+	yellow,
+	primary: yellow,
 };
