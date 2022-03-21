@@ -1,0 +1,111 @@
+import "moment/locale/pt-br";
+import LocalizedStrings from "localized-strings";
+
+const strings = new LocalizedStrings({
+	ptBR: {
+		removeCharactersExceptLetterNumber: (character: string) => character.replace(/[^a-zA-Z0-9]/g, ""),
+		components: {
+			editProfile: {
+				success: "Editado com sucesso",
+			},
+			imagePicker: {
+				selectAnImage: "Selecione uma imagem",
+			},
+		},
+		nav: {
+			home: "Home",
+			logout: "Sair",
+		},
+		actions: {
+			save: "Salvar",
+			delete: "Apagar",
+			create: "Criar",
+			cancel: "Cancelar",
+			select: "Selecionar",
+			back: "Voltar",
+			add: "Adicionar",
+			send: "Enviar",
+		},
+		moment: {
+			day: "DD",
+			dateMonth: "DD/MM",
+			date: "DD/MM/YYYY",
+			dateHour: "DD/MM/YYYY HH[h]",
+			dateTime: "DD/MM/YYYY HH:mm",
+		},
+		error: {
+			stillLoading: "Ainda Carregando, aguarde.",
+			notLoggedIn: "Usuario não logado",
+			default: "Houve um erro, tente novamente mais tarde.",
+		},
+		common: {
+			noResutls: "Sem Resultados",
+			delete: "Clique para deletar",
+			disable: "Clique para desabilitar",
+			enable: "Clique para habilitar",
+			details: "Clique para ver mais informações",
+			edit: "Clique para editar",
+			cancel: "Cancelar",
+			finish: "Finalizar",
+			confirm: "Confirmar",
+			detailsTitle: "Detalhes",
+			editTitle: "Editar",
+			send: "Enviar",
+			empty: "Vazio",
+			fields: {
+				name: "Nome:",
+				email: "E-mail:",
+				password: "Senha:",
+				cpf: "CPF:",
+				phone: "Celular:",
+				address: "Endereço:",
+				disable: "Desabilitar:",
+				photo: "Foto:",
+				street: "Rua:",
+				neighborhood: "Bairro:",
+				streetNumber: "Número:",
+				complementary: "Complemento:",
+				city: "Cidade:",
+				countryCode: "Código do País:",
+				state: "Estado:",
+				zipcode: "CEP:",
+				description: "Descrição:",
+				date: "Data:",
+				hour: "Hora:",
+			},
+			mask: {
+				date: "__/__/____",
+				time: "__:__",
+			},
+		},
+		login: {
+			loginIn: "Login",
+			recoveryPassword: "Recuperar Senha",
+			success: (userName: string) => `Bem vindo ${userName}.`,
+			fields: {
+				email: "E-mail",
+				password: "Senha",
+			},
+		},
+		recoveryPage: {
+			success: "Bem vindo!",
+			title: "Recuperação de Senha",
+			newAccess: "Novo Acesso",
+			sendSuccess: "E-mail enviado com sucesso!",
+			recoverPasswordButton: "Enviar e-mail",
+			newPasswordButton: "Alterar Senha",
+			email: "Email",
+			token: "Token",
+			validToken: "Token válido!",
+			confirmTokenButton: "Confirmar Token",
+			tokenButton: "Já possui um token?",
+			noTokenButton: "Não possuo token",
+			newPassword: "Nova senha",
+			confirmNewPassword: "Confirme sua nova senha",
+			samePasswordError: "As senhas não correspondem",
+		},
+	},
+
+});
+
+export default strings;

@@ -1,0 +1,15 @@
+dashboard.cbwhiski.startapp.one {
+	import helpers/base
+	import helpers/tls_cloudflare_wildcard
+	import helpers/react
+
+	root /data/cbwhiski/dashboard.cbwhiski.startapp.one
+}
+
+staging.dashboard.cbwhiski.startapp.one {
+	import helpers/base
+	import helpers/tls_cloudflare_wildcard
+	import helpers/react
+
+	root /data/cbwhiski/staging.dashboard.cbwhiski.startapp.one
+}

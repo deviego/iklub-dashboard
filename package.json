@@ -1,0 +1,96 @@
+{
+  "name": "cbwhiski-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@babel/runtime": "^7.17.7",
+    "@chakra-ui/icons": "^1.1.7",
+    "@chakra-ui/react": "^1.8.6",
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
+    "@startapp/mobx-utils": "^1.1.448525650",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^17.0.21",
+    "@types/react": "^17.0.40",
+    "@types/react-dom": "^17.0.13",
+    "chart.js": "^3.7.1",
+    "components": "^0.1.0",
+    "framer-motion": "^6.2.8",
+    "localized-strings": "^0.2.4",
+    "mobx": "^6.5.0",
+    "mobx-react-lite": "^3.3.0",
+    "moment": "^2.29.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
+    "react-input-mask": "^2.0.4",
+    "react-router-dom": "^5.3.0",
+    "react-scripts": "^5.0.0",
+    "resources": "^0.4.3",
+    "typescript": "^4.6.2",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "upgrade-packages": "yarn upgrade",
+    "reset-modules": "rm -rf node_modules && rm -rf .cache && rm -rf dev && yarn install",
+    "dev": "NODE_ENV=production && ./node_modules/.bin/parcel src/index.html -d dev --port 3000 || @echo 'set is only for windows' && yarn devWindows",
+    "devWindows": "set NODE_ENV=develop && ./node_modules/.bin/parcel src/index.html -d dev --port 3000",
+    "build": "NODE_ENV=$NODE_ENV && ./node_modules/.bin/parcel build src/index.html",
+    "test": "npx ./node_modules/.bin/parcel build src/test.ts -d out --no-minify --target=node && node out/test.js",
+    "prepare": "husky install",
+    "lint": "prettier --config .prettierrc --write",
+    "up-sdk": "yarn upgrade @startapp/cbwhisky-admin-api",
+    "code-check": "yarn eslint ./src && yarn tsc",
+    "chakra-types": "chakra-cli tokens ./src/themes",
+    "postinstall": "yarn chakra-types"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.7",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@chakra-ui/cli": "^1.9.0",
+    "@types/react-color": "^3.0.6",
+    "@types/react-csv": "^1.1.2",
+    "@types/react-datepicker": "^4.3.4",
+    "@types/react-input-mask": "^3.0.1",
+    "@types/react-router-dom": "^5.3.3",
+    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@typescript-eslint/parser": "^5.15.0",
+    "eslint": "^8.11.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-jest": "^26.1.1",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "husky": "^7.0.4",
+    "parcel": "^2.3.2",
+    "parcel-bundler": "^1.12.5",
+    "parcel-plugin-static-files-copy": "^2.6.0"
+  }
+}
