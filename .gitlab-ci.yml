@@ -7,7 +7,7 @@ stages:
 before_script:
     - export PROJECT_NAME=$(echo ${CI_PROJECT_NAME//-/ } | awk '{print $1}')
     - export BRANCH_PREFIX=$(if [ $CI_COMMIT_REF_NAME == "master" ]; then echo ""; else echo "$CI_COMMIT_REF_NAME."; fi;)
-    - export WEB_URL="$BRANCH_PREFIX""dashboard.medpoo.startapp.one"
+    - export WEB_URL="$BRANCH_PREFIX""dashboard.cbwhisky.startapp.one"
 
 "[Linter] Type Check":
     image: $CI_REGISTRY/startapp-one/developers/es-linter

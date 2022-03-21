@@ -29,7 +29,7 @@ export default class AuthStore {
 	// public currentAdminUser: api.AdminUser | null = null;
 	// public profileImage = new ImagePickerShelf(api.uploadImage);
 
-	// private localstorage_key = "medpoo_currentAdminUser";
+	// private localstorage_key = "cbwhisky_currentAdminUser";
 
 	public formProfile = new FormShelf({
 		name: "",

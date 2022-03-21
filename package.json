@@ -42,7 +42,7 @@
     "test": "npx ./node_modules/.bin/parcel build src/test.ts -d out --no-minify --target=node && node out/test.js",
     "prepare": "husky install",
     "lint": "prettier --config .prettierrc --write",
-    "up-sdk": "yarn upgrade @startapp/medpoo-admin-api",
+    "up-sdk": "yarn upgrade @startapp/cbwhisky-admin-api",
     "code-check": "yarn eslint ./src && yarn tsc",
     "chakra-types": "chakra-cli tokens ./src/themes",
     "postinstall": "yarn chakra-types"
