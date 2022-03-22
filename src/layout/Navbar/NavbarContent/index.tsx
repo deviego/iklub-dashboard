@@ -25,7 +25,7 @@ export const NavbarContent: React.FC = () => {
 				/>
 				<Image
 					alt="logo"
-					src="/logo.svg"
+					src="/logo_squared.svg"
 					h={{ base: "2.5rem", sm: "3.5rem" }}
 				/>
 			</Flex>
