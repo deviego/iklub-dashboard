@@ -7,3 +7,4 @@ export { Card } from "./Card";
 export { Pagination } from "./Pagination";
 export { Loading } from "./Loading";
 export { Table } from "./Table";
+export { Logo } from "./Logo";
