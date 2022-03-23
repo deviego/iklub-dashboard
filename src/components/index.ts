@@ -8,3 +8,6 @@ export { Pagination } from "./Pagination";
 export { Loading } from "./Loading";
 export { Table } from "./Table";
 export { Logo } from "./Logo";
+export { DetailsRow } from "./DetailsRow";
+export { CentralizedCard } from "./CentralizedCard";
+export { ImagePicker } from "./ImagePicker";

@@ -51,6 +51,10 @@ const strings = new LocalizedStrings({
 			detailsTitle: "Detalhes",
 			editTitle: "Editar",
 			send: "Enviar",
+			buttons: {
+				confirmButton: (isEdit?: boolean) => isEdit ? "Editar" : "Enviar",
+				backButton: "Voltar",
+			},
 			empty: "Vazio",
 			fields: {
 				name: "Nome:",
@@ -103,6 +107,16 @@ const strings = new LocalizedStrings({
 			newPassword: "Nova senha",
 			confirmNewPassword: "Confirme sua nova senha",
 			samePasswordError: "As senhas não correspondem",
+		},
+		users: {
+			table: {
+				title: "Lista de Usuários",
+				header: ["", "Usuários", "Email", "Data de Cadastro" ],
+			},
+			edit: {
+				title: "Edição de Usuário",
+				success: "Usuário editado com sucesso",
+			},
 		},
 	},
 

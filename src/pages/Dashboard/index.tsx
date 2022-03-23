@@ -3,6 +3,7 @@ import { observer } from "mobx-react-lite";
 import { Route, Switch } from "react-router-dom";
 import Home from "./Home";
 import { MainLayout } from "~/layout";
+import Users from "./Users";
 
 
 const Dashboard: React.FC = () => (
@@ -13,6 +14,7 @@ const Dashboard: React.FC = () => (
 				path="/"
 				component={Home}
 			/>
+			<Route path="/dashboard/users" component={Users} />
 		</Switch>
 	</MainLayout>
 );
