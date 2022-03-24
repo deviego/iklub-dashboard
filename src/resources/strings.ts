@@ -51,6 +51,10 @@ const strings = new LocalizedStrings({
 			detailsTitle: "Detalhes",
 			editTitle: "Editar",
 			send: "Enviar",
+			buttons: {
+				confirmButton: (isEdit?: boolean) => isEdit ? "Editar" : "Enviar",
+				backButton: "Voltar",
+			},
 			empty: "Vazio",
 			fields: {
 				name: "Nome:",
