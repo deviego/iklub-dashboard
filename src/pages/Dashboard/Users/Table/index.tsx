@@ -7,7 +7,6 @@ import strings from "~/resources/strings";
 import format from "~/resources/format";
 import { Store } from "./store";
 
-
 const TableView: React.FC = () => {
 	const pageStrings = strings.users.table;
 	const store = useLocalObservable(() => new Store());
