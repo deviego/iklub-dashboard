@@ -26,21 +26,21 @@ export default class Store {
 
 		if (id) {
 			this.id.setValue(id);
-			// this.getAdminUser(id);
+			this.getAdminUser(id);
 		}
 	}
 
-	// public getAdminUser = async (id: string) => {
-	// 	this.loader.tryStart();
-	// 	try {
-	// 		const adminUser = await api.getAdminUser(id);
-	// 		this.setInitValues(adminUser);
-	// 	} catch (e) {
-	// 		Errors.handleError(e);
-	// 	} finally {
-	// 		this.loader.end();
-	// 	}
-	// };
+	public getAdminUser = async (id: string) => {
+		this.loader.tryStart();
+		try {
+			const adminUser = await api.getAdminUser(id);
+			this.setInitValues(adminUser);
+		} catch (e) {
+			Errors.handleError(e);
+		} finally {
+			this.loader.end();
+		}
+	};
 
 	public setInitValues = (adminUser: api.EditAdminUser) => {
 		this.formShelf = new FormShelf({

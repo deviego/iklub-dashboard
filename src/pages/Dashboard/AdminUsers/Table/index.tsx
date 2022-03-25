@@ -1,9 +1,9 @@
 import React from "react";
 import { observer, useLocalObservable } from "mobx-react-lite";
 import { Flex, Td, Text, Tr } from "@chakra-ui/react";
+import { useHistory } from "react-router-dom";
 import { Table, TableCellWithActionButtons } from "~/components";
 import strings from "~/resources/strings";
-import { useHistory } from "react-router-dom";
 import { useGlobalStore } from "~/contexts/useGlobalContext";
 import API from "~/resources/api";
 import Store from "./store";
@@ -58,7 +58,6 @@ const TableView: React.FC = () => {
 							onView={() => onGoToDetailsUser(item.id)}
 							onEdit={() => onGoToEditUser(item.id)}
 							onDelete={() => openDialog(item)}
-							onBlock={()=>{}}
 						/>
 						<Td>
 							<Text>{item.name}</Text>
