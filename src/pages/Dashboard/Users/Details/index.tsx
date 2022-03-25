@@ -24,7 +24,7 @@ const Details: React.FC = () => {
 	const { id } = useParams<IParams>();
 	const history = useHistory();
 
-	const store = useLocalObservable(() => new Store(id));
+	const store = useLocalObservable(() => new Store(id || ""));
 
 	const onGoToEditUser = (userId: string) => history.push(`/dashboard/users/edit/${userId}`);
 	const goBack = () => history.goBack();
