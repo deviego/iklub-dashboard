@@ -6,6 +6,7 @@ import {
 	VStack,
 	useToast,
 } from "@chakra-ui/react";
+import { useHistory, useParams } from "react-router-dom";
 import {
 	Card,
 	TextInput,
@@ -13,7 +14,6 @@ import {
 } from "~/components";
 import strings from "~/resources/strings";
 import { useGlobalStore } from "~/contexts/useGlobalContext";
-import { useHistory, useParams } from "react-router-dom";
 
 const Recovery: React.FC = () => {
 	const [hasToken, setHasToken] = React.useState(false);
