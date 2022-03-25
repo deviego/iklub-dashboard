@@ -14,6 +14,7 @@ const strings = new LocalizedStrings({
 		},
 		nav: {
 			home: "Home",
+			users: "Users",
 			logout: "Sair",
 		},
 		actions: {

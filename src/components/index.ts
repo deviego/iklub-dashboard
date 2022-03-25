@@ -11,3 +11,4 @@ export { Logo } from "./Logo";
 export { DetailsRow } from "./DetailsRow";
 export { CentralizedCard } from "./CentralizedCard";
 export { ImagePicker } from "./ImagePicker";
+export { TableCellWithActionButtons } from "./TableCellWithActionButtons";

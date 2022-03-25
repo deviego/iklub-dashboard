@@ -6,14 +6,13 @@ import {
 	Tooltip,
 	Button,
 } from "@chakra-ui/react";
+import { EditIcon } from "@chakra-ui/icons";
 import {
 	CentralizedCard,
 	DetailsRow,
 } from "~/components";
 import strings from "~/resources/strings";
-import { EditIcon } from "@chakra-ui/icons";
 import Store from "./store";
-
 
 interface IParams {
 	id?: string;
