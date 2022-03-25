@@ -14,6 +14,7 @@ const strings = new LocalizedStrings({
 		},
 		nav: {
 			home: "Home",
+			users: "Users",
 			logout: "Sair",
 		},
 		actions: {
@@ -107,6 +108,16 @@ const strings = new LocalizedStrings({
 			newPassword: "Nova senha",
 			confirmNewPassword: "Confirme sua nova senha",
 			samePasswordError: "As senhas não correspondem",
+		},
+		users: {
+			table: {
+				title: "Lista de Usuários",
+				header: ["", "Usuários", "Email", "Data de Cadastro" ],
+			},
+			edit: {
+				title: "Edição de Usuário",
+				success: "Usuário editado com sucesso",
+			},
 		},
 	},
 

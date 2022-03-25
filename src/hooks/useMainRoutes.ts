@@ -2,7 +2,11 @@ import {
 	AiOutlineHome,
 } from "react-icons/ai";
 
+import {
+	RiUserLine,
+} from "react-icons/ri";
 import strings from "../resources/strings";
+
 
 const useMainRoutes = () => {
 	const commonRoutes = [
@@ -10,6 +14,11 @@ const useMainRoutes = () => {
 			Icon: AiOutlineHome,
 			text: strings.nav.home,
 			path: "/dashboard",
+		},
+		{
+			Icon: RiUserLine,
+			text: strings.nav.users,
+			path: "/dashboard/users",
 		},
 	];
 
