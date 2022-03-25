@@ -2824,9 +2824,9 @@
     ua-parser-js "^0.7.14"
 
 "@startapp/mobx-utils@^1.1.448525650":
-  version "1.1.448525650"
-  resolved "https://npm.startapp.one/@startapp%2fmobx-utils/-/mobx-utils-1.1.448525650.tgz#4571826aeccd4093c7b15354f57d6fb7902f82a7"
-  integrity sha512-swYNLuw8G6D8lL5G7ORkpp/WziFC7WZ/mtSq0hOgmifEsmtu97Zn83l/sWLgYZs0v/plIemUmgq6wA8OxqMp/A==
+  version "1.1.499184788"
+  resolved "https://npm.startapp.one/@startapp%2fmobx-utils/-/mobx-utils-1.1.499184788.tgz#19bd028108c609781915eb89eecf974a8946f38a"
+  integrity sha512-BXIpUCwY6kDwACIYkTTjyTHqvtnniX1sL9z4WmMUY+2msH5A/lGlxkBkGR9JIjwrNbP23xdwLgLJLO1vcUW8eQ==
   dependencies:
     axios "^0.24.0"
     buffer "^6.0.3"

@@ -51,6 +51,10 @@ const strings = new LocalizedStrings({
 			detailsTitle: "Detalhes",
 			editTitle: "Editar",
 			send: "Enviar",
+			buttons: {
+				confirmButton: (isEdit?: boolean) => isEdit ? "Editar" : "Enviar",
+				backButton: "Voltar",
+			},
 			empty: "Vazio",
 			fields: {
 				name: "Nome:",
@@ -76,6 +80,16 @@ const strings = new LocalizedStrings({
 			mask: {
 				date: "__/__/____",
 				time: "__:__",
+			},
+			modal: {
+				title: "Deletar",
+				description: (itemName: string) => `Tem certeza que deseja deletar ${itemName}?`,
+				descriptionRemove: (itemName: string) => `Tem certeza que deseja remover ${itemName}?`,
+				button: {
+					remove: "Remover",
+					delete: "Deletar",
+					cancel: "Cancelar",
+				},
 			},
 		},
 		login: {
@@ -104,8 +118,29 @@ const strings = new LocalizedStrings({
 			confirmNewPassword: "Confirme sua nova senha",
 			samePasswordError: "As senhas não correspondem",
 		},
+		users :{
+			table: {
+				title: "Lista de Usuários",
+				header: ["", "Usuários", "Email"],
+				delete: (userName: string) => `Usuário ${userName} foi deletado!`,
+				statusUser: (isUserBlocked: boolean) => `O Usuário ${isUserBlocked ? "foi bloqueado" : "foi desbloaqueado"}`,
+				totalText: "Usuários cadastrados",
+			},
+		},
+		adminUsers: {
+			table: {
+				title: "Lista de Usuários Admin",
+				header: ["", "Usuários Admin", "Email"],
+				delete: (userName: string) => `Usuário ${userName} foi deletado!`,
+				addButtonText: "Adicionar novo usuário admin",
+			},
+			createOrEdit: {
+				title: (isEdit?: boolean) => isEdit ? "Edição de Usuário Admin" : "Cadastro de Usuário Admin",
+				titleClinicUser: (isEdit?: boolean) => isEdit ? "Edição de Usuário Clínica" : "Cadastro de Usuário Clínica",
+				success: (isEdit?: boolean) => isEdit ? "Usuário editado com sucesso" : "Usuário criado com sucesso",
+			},
+		}	,
 	},
-
 });
 
 export default strings;

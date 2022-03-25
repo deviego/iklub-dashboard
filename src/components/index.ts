@@ -8,3 +8,8 @@ export { Pagination } from "./Pagination";
 export { Loading } from "./Loading";
 export { Table } from "./Table";
 export { Logo } from "./Logo";
+export { Dialog } from "./Dialog";
+export { IProps as IDialogProps } from "./Dialog";
+export {TableCellWithActionButtons} from "./TableCellWithActionsButtons";
+export { CentralizedCard } from "./CentralizedCard";
+export { DetailsRow } from "./DetailsRow";
