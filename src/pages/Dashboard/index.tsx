@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import Home from "./Home";
 import { MainLayout } from "~/layout";
 import Users from "./Users";
+import Restaurant from "./Restaurant";
 
 
 const Dashboard: React.FC = () => (
@@ -15,6 +16,7 @@ const Dashboard: React.FC = () => (
 				component={Home}
 			/>
 			<Route path="/dashboard/users" component={Users} />
+			<Route path="/dashboard/restaurants" component={Restaurant} />
 		</Switch>
 	</MainLayout>
 );

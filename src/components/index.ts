@@ -12,3 +12,6 @@ export { DetailsRow } from "./DetailsRow";
 export { CentralizedCard } from "./CentralizedCard";
 export { ImagePicker } from "./ImagePicker";
 export { TableCellWithActionButtons } from "./TableCellWithActionButtons";
+export { Dialog } from "./Dialog";
+export { IProps as IDialogProps } from "./Dialog";
+export { RestaurantForm } from "./RestaurantForm";
