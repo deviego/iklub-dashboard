@@ -23,9 +23,9 @@ const TableView: React.FC = () => {
 		dialog.closeDialog();
 	};
 
-	const onGoToEditRestaurant = (id: string) => history.push(`restaurant/edit/${id}`);
-	const onGoToDetailsRestaurant = (id: string) => history.push(`restaurant/details/${id}`);
-	const onGoToCreateRestaurant = () => history.push("restaurant/create/");
+	const onGoToEditRestaurant = (id: string) => history.push(`restaurants/edit/${id}`);
+	const onGoToDetailsRestaurant = (id: string) => history.push(`restaurants/details/${id}`);
+	const onGoToCreateRestaurant = () => history.push("restaurants/create/");
 
 	const openDialog = (user: API.Restaurant) => {
 		dialog.showDialog({
@@ -66,9 +66,6 @@ const TableView: React.FC = () => {
 						</Td>
 						<Td>
 							<Text>{item.documentNumber}</Text>
-						</Td>
-						<Td>
-							<Text>{moment(item.createdAt).format(strings.moment.date)}</Text>
 						</Td>
 						<Td>
 							<Text>{moment(item.createdAt).format(strings.moment.date)}</Text>

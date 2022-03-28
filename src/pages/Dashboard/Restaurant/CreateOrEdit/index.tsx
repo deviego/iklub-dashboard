@@ -34,16 +34,15 @@ const CreateOrEdit: React.FC = () => {
 			<RestaurantForm
 				title={pageStrings.title(!!id)}
 				isLoading={store.loader.isLoading}
-				// formValues={{
-				// 	field: store.formShelf.getValues(strings.common.fields)
-				// }}
+				formValues={{
+					field: store.formShelf.field,
+				}}
 				submit={{
 					onClick: onSubmit,
 					text: commonStrings.buttons.confirmButton(!!id),
 					isLoading: store.loader.isLoading,
 				}}
 			/>
-
 		</>
 	);
 };

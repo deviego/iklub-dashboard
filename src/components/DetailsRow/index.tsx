@@ -3,7 +3,7 @@ import { Box, Stack, Text, Button } from "@chakra-ui/react";
 
 export interface IUserInfoCardProps {
 	label: string;
-	value: string | string[];
+	value: string | string[] | null;
 }
 
 export const DetailsRow: React.FC<IUserInfoCardProps> = (props) => {

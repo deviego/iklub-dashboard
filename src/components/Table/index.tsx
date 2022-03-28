@@ -151,8 +151,9 @@ export const Table = <DataType,>(props: IProps<DataType>) => {
 			{onAdd && (
 				<Button
 					w="100%"
-					maxW={280}
+					maxW={360}
 					size="lg"
+					fontSize='1.4rem'
 					mt={10}
 					onClick={onAdd}
 					isLoading={addButtonLoading}

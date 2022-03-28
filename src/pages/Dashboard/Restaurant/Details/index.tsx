@@ -26,7 +26,7 @@ const Details: React.FC = () => {
 
 	const store = useLocalObservable(() => new Store(id || ""));
 
-	const onGoToEditUser = (userId: string) => history.push(`/dashboard/users/edit/${userId}`);
+	const onGoToEditUser = (userId: string) => history.push(`/dashboard/restaurants/edit/${userId}`);
 	const goBack = () => history.goBack();
 
 	return (
@@ -68,10 +68,42 @@ const Details: React.FC = () => {
 						label={commonStrings.fields.name}
 						value={store.fetchModelShelf.fetchedModel.name}
 					/>
-					{/* <DetailsRow
-						label={commonStrings.fields.}
-						value={store.fetchModelShelf.fetchedModel.email}
-					/> */}
+					<DetailsRow
+						label={commonStrings.fields.documentNumber}
+						value={store.fetchModelShelf.fetchedModel.documentNumber}
+					/>
+					<DetailsRow
+						label={commonStrings.fields.zipcode}
+						value={store.fetchModelShelf.fetchedModel.address.zipcode}
+					/>
+					<DetailsRow
+						label={commonStrings.fields.street}
+						value={store.fetchModelShelf.fetchedModel.address.street}
+					/>
+					<DetailsRow
+						label={commonStrings.fields.streetNumber}
+						value={store.fetchModelShelf.fetchedModel.address.streetNumber}
+					/>
+					<DetailsRow
+						label={commonStrings.fields.complementary}
+						value={store.fetchModelShelf.fetchedModel.address.complementary}
+					/>
+					<DetailsRow
+						label={commonStrings.fields.neighborhood}
+						value={store.fetchModelShelf.fetchedModel.address.neighborhood}
+					/>
+					<DetailsRow
+						label={commonStrings.fields.city}
+						value={store.fetchModelShelf.fetchedModel.address.city}
+					/>
+					<DetailsRow
+						label={commonStrings.fields.countryCode}
+						value={store.fetchModelShelf.fetchedModel.address.countryCode}
+					/>
+					<DetailsRow
+						label={commonStrings.fields.state}
+						value={store.fetchModelShelf.fetchedModel.address.state}
+					/>
 				</>}
 		</CentralizedCard>
 	);
