@@ -5,7 +5,6 @@ import Home from "./Home";
 import { MainLayout } from "~/layout";
 import AdminUsers from "./AdminUsers";
 
-
 const Dashboard: React.FC = () => (
 	<MainLayout>
 		<Switch>

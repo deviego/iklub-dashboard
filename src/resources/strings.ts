@@ -137,7 +137,7 @@ const strings = new LocalizedStrings({
 			},
 			createOrEdit: {
 				title: (isEdit?: boolean) => isEdit ? "Edição de Usuário Admin" : "Cadastro de Usuário Admin",
-				titleClinicUser: (isEdit?: boolean) => isEdit ? "Edição de Usuário Clínica" : "Cadastro de Usuário Clínica",
+				titleRestaurantUser: (isEdit?: boolean) => isEdit ? "Edição de Usuário Restaurante" : "Cadastro de Usuário Restaurante",
 				success: (isEdit?: boolean) => isEdit ? "Usuário editado com sucesso" : "Usuário criado com sucesso",
 			},
 		}	,
