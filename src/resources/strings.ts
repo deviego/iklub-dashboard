@@ -5,6 +5,12 @@ const strings = new LocalizedStrings({
 	ptBR: {
 		removeCharactersExceptLetterNumber: (character: string) => character.replace(/[^a-zA-Z0-9]/g, ""),
 		components: {
+			autoCompleteList: {
+				empty: "Não há itens na lista",
+			},
+			autoCompleteModal: {
+				back: "Voltar",
+			},
 			editProfile: {
 				success: "Editado com sucesso",
 			},
