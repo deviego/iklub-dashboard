@@ -84,10 +84,11 @@ const Details: React.FC = () => {
 						label={commonStrings.fields.streetNumber}
 						value={store.fetchModelShelf.fetchedModel.address.streetNumber}
 					/>
-					<DetailsRow
-						label={commonStrings.fields.complementary}
-						value={store.fetchModelShelf.fetchedModel.address.complementary}
-					/>
+					{store.fetchModelShelf.fetchedModel.address.complementary &&
+						<DetailsRow
+							label={commonStrings.fields.complementary}
+							value={store.fetchModelShelf.fetchedModel.address.complementary}
+						/>}
 					<DetailsRow
 						label={commonStrings.fields.neighborhood}
 						value={store.fetchModelShelf.fetchedModel.address.neighborhood}
