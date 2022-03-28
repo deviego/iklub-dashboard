@@ -10,6 +10,7 @@ export { Table } from "./Table";
 export { Logo } from "./Logo";
 export { Dialog } from "./Dialog";
 export { IProps as IDialogProps } from "./Dialog";
-export {TableCellWithActionButtons} from "./TableCellWithActionsButtons";
+export {TableCellWithActionButtons} from "./TableCellWithActionButtons";
 export { CentralizedCard } from "./CentralizedCard";
 export { DetailsRow } from "./DetailsRow";
+export { ImagePicker } from "./ImagePicker";

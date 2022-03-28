@@ -1,7 +1,5 @@
 import { LoaderShelf, AbstractPaginatedListStore } from "@startapp/mobx-utils";
 
-import { makeAutoObservable } from "mobx";
-
 import { showErrorToast, showSuccessToast } from "~/resources/toast";
 import { Errors } from "~/resources/errors";
 import strings from "~/resources/strings";
@@ -14,7 +12,6 @@ export default class Store extends AbstractPaginatedListStore<api.AdminUser> {
 	constructor() {
 		super();
 		this.fetchPage(0);
-		makeAutoObservable(this);
 	}
 
 	protected getDataItemsPerPage(page: number): Promise<api.AdminUser[]> {

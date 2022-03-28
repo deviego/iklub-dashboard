@@ -1,40 +1,41 @@
 import { makeAutoObservable } from "mobx";
 import { LoaderShelf, AttributeShelf } from "@startapp/mobx-utils";
-import { FormShelf } from "@startapp/mobx-utils/src/web";
+import { FormShelf, ImagePickerShelf } from "@startapp/mobx-utils/src/web";
 import { Errors } from "~/resources/errors";
 import api from "~/resources/api";
 import { showErrorToast, showSuccessToast } from "~/resources/toast";
 import strings from "~/resources/strings";
 
-const pageStrings = strings.adminUsers.createOrEdit;
+const pageStrings = strings.users.edit;
 
 export default class Store {
 
 	public formShelf = new FormShelf({
 		email: "",
 		name: "",
-		password: "",
+		phone: "",
 	});
 
-	public blocked = new AttributeShelf(false);
 	public loader = new LoaderShelf();
+	public imageShelf = new ImagePickerShelf(api.uploadImage);
 
 	public id = new AttributeShelf("");
+	public user: api.User;
 
 	constructor(id?: string) {
 		makeAutoObservable(this);
 
 		if (id) {
 			this.id.setValue(id);
-			this.getAdminUser(id);
+			this.getUser(id);
 		}
 	}
 
-	public getAdminUser = async (id: string) => {
+	public getUser = async (id: string) => {
 		this.loader.tryStart();
 		try {
-			const adminUser = await api.getAdminUser(id);
-			this.setInitValues(adminUser);
+			this.user = await api.getUser(id);
+			this.setInitValues(this.user);
 		} catch (e) {
 			Errors.handleError(e);
 		} finally {
@@ -42,39 +43,37 @@ export default class Store {
 		}
 	};
 
-	public setInitValues = (adminUser: api.EditAdminUser) => {
+	public setInitValues = (user: api.User) => {
 		this.formShelf = new FormShelf({
-			email: adminUser.email,
-			name: adminUser.name,
-			password: "",
+			email: user.email,
+			name: user.name,
+			phone: user.phone,
 		});
+		if (user.image) {
+			this.imageShelf.getPickerFields().setUploadedImage(user.image);
+		}
 	};
 
-	public createOrEditUser = async (onSuccess: () => void) => {
+	public EditUser = async (onSuccess: () => void) => {
 		this.loader.tryStart();
 		try {
 			const data = this.formShelf.getValues();
 			const {
 				email,
 				name,
-				password,
+				phone,
 			} = data;
 
-			if (this.id.value){
-				await api.editAdminUser(this.id.value,{
+			if (this.id.value) {
+				await api.editUser(this.id.value, {
+					image: this.imageShelf.uncertainfiedImage,
 					email,
 					name,
+					phone,
+					birthdate: null,
 				});
-				showSuccessToast(pageStrings.success(!!this.id));
-			} else {
-				await api.createAdminUser({
-					email,
-					name,
-					password,
-				});
-				showSuccessToast(pageStrings.success(!this.id));
 			}
-
+			showSuccessToast(pageStrings.success);
 			onSuccess();
 		} catch (e) {
 			const errorMessage = Errors.handleError(e);
@@ -83,4 +82,5 @@ export default class Store {
 			this.loader.end();
 		}
 	};
+
 }

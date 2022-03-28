@@ -15,6 +15,7 @@ const strings = new LocalizedStrings({
 		nav: {
 			home: "Home",
 			adminUsers: "Usuários Adminstrativos",
+			users: "Users",
 			logout: "Sair",
 		},
 		actions: {
@@ -127,6 +128,10 @@ const strings = new LocalizedStrings({
 				statusUser: (isUserBlocked: boolean) => `O Usuário ${isUserBlocked ? "foi bloqueado" : "foi desbloaqueado"}`,
 				totalText: "Usuários cadastrados",
 			},
+			edit: {
+				title: "Edição de Usuário",
+				success: "Usuário editado com sucesso",
+			},
 		},
 		adminUsers: {
 			table: {
@@ -140,7 +145,7 @@ const strings = new LocalizedStrings({
 				titleRestaurantUser: (isEdit?: boolean) => isEdit ? "Edição de Usuário Restaurante" : "Cadastro de Usuário Restaurante",
 				success: (isEdit?: boolean) => isEdit ? "Usuário editado com sucesso" : "Usuário criado com sucesso",
 			},
-		}	,
+		},
 	},
 });
 

@@ -4,7 +4,11 @@ import {
 
 import { RiUserFollowLine } from "react-icons/ri";
 
+import {
+	RiUserLine,
+} from "react-icons/ri";
 import strings from "../resources/strings";
+
 
 const useMainRoutes = () => {
 	const commonRoutes = [
@@ -17,6 +21,11 @@ const useMainRoutes = () => {
 			Icon: RiUserFollowLine,
 			text: strings.nav.adminUsers,
 			path: "/dashboard/adminUsers",
+		},
+		{
+			Icon: RiUserLine,
+			text: strings.nav.users,
+			path: "/dashboard/users",
 		},
 	];
 
