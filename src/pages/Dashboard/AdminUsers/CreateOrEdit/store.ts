@@ -65,16 +65,15 @@ export default class Store {
 					email,
 					name,
 				});
-				showSuccessToast(pageStrings.success(!!this.id));
 			} else {
 				await api.createAdminUser({
 					email,
 					name,
 					password,
 				});
-				showSuccessToast(pageStrings.success(!this.id));
 			}
 
+			showSuccessToast(pageStrings.success(!!this.id.value));
 			onSuccess();
 		} catch (e) {
 			const errorMessage = Errors.handleError(e);

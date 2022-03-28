@@ -152,6 +152,7 @@ export const Table = <DataType,>(props: IProps<DataType>) => {
 				<Button
 					w="100%"
 					maxW={360}
+					fontSize='1.3rem'
 					size="lg"
 					mt={10}
 					onClick={onAdd}
