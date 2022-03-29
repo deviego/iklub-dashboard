@@ -25,7 +25,7 @@ const CreateOrEdit: React.FC = () => {
 		history.goBack();
 	};
 
-	const store = useLocalObservable(() => new Store(id));
+	const store = useLocalObservable(() => new Store(id || ""));
 
 	const onSubmit = () => {
 		store.createOrEditUser(onSuccess);
