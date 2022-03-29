@@ -5,11 +5,14 @@ import {
 	IconButton,
 	Tooltip,
 	Button,
+	Box,
 } from "@chakra-ui/react";
 import { EditIcon } from "@chakra-ui/icons";
 import {
 	CentralizedCard,
 	DetailsRow,
+	ImagePicker,
+	Label,
 } from "~/components";
 import strings from "~/resources/strings";
 import Store from "./store";
@@ -64,6 +67,15 @@ const Details: React.FC = () => {
 		>
 			{store.fetchModelShelf.model.value &&
 				<>
+					<Box>
+						<Label fontWeight="bold" marginBottom={1}>
+							{commonStrings.fields.photo}
+						</Label>
+						<ImagePicker
+							pickImage={store.imageShelf.getPickerFields().pick}
+							src={store.imageShelf.src}
+						/>
+					</Box>
 					<DetailsRow
 						label={commonStrings.fields.name}
 						value={store.fetchModelShelf.fetchedModel.name}
@@ -71,6 +83,10 @@ const Details: React.FC = () => {
 					<DetailsRow
 						label={commonStrings.fields.email}
 						value={store.fetchModelShelf.fetchedModel.email}
+					/>
+					<DetailsRow
+						label={commonStrings.fields.phone}
+						value={store.fetchModelShelf.fetchedModel.phone}
 					/>
 				</>}
 		</CentralizedCard>
