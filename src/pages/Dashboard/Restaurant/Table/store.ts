@@ -40,4 +40,23 @@ export default class Store {
 			this.loader.end();
 		}
 	};
+
+	public changeRestaurantBlockStatus = async (id: string, blockedAt: Date | null) => {
+		this.loader.tryStart();
+		try {
+			if (blockedAt) {
+				await api.changeRestaurantBlockStatus(id, false);
+				showSuccessToast(strings.restaurants.table.statusRestaurant(false));
+			} else {
+				await api.changeRestaurantBlockStatus(id, true);
+				showSuccessToast(strings.restaurants.table.statusRestaurant(true));
+			}
+			this.paginetedListShelf.refresh();
+		} catch (e) {
+			const errorMessage = Errors.handleError(e);
+			showErrorToast(errorMessage);
+		} finally {
+			this.loader.end();
+		}
+	};
 }

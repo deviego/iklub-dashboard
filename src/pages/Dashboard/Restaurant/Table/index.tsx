@@ -51,6 +51,30 @@ const TableView: React.FC = () => {
 		});
 	};
 
+	const openDialogBlockedRestaurant = (restaurant: API.Restaurant) => {
+		const modalBlockedRestaurant = strings.restaurants.modal;
+		dialog.showDialog({
+			title: modalBlockedRestaurant.title,
+			closeOnOverlayClick: true,
+			description: modalBlockedRestaurant.description(restaurant.name, !!restaurant.blockedAt),
+			buttons: [
+				{
+					title: restaurant.blockedAt ?  modalBlockedRestaurant.button.enable :  modalBlockedRestaurant.button.disable,
+					onPress: () => {
+						store.changeRestaurantBlockStatus(restaurant.id, restaurant.blockedAt);
+						dialog.closeDialog();
+					},
+					buttonProps: { bg: restaurant.blockedAt ? "green.500" : "red.500" },
+				},
+				{
+					title: modalBlockedRestaurant.button.cancel,
+					onPress: () => dialog.closeDialog(),
+					outlined: true,
+				},
+			],
+		});
+	};
+
 	return (
 		<Flex flexDir="column" p={{ base: "2", lg: "16" }}>
 			<Table
@@ -64,6 +88,8 @@ const TableView: React.FC = () => {
 							onView={() => onGoToDetailsRestaurant(item.id)}
 							onEdit={() => onGoToEditRestaurant(item.id)}
 							onDelete={() => openDialog(item)}
+							onBlock={() => openDialogBlockedRestaurant(item)}
+							isBlocked={!!item.blockedAt}
 						/>
 						<Td>
 							<Text>{item.name}</Text>

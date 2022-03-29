@@ -134,6 +134,7 @@ const strings = new LocalizedStrings({
 				title: "Lista Usuários do Restaurante",
 				header:  ["", "Nome do Restaurante", "Documento do Restaurante", "Data de Cadastro"],
 				delete: (userName: string) => `Restaurante ${userName} foi deletado!`,
+				statusRestaurant: (isUserBlocked: boolean) => `O Restaurante ${isUserBlocked ? "foi bloqueado" : "foi desbloqueado"}`,
 				addButtonText: "Adicionar novo Restaurante",
 				totalText: "Restaurantes cadastrados",
 			},
