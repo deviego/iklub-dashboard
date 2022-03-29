@@ -1,12 +1,16 @@
 import React from "react";
-import { observer, useLocalObservable } from "mobx-react-lite";
-import moment from "moment";
-import { Flex, Td, Text, Tr } from "@chakra-ui/react";
-import { Table, TableCellWithActionButtons } from "~/components";
-import strings from "~/resources/strings";
 import { useHistory } from "react-router-dom";
+import { observer, useLocalObservable } from "mobx-react-lite";
+import { Flex, Td, Text, Tr } from "@chakra-ui/react";
+
+import { Table, TableCellWithActionButtons } from "~/components";
+
 import { useGlobalStore } from "~/contexts/useGlobalContext";
+
+import format from "~/resources/format";
+import strings from "~/resources/strings";
 import API from "~/resources/api";
+
 import Store from "./store";
 
 const TableView: React.FC = () => {
@@ -50,7 +54,7 @@ const TableView: React.FC = () => {
 	return (
 		<Flex flexDir="column" p={{ base: "2", lg: "16" }}>
 			<Table
-				data={store._items}
+				data={store.paginetedListShelf.items}
 				headers={pageStrings.header}
 				onAdd={onGoToCreateRestaurant}
 				addButtonText={pageStrings.addButtonText}
@@ -68,16 +72,16 @@ const TableView: React.FC = () => {
 							<Text>{item.documentNumber}</Text>
 						</Td>
 						<Td>
-							<Text>{moment(item.createdAt).format(strings.moment.date)}</Text>
+							{item.createdAt && <Text>{format.date(item.createdAt)}</Text>}
 						</Td>
 					</Tr>
 				)}
-				loading={store._loading}
+				loading={store.paginetedListShelf.loader.isLoading}
 				emptyMessage={strings.common.noResutls}
-				currentPage={store.page}
-				prevPage={store.previousPage}
-				nextPage={store.nextPage}
-				hasNextPage={store._isHaveNextPage}
+				currentPage={store.paginetedListShelf.page}
+				prevPage={store.paginetedListShelf.previousPage}
+				nextPage={store.paginetedListShelf.nextPage}
+				hasNextPage={store.paginetedListShelf.hasNextPage}
 			/>
 		</Flex>
 	);

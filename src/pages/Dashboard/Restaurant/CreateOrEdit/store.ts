@@ -1,4 +1,4 @@
-import { FormShelf } from "@startapp/mobx-utils/src/web";
+import { FormShelf, ImagePickerShelf } from "@startapp/mobx-utils/src/web";
 import { makeAutoObservable } from "mobx";
 import { LoaderShelf, AttributeShelf } from "@startapp/mobx-utils";
 
@@ -13,6 +13,7 @@ export default class Store {
 
 	public formShelf = new FormShelf({
 		name: "",
+		corporateName: "",
 		documentNumber: "",
 		zipcode: "",
 		street: "",
@@ -24,6 +25,7 @@ export default class Store {
 
 	public stateUF = new AttributeShelf(api.StateUF.AC);
 	public loader = new LoaderShelf();
+	public imageShelf = new ImagePickerShelf(api.uploadImage);
 
 	public id = new AttributeShelf("");
 
@@ -48,7 +50,8 @@ export default class Store {
 			const restaurant = await api.getRestaurantById(id);
 			this.setInitValues(restaurant);
 		} catch (e) {
-			Errors.handleError(e);
+			const errorMessage = Errors.handleError(e);
+			showErrorToast(errorMessage);
 		} finally {
 			this.loader.end();
 		}
@@ -57,6 +60,7 @@ export default class Store {
 	public setInitValues = (restaurant: api.Restaurant) => {
 		this.formShelf = new FormShelf({
 			name: restaurant.name,
+			corporateName: restaurant.corporateName,
 			documentNumber: restaurant.documentNumber,
 			complementary: restaurant.address.complementary || "",
 			neighborhood: restaurant.address.neighborhood,
@@ -76,8 +80,9 @@ export default class Store {
 			if (this.id.value) {
 
 				await api.editRestaurant(this.id.value, {
-					name:  data.name,
+					name: data.name,
 					documentNumber: data.documentNumber,
+					corporateName: data.corporateName,
 					address: {
 						neighborhood: data.neighborhood,
 						city: data.city,
@@ -88,11 +93,13 @@ export default class Store {
 						zipcode: data.zipcode,
 						countryCode: "BR",
 					},
+					image: this.imageShelf.uncertainfiedImage,
 				});
 			} else {
 				await api.createRestaurant({
 					name: data.name,
 					documentNumber: data.documentNumber,
+					corporateName: data.corporateName,
 					address: {
 						neighborhood: data.neighborhood,
 						city: data.city,
@@ -103,6 +110,7 @@ export default class Store {
 						zipcode: data.zipcode,
 						countryCode: "BR",
 					},
+					image: this.imageShelf.uncertainfiedImage,
 				});
 			}
 

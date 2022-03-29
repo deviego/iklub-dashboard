@@ -1,25 +1,28 @@
 import {
 	LoaderShelf,
-	AbstractPaginatedListStore,
 	AttributeShelf,
+	PaginatedListShelf,
 } from "@startapp/mobx-utils";
 import { showErrorToast, showSuccessToast } from "~/resources/toast";
 import { Errors } from "~/resources/errors";
 import strings from "~/resources/strings";
 import api from "~/resources/api";
+import { makeAutoObservable } from "mobx";
 
-export default class Store extends AbstractPaginatedListStore<api.Restaurant> {
+export default class Store {
+
+	public paginetedListShelf: PaginatedListShelf<api.Restaurant> = new PaginatedListShelf(
+		api.getAllRestaurants,
+		{
+			fetchOnConstructor: true,
+		},
+	);
 
 	public loader = new LoaderShelf();
 	public totalRestaurants = new AttributeShelf(0);
 
 	constructor() {
-		super();
-		this.fetchPage(0);
-	}
-
-	protected getDataItemsPerPage(page: number): Promise<api.Restaurant[]> {
-		return api.getAllRestaurants(page);
+		makeAutoObservable(this);
 	}
 
 	public deleteRestaurant = async (id: string) => {
@@ -29,7 +32,7 @@ export default class Store extends AbstractPaginatedListStore<api.Restaurant> {
 			const deletedRestaurant = await api.deleteRestaurant(id);
 
 			showSuccessToast(strings.users.table.delete(deletedRestaurant.name));
-			this.refresh();
+			this.paginetedListShelf.refresh();
 		} catch (e) {
 			const errorMessage = Errors.handleError(e);
 			showErrorToast(errorMessage);

@@ -60,6 +60,7 @@ const strings = new LocalizedStrings({
 			empty: "Vazio",
 			fields: {
 				name: "Nome:",
+				corporateName: "Nome corporativo:",
 				email: "E-mail:",
 				photo: "Foto:",
 				phone: "Celular:",

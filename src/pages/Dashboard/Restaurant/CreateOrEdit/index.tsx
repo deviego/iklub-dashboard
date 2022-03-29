@@ -36,6 +36,10 @@ const CreateOrEdit: React.FC = () => {
 				isLoading={store.loader.isLoading}
 				formValues={{
 					field: store.formShelf.field,
+					image: {
+						pick: store.imageShelf.getPickerFields().pick,
+						src: store.imageShelf.src,
+					},
 				}}
 				submit={{
 					onClick: onSubmit,
