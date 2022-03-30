@@ -5,17 +5,18 @@ import {
 	IconButton,
 	Tooltip,
 	Button,
+	Image,
 	Box,
 } from "@chakra-ui/react";
 import { EditIcon } from "@chakra-ui/icons";
 import {
 	CentralizedCard,
 	DetailsRow,
-	ImagePicker,
 	Label,
 } from "~/components";
 import strings from "~/resources/strings";
 import Store from "./store";
+import imagePlaceholder from "../../../../../static/pick_image.svg";
 
 interface IParams {
 	id?: string;
@@ -71,9 +72,13 @@ const Details: React.FC = () => {
 						<Label fontWeight="bold" marginBottom={1}>
 							{commonStrings.fields.photo}
 						</Label>
-						<ImagePicker
-							pickImage={store.imageShelf.getPickerFields().pick}
-							src={store.imageShelf.src}
+						<Image
+							width={120}
+							height={120}
+							p={0}
+							m={0}
+							src={store.fetchModelShelf.fetchedModel.image ? store.fetchModelShelf.fetchedModel.image.url : imagePlaceholder}
+							rounded="lg"
 						/>
 					</Box>
 					<DetailsRow
