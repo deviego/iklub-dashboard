@@ -4,6 +4,9 @@ import {
 	IconButton,
 	Tooltip,
 } from "@chakra-ui/react";
+import {
+	BiBlock,
+} from "react-icons/bi";
 import { SearchIcon, EditIcon, DeleteIcon } from "@chakra-ui/icons";
 import strings from "~/resources/strings";
 
@@ -11,6 +14,8 @@ interface IProps {
 	onDelete?: () => void;
 	onView?: () => void;
 	onEdit?: () => void;
+	onBlock?: () => void;
+	isBlocked?: boolean;
 }
 
 export const TableCellWithActionButtons: React.FC<IProps> = (props) => {
@@ -18,6 +23,8 @@ export const TableCellWithActionButtons: React.FC<IProps> = (props) => {
 		onDelete,
 		onView,
 		onEdit,
+		onBlock,
+		isBlocked,
 	} = props;
 
 	return (
@@ -59,6 +66,35 @@ export const TableCellWithActionButtons: React.FC<IProps> = (props) => {
 								icon={<DeleteIcon />}
 							/>
 						</Tooltip>
+			}
+			{
+				onBlock
+					&&
+					(
+						isBlocked
+							? (
+								<Tooltip label={strings.common.enable}>
+									<IconButton
+										variant="icon"
+										color="red"
+										size="sm"
+										aria-label="Disable"
+										onClick={onBlock}
+										icon={<BiBlock />}
+									/>
+								</Tooltip>
+							) : (
+								<Tooltip label={strings.common.disable}>
+									<IconButton
+										variant="icon"
+										color="green"
+										size="sm"
+										aria-label="Enable"
+										onClick={onBlock}
+										icon={<BiBlock />}
+									/>
+								</Tooltip>
+							))
 			}
 		</Td>
 	);

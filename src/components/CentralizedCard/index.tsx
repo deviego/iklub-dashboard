@@ -40,6 +40,7 @@ export const CentralizedCard: React.FC<IProps> = (props) => {
 						display="inline-block"
 						size="lg"
 						color="primary.500"
+						mt={25}
 					>
 						{title.text}
 					</Heading>

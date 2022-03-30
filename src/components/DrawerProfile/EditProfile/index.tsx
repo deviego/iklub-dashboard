@@ -2,6 +2,7 @@ import React from "react";
 import { observer } from "mobx-react-lite";
 import { Flex, Button, Stack } from "@chakra-ui/react";
 import {
+	ImagePicker,
 	PageLoading,
 	TextInput,
 } from "../..";
@@ -43,10 +44,10 @@ const EditProfile: React.FC<IProps> = () => {
 			>
 				<Stack w="100%" spacing={8}>
 					<Flex flexDir="column" alignItems="center">
-						{/* <ImagePicker
+						<ImagePicker
 							pickImage={authStore.profileImage.getPickerFields().pick}
 							src={authStore.profileImage.src}
-						/> */}
+						/>
 					</Flex>
 					<TextInput
 						labelText={commonStrings.name}
