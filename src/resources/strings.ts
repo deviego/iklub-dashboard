@@ -5,6 +5,12 @@ const strings = new LocalizedStrings({
 	ptBR: {
 		removeCharactersExceptLetterNumber: (character: string) => character.replace(/[^a-zA-Z0-9]/g, ""),
 		components: {
+			autoCompleteList: {
+				empty: "Não há itens na lista",
+			},
+			autoCompleteModal: {
+				back: "Voltar",
+			},
 			editProfile: {
 				success: "Editado com sucesso",
 			},
@@ -15,6 +21,7 @@ const strings = new LocalizedStrings({
 		nav: {
 			home: "Home",
 			restaurants: "Restaurantes",
+			adminUsers: "Usuários Adminstrativos",
 			users: "Users",
 			logout: "Sair",
 		},
@@ -61,6 +68,7 @@ const strings = new LocalizedStrings({
 			fields: {
 				name: "Nome:",
 				corporateName: "Nome corporativo:",
+				password: "Senha:",
 				email: "E-mail:",
 				photo: "Foto:",
 				phone: "Celular:",
@@ -115,11 +123,13 @@ const strings = new LocalizedStrings({
 			confirmNewPassword: "Confirme sua nova senha",
 			samePasswordError: "As senhas não correspondem",
 		},
-		users: {
+		users :{
 			table: {
 				title: "Lista de Usuários",
 				header: ["", "Usuários", "Email", "Data de Cadastro" ],
 				delete: (userName: string) => `Usuário ${userName} foi deletado!`,
+				statusUser: (isUserBlocked: boolean) => `O Usuário ${isUserBlocked ? "foi bloqueado" : "foi desbloaqueado"}`,
+				totalText: "Usuários cadastrados",
 			},
 			edit: {
 				title: "Edição de Usuário",
@@ -170,8 +180,20 @@ const strings = new LocalizedStrings({
 				},
 			},
 		},
+		adminUsers: {
+			table: {
+				title: "Lista de Usuários Admin",
+				header: ["", "Usuários Admin", "Email"],
+				delete: (userName: string) => `Usuário ${userName} foi deletado!`,
+				addButtonText: "Adicionar novo usuário admin",
+			},
+			createOrEdit: {
+				title: (isEdit?: boolean) => isEdit ? "Edição de Usuário Admin" : "Cadastro de Usuário Admin",
+				titleRestaurantUser: (isEdit?: boolean) => isEdit ? "Edição de Usuário Restaurante" : "Cadastro de Usuário Restaurante",
+				success: (isEdit?: boolean) => isEdit ? "Usuário editado com sucesso" : "Usuário criado com sucesso",
+			},
+		},
 	},
-
 });
 
 export default strings;
