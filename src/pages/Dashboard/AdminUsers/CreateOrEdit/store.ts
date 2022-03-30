@@ -21,11 +21,13 @@ export default class Store {
 
 	public id = new AttributeShelf("");
 
-	constructor(id: string) {
+	constructor(id?: string) {
 		makeAutoObservable(this);
 
-		this.id.setValue(id);
-		this.getAdminUser(id);
+		if (id){
+			this.id.setValue(id);
+			this.getAdminUser(id);
+		}
 	}
 
 	public getAdminUser = async (id: string) => {
