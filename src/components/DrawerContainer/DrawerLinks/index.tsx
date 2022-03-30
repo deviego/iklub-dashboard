@@ -31,7 +31,11 @@ export const DrawerLinks: React.FC<IProps> = (props) => {
 				display="flex"
 				flexDirection="column"
 			>
-				<Image mb="6" src="/logo_m.svg" />
+				<Image mb="6"
+					src="/logo_m.svg"
+					w='90%'
+					p={5}
+				/>
 				{routes.map((mainLink) => (
 					mainLink &&
 						<Link
