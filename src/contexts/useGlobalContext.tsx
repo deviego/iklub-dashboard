@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocalObservable, observer } from "mobx-react-lite";
 import AuthStore from "../stores/AuthStore";
-import { useDialog, IDialog } from "../hooks/useDialog";
+import { IDialog, useDialog } from "~/hooks/useDialog";
 import { Dialog } from "~/components";
 
 interface IGlobalStore {

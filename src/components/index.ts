@@ -14,6 +14,7 @@ export { CentralizedCard } from "./CentralizedCard";
 export { DetailsRow } from "./DetailsRow";
 export { ImagePicker } from "./ImagePicker";
 export { TableCellWithActionButtons } from "./TableCellWithActionButtons";
+export { RestaurantForm } from "./RestaurantForm";
 export { Fetchable } from "./Fetchable";
 export { IProps as IPaginationProps } from "./Pagination";
 export { AutoCompleteModal } from "./AutoCompleteModal";
