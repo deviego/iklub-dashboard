@@ -3,6 +3,7 @@ import {
 } from "react-icons/ai";
 
 import {
+	RiRestaurant2Line,
 	RiUserLine,
 } from "react-icons/ri";
 import strings from "../resources/strings";
@@ -21,6 +22,7 @@ const useMainRoutes = () => {
 			path: "/dashboard/users",
 		},
 		{
+			Icon: RiRestaurant2Line,
 			text: strings.nav.restaurants,
 			path: "/dashboard/restaurants",
 		},
