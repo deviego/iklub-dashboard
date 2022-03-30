@@ -73,6 +73,9 @@ export default class Store {
 			countryCode: restaurant.address.countryCode,
 			state: restaurant.address.state,
 		});
+		if (restaurant.image) {
+			this.imageShelf.getPickerFields().setUploadedImage(restaurant.image);
+		}
 	};
 
 	public createOrEditRestaurant = async (onSuccess: () => void) => {
