@@ -27,7 +27,7 @@ export const CentralizedCard: React.FC<IProps> = (props) => {
 			w="100%"
 			flexDirection="column"
 			alignItems="center"
-			p={16}
+			p={{base: 3, sm: 16}}
 		>
 			{title && (
 				<Flex
@@ -40,6 +40,7 @@ export const CentralizedCard: React.FC<IProps> = (props) => {
 						display="inline-block"
 						size="lg"
 						color="primary.500"
+						mt={25}
 					>
 						{title.text}
 					</Heading>

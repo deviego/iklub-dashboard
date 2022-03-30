@@ -27,6 +27,10 @@ const useMainRoutes = () => {
 			text: strings.nav.users,
 			path: "/dashboard/users",
 		},
+		{
+			text: strings.nav.restaurants,
+			path: "/dashboard/restaurants",
+		},
 	];
 
 	return commonRoutes;
