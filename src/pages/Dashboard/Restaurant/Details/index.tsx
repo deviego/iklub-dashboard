@@ -40,8 +40,10 @@ const Details: React.FC = () => {
 							aria-label="Edit"
 							size="lg"
 							icon={
-								<EditIcon w="24px"
+								<EditIcon
+									w="24px"
 									h="24px"
+									mt={23}
 									onClick={() => onGoToEditUser(id || "")}
 								/>
 							}
@@ -89,10 +91,11 @@ const Details: React.FC = () => {
 							label={commonStrings.fields.complementary}
 							value={store.fetchModelShelf.fetchedModel.address.complementary}
 						/>}
-					<DetailsRow
-						label={commonStrings.fields.neighborhood}
-						value={store.fetchModelShelf.fetchedModel.address.neighborhood}
-					/>
+					{store.fetchModelShelf.fetchedModel.address.neighborhood &&
+						<DetailsRow
+							label={commonStrings.fields.neighborhood}
+							value={store.fetchModelShelf.fetchedModel.address.neighborhood}
+						/>}
 					<DetailsRow
 						label={commonStrings.fields.city}
 						value={store.fetchModelShelf.fetchedModel.address.city}

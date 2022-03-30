@@ -99,7 +99,7 @@ export const RestaurantForm: React.FC<IProps> = observer((props) => {
 				isDisabled={isLoading}
 				errorText={formValues?.field("documentNumber").error}
 				{...formValues?.field("documentNumber")}
-				mask="99999999/9999-99	"
+				mask="99999999/9999-99"
 			/>
 			<TextInput
 				labelText={commonStrings.fields.zipcode}

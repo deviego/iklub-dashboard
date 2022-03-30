@@ -150,7 +150,7 @@ const strings = new LocalizedStrings({
 			},
 			createOrEdit: {
 				title: (isEdit?: boolean) => isEdit ? "Edição de Restaurante" : "Cadastro de Restaurante",
-				success: (isEdit?: boolean) => isEdit ? "Restaurante editada com sucesso" : "Restaurante criada com sucesso",
+				success: (isEdit?: boolean) => isEdit ? "Restaurante editado com sucesso" : "Restaurante criado com sucesso",
 				address: "Endereço",
 				helperServiceDays: "(dias da semana e horário):",
 				errorAddress: "Erro no preenchimento do endereço.",
@@ -171,7 +171,7 @@ const strings = new LocalizedStrings({
 				successBankAccount: (isEdit?: boolean) => isEdit ? "Conta editada com sucesso" : "Conta Bancária criada com sucesso",
 			},
 			modal: {
-				title: "Desabilitar Restaurante",
+				title: ( isRestaurantBlocked: boolean) => ` ${isRestaurantBlocked ? "Habilitar" : "Desabilitar"} Restaurante`,
 				description: (itemName: string, isRestaurantBlocked: boolean) => `Tem certeza que deseja ${isRestaurantBlocked ? "habilitar" : "desabilitar"} ${itemName}?`,
 				button: {
 					disable: "Desabilitar",

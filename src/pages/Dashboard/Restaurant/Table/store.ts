@@ -15,6 +15,10 @@ export default class Store {
 		api.getAllRestaurants,
 		{
 			fetchOnConstructor: true,
+			onFetchError: (e) => {
+				const error = Errors.treatError(e);
+				showErrorToast(error.message);
+			},
 		},
 	);
 
