@@ -1,4 +1,3 @@
-// import { makeAutoObservable } from "mobx";
 import { AbstractPaginatedListStore, LoaderShelf } from "@startapp/mobx-utils";
 
 import api from "~/resources/api";

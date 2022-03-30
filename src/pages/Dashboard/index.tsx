@@ -3,9 +3,9 @@ import { observer } from "mobx-react-lite";
 import { Route, Switch } from "react-router-dom";
 import Home from "./Home";
 import { MainLayout } from "~/layout";
+import AdminUsers from "./AdminUsers";
 import Users from "./Users";
 import Restaurant from "./Restaurant";
-
 
 const Dashboard: React.FC = () => (
 	<MainLayout>
@@ -15,6 +15,7 @@ const Dashboard: React.FC = () => (
 				path="/"
 				component={Home}
 			/>
+			<Route path="/dashboard/adminUsers" component={AdminUsers} />
 			<Route path="/dashboard/users" component={Users} />
 			<Route path="/dashboard/restaurants" component={Restaurant} />
 		</Switch>
