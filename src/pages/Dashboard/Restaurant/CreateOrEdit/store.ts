@@ -21,9 +21,11 @@ export default class Store {
 		complementary: "",
 		neighborhood: "",
 		city: "",
+		countryCode: "",
+		state: api.StateUF.BA,
 	});
 
-	public stateUF = new AttributeShelf(api.StateUF.AC);
+	public stateUF = new AttributeShelf(api.StateUF.BA);
 	public loader = new LoaderShelf();
 	public imageShelf = new ImagePickerShelf(api.uploadImage);
 
@@ -41,7 +43,7 @@ export default class Store {
 	public setStateEnum = async (stateGooglePlace: string) => {
 		const allStateEnum = api.allValuesStateUF();
 		const stateFiltered = allStateEnum.find((state: api.StateUF) => state === stateGooglePlace);
-		this.stateUF.setValue(stateFiltered || api.StateUF.AC);
+		this.stateUF.setValue(stateFiltered || api.StateUF.BA);
 	};
 
 	public getRestaurant = async (id: string) => {
@@ -68,8 +70,9 @@ export default class Store {
 			street: restaurant.address.street,
 			streetNumber: restaurant.address.streetNumber,
 			zipcode: restaurant.address.zipcode,
+			countryCode: restaurant.address.countryCode,
+			state: restaurant.address.state,
 		});
-		this.stateUF.value = restaurant.address.state;
 	};
 
 	public createOrEditRestaurant = async (onSuccess: () => void) => {

@@ -54,7 +54,7 @@ const TableView: React.FC = () => {
 	const openDialogBlockedRestaurant = (restaurant: API.Restaurant) => {
 		const modalBlockedRestaurant = strings.restaurants.modal;
 		dialog.showDialog({
-			title: modalBlockedRestaurant.title,
+			title: modalBlockedRestaurant.title(!!restaurant.blockedAt),
 			closeOnOverlayClick: true,
 			description: modalBlockedRestaurant.description(restaurant.name, !!restaurant.blockedAt),
 			buttons: [
