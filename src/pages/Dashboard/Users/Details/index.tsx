@@ -68,10 +68,10 @@ const Details: React.FC = () => {
 						label={commonStrings.fields.name}
 						value={store.fetchModelShelf.fetchedModel.name}
 					/>
-					{/* <DetailsRow
-						label={commonStrings.fields.}
+					<DetailsRow
+						label={commonStrings.fields.email}
 						value={store.fetchModelShelf.fetchedModel.email}
-					/> */}
+					/>
 				</>}
 		</CentralizedCard>
 	);
