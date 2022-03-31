@@ -46,6 +46,7 @@ const Details: React.FC = () => {
 							icon={
 								<EditIcon w="24px"
 									h="24px"
+									mt={23}
 									onClick={() => onGoToEditUser(id || "")}
 								/>
 							}
@@ -75,6 +76,7 @@ const Details: React.FC = () => {
 						<Image
 							width={120}
 							height={120}
+							backgroundColor="white"
 							p={0}
 							m={0}
 							src={store.fetchModelShelf.fetchedModel.image ? store.fetchModelShelf.fetchedModel.image.url : imagePlaceholder}
