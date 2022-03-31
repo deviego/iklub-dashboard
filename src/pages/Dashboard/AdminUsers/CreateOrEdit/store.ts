@@ -24,7 +24,7 @@ export default class Store {
 	constructor(id?: string) {
 		makeAutoObservable(this);
 
-		if (id) {
+		if (id){
 			this.id.setValue(id);
 			this.getAdminUser(id);
 		}
