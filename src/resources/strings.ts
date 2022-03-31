@@ -135,6 +135,9 @@ const strings = new LocalizedStrings({
 				title: "Edição de Usuário",
 				success: "Usuário editado com sucesso",
 			},
+			details: {
+				title: "Detalhes",
+			},
 		},
 		restaurants: {
 			autocompleteLabel: "Restaurante:",
