@@ -1,6 +1,5 @@
 import {
 	LoaderShelf,
-	AttributeShelf,
 	PaginatedListShelf,
 } from "@startapp/mobx-utils";
 import { showErrorToast, showSuccessToast } from "~/resources/toast";
@@ -23,7 +22,6 @@ export default class Store {
 	);
 
 	public loader = new LoaderShelf();
-	public totalRestaurants = new AttributeShelf(0);
 
 	constructor() {
 		makeAutoObservable(this);

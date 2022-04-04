@@ -2812,9 +2812,9 @@
     "@sinonjs/commons" "^1.7.0"
 
 "@startapp/cbwhiski-admin-api@^1.1.498122392":
-  version "1.1.505232359"
-  resolved "https://npm.startapp.one/@startapp%2fcbwhiski-admin-api/-/cbwhiski-admin-api-1.1.505232359.tgz#ac918b27b6b20c4bded864cbdf4b7dc229cc186e"
-  integrity sha512-Nd2nNqlypK2FY/w/gfu9t5+bf5lsoOud73h6L4OZX3Js8krvbPgCIvkI+a8EwIB8/iSKEpNIr+tWfVDEXI2TTQ==
+  version "1.1.508704189"
+  resolved "https://npm.startapp.one/@startapp%2fcbwhiski-admin-api/-/cbwhiski-admin-api-1.1.508704189.tgz#3decf12278b2c1fb01f42a2d92f093ab92735018"
+  integrity sha512-P8MfhwZNjNp+QOi9Tm/HnLS/HaRlfMpi8gSKeUq/J1HGGi+0czLVbjO6d1iHiT7rKT4ww795d9JmU2tSG41BmQ==
   dependencies:
     "@types/node" "^8.0.29"
     "@types/ua-parser-js" "^0.7.32"
@@ -9601,7 +9601,12 @@ module-alias@^2.2.2:
   resolved "https://npm.startapp.one/module-alias/-/module-alias-2.2.2.tgz#151cdcecc24e25739ff0aa6e51e1c5716974c0e0"
   integrity sha512-A/78XjoX2EmNvppVWEhM2oGk3x4lLxnkEA4jTbaK97QKSDjkIoOsKQlfylt/d3kKKi596Qy3NP5XrXJ6fZIC9Q==
 
-moment@^2.17.1, moment@^2.29.1:
+moment@^2.17.1:
+  version "2.29.2"
+  resolved "https://npm.startapp.one/moment/-/moment-2.29.2.tgz#00910c60b20843bcba52d37d58c628b47b1f20e4"
+  integrity sha512-UgzG4rvxYpN15jgCmVJwac49h9ly9NurikMWGPdVxm8GZD6XjkKPxDTjQQ43gtGgnV3X0cAyWDdP2Wexoquifg==
+
+moment@^2.29.1:
   version "2.29.1"
   resolved "https://npm.startapp.one/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
   integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
