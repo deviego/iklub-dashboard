@@ -90,7 +90,7 @@ const Edit: React.FC = () => {
 			/>
 			<AddressForm
 				formValues={{
-					field: store.formShelf.field,
+					field: store.formAddressShelf.field,
 				}}
 				isLoading={store.loader.isLoading}
 				disableForm={store.disableForm.value}

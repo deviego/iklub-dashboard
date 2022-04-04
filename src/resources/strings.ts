@@ -34,7 +34,8 @@ const strings = new LocalizedStrings({
 			home: "Home",
 			restaurants: "Restaurantes",
 			adminUsers: "Usuários Adminstrativos",
-			users: "Users",
+			users: "Usuários",
+			adminRestaurantUsers: "Usuários Restaurantes",
 			logout: "Sair",
 		},
 		actions: {
@@ -201,6 +202,22 @@ const strings = new LocalizedStrings({
 				header: ["", "Usuários Admin", "Email"],
 				delete: (userName: string) => `Usuário ${userName} foi deletado!`,
 				addButtonText: "Adicionar novo usuário admin",
+			},
+			createOrEdit: {
+				title: (isEdit?: boolean) => isEdit ? "Edição de Usuário Admin" : "Cadastro de Usuário Admin",
+				titleRestaurantUser: (isEdit?: boolean) => isEdit ? "Edição de Usuário Restaurante" : "Cadastro de Usuário Restaurante",
+				success: (isEdit?: boolean) => isEdit ? "Usuário editado com sucesso" : "Usuário criado com sucesso",
+			},
+		},
+		adminRestaurantUsers: {
+			autocompleteLabel: "Restaurante:",
+			autocompletePlaceholder: "Pesquisar Restaurantes",
+			table: {
+				title: "Lista Usuários Admins do Restaurante",
+				header: (isAdminRestaurantUser: boolean) => isAdminRestaurantUser ? ["", "Usuários Admins do Restaurante", "Data de Cadastro"] : ["", "Usuários Admins do Restaurante", "Restaurante", "Data de Cadastro"],
+				tableHeaders: ["", "Usuários admins do Restaurante"],
+				tableTitle: "Usuários Restaurante",
+				tableAddButton: "Adicionar novo usuário",
 			},
 			createOrEdit: {
 				title: (isEdit?: boolean) => isEdit ? "Edição de Usuário Admin" : "Cadastro de Usuário Admin",

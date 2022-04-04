@@ -10,10 +10,8 @@ import { makeAutoObservable } from "mobx";
 
 export default class Store {
 
-	// FIX-ME: Agora metodo pede data como parametro;
-
 	public paginetedListShelf: PaginatedListShelf<api.AdminUser> = new PaginatedListShelf(
-		api.getAllAdminUsers,
+		api.getAllAdminRestaurantUsers,
 		{
 			fetchOnConstructor: true,
 			onFetchError: (e) => {
@@ -29,32 +27,13 @@ export default class Store {
 		makeAutoObservable(this);
 	}
 
-	public deleteRestaurant = async (id: string) => {
+	public deleteAdminRestaurantUser = async (id: string) => {
 		this.loader.tryStart();
 		try {
 
-			const deletedRestaurant = await api.deleteRestaurant(id);
+			const deletedAdminUser = await api.deleteAdminUser(id);
 
-			showSuccessToast(strings.users.table.delete(deletedRestaurant.name));
-			this.paginetedListShelf.refresh();
-		} catch (e) {
-			const errorMessage = Errors.handleError(e);
-			showErrorToast(errorMessage);
-		} finally {
-			this.loader.end();
-		}
-	};
-
-	public changeRestaurantBlockStatus = async (id: string, blockedAt: Date | null) => {
-		this.loader.tryStart();
-		try {
-			if (blockedAt) {
-				await api.changeRestaurantBlockStatus(id, false);
-				showSuccessToast(strings.restaurants.table.statusRestaurant(false));
-			} else {
-				await api.changeRestaurantBlockStatus(id, true);
-				showSuccessToast(strings.restaurants.table.statusRestaurant(true));
-			}
+			showSuccessToast(strings.users.table.delete(deletedAdminUser.name));
 			this.paginetedListShelf.refresh();
 		} catch (e) {
 			const errorMessage = Errors.handleError(e);

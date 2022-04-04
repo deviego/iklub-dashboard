@@ -11,7 +11,7 @@ import { TextInput } from "..";
 
 import strings from "~/resources/strings";
 
-export type AddressField = "name" | "email" | "phone" | "zipcode" | "street" | "streetNumber" | "complementary" | "neighborhood" | "city" | "countryCode" | "state";
+export type AddressField =  "zipcode" | "street" | "streetNumber" | "complementary" | "neighborhood" | "city" | "countryCode" | "state";
 
 
 interface FormValues {

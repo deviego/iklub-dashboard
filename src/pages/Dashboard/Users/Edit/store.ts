@@ -14,6 +14,9 @@ export default class Store {
 		email: "",
 		name: "",
 		phone: "",
+	});
+
+	public formAddressShelf = new FormShelf({
 		zipcode: "",
 		street: "",
 		streetNumber: "",
@@ -21,7 +24,7 @@ export default class Store {
 		neighborhood: "",
 		city: "",
 		countryCode: "",
-		state: api.StateUF.BA,
+		state:"",
 	});
 
 	public loader = new LoaderShelf();
@@ -59,20 +62,23 @@ export default class Store {
 			email: user.email,
 			name: user.name,
 			phone: user.phone,
-			complementary: user.address.complementary || "",
-			neighborhood: user.address.neighborhood,
-			city: user.address.city,
-			street: user.address.street,
-			streetNumber: user.address.streetNumber,
-			zipcode: user.address.zipcode,
-			countryCode: user.address.countryCode,
-			state: user.address.state,
 		});
+
 		if (user.image) {
 			this.imageShelf.getPickerFields().setUploadedImage(user.image);
 		}
 		if (user.address){
 			this.disableForm.setValue(false);
+			this.formAddressShelf = new FormShelf({
+				complementary: user.address.complementary || "",
+				neighborhood: user.address.neighborhood,
+				city: user.address.city,
+				street: user.address.street,
+				streetNumber: user.address.streetNumber,
+				zipcode: user.address.zipcode,
+				countryCode: user.address.countryCode,
+				state: "",
+			});
 		}
 	};
 
@@ -80,11 +86,21 @@ export default class Store {
 		this.loader.tryStart();
 		try {
 			const data = this.formShelf.getValues();
+			const dataAddress = this.formAddressShelf.getValues();
 			const {
 				email,
 				name,
 				phone,
 			} = data;
+
+			const {
+				neighborhood,
+				city,
+				street,
+				streetNumber,
+				complementary,
+				zipcode,
+			} = dataAddress;
 
 			if (this.id.value) {
 				await api.editUser(this.id.value, {
@@ -94,13 +110,13 @@ export default class Store {
 					phone,
 					birthdate: null,
 					address: {
-						neighborhood: data.neighborhood,
-						city: data.city,
+						neighborhood,
+						city,
 						state: this.stateUF.value,
-						street: data.street,
-						streetNumber: data.streetNumber,
-						complementary: data.complementary,
-						zipcode: data.zipcode,
+						street,
+						streetNumber,
+						complementary,
+						zipcode,
 						countryCode: "BR",
 					},
 				});
