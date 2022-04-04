@@ -70,8 +70,8 @@ export default class Store {
 					email,
 					name,
 					phone,
+					address: null,
 					birthdate: null,
-					address: this.user.address,
 				});
 			}
 			showSuccessToast(pageStrings.success);
