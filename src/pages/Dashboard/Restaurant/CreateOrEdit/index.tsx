@@ -2,7 +2,9 @@ import React from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { observer, useLocalObservable } from "mobx-react-lite";
 
-import { RestaurantForm } from "~/components";
+import { RestaurantForm, EnumSelect } from "~/components";
+
+import api from "~/resources/api";
 
 import strings from "~/resources/strings";
 
@@ -40,12 +42,22 @@ const CreateOrEdit: React.FC = () => {
 						pick: store.imageShelf.getPickerFields().pick,
 						src: store.imageShelf.src,
 					},
+					state: {
+						value: store.stateUF.value,
+						setValue: store.stateUF.setValue,
+					},
 				}}
 				submit={{
 					onClick: onSubmit,
 					text: commonStrings.buttons.confirmButton(!!id),
 					isLoading: store.loader.isLoading,
 				}}
+			/>
+			<EnumSelect
+				items={api.allValuesStateUF()}
+				currentValue={store.stateUF.value}
+				onChangeEnum={store.stateUF.setValue}
+				tranlateEnum={api.translateStateUF}
 			/>
 		</>
 	);
