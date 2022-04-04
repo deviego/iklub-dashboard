@@ -10,8 +10,10 @@ import { makeAutoObservable } from "mobx";
 
 export default class Store {
 
-	public paginetedListShelf: PaginatedListShelf<api.Restaurant> = new PaginatedListShelf(
-		api.getAllRestaurants,
+	// FIX-ME: Agora metodo pede data como parametro;
+
+	public paginetedListShelf: PaginatedListShelf<api.AdminUser> = new PaginatedListShelf(
+		api.getAllAdminUsers,
 		{
 			fetchOnConstructor: true,
 			onFetchError: (e) => {
