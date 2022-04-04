@@ -13,6 +13,7 @@ import {
 } from "~/components";
 import strings from "~/resources/strings";
 import Store from "./store";
+import AdminUsersTable from "./AdminUsersTable/index";
 
 interface IParams {
 	id?: string;
@@ -108,6 +109,9 @@ const Details: React.FC = () => {
 						label={commonStrings.fields.state}
 						value={store.fetchModelShelf.fetchedModel.address.state}
 					/>
+					{id && (
+						<AdminUsersTable restaurantId={id} />
+					)}
 				</>}
 		</CentralizedCard>
 	);

@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import Table from "./Table";
 import CreateOrEdit from "./CreateOrEdit";
 import Details from "./Details";
+import CreateOrEditAdminUser from "../AdminUsers/CreateOrEdit";
 
 const Restaurant: React.FC = () => (
 	<Switch>
@@ -19,6 +20,14 @@ const Restaurant: React.FC = () => (
 		<Route
 			path="/dashboard/restaurants/details/:id"
 			component={Details}
+		/>
+		<Route
+			path="/dashboard/adminUsers/create/"
+			component={CreateOrEditAdminUser}
+		/>
+		<Route
+			path="/dashboard/adminUsers/edit/:id"
+			component={CreateOrEditAdminUser}
 		/>
 	</Switch>
 );
