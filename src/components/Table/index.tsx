@@ -62,7 +62,7 @@ export const Table = <DataType,>(props: IProps<DataType>) => {
 			{tableTitle && (
 				<Heading
 					w="100%"
-					maxW={{ base: "100%", md: isCard ? "100%" : "75%" }}
+					maxW={{ base:"100%", md: isCard ? "100%" : "75%" }}
 					variant="secondary"
 					size="md"
 					color="primary.500"
@@ -77,7 +77,7 @@ export const Table = <DataType,>(props: IProps<DataType>) => {
 			<Card
 				d="initial"
 				w="100%"
-				maxW={{ base: "100%", md: isCard ? "100%" : "75%" }}
+				maxW={{ base:"100%", md: isCard ? "100%" : "75%" }}
 				px={0}
 				borderRadius={12}
 				boxShadow="lg"
