@@ -14,10 +14,21 @@ export default class Store {
 		email: "",
 		name: "",
 		phone: "",
+		zipcode: "",
+		street: "",
+		streetNumber: "",
+		complementary: "",
+		neighborhood: "",
+		city: "",
+		countryCode: "",
+		state: api.StateUF.BA,
 	});
 
 	public loader = new LoaderShelf();
 	public imageShelf = new ImagePickerShelf(api.uploadImage);
+
+	public disableForm = new AttributeShelf(true);
+	public stateUF = new AttributeShelf(api.StateUF.BA);
 
 	public id = new AttributeShelf("");
 	public user: api.User;
@@ -48,9 +59,20 @@ export default class Store {
 			email: user.email,
 			name: user.name,
 			phone: user.phone,
+			complementary: user.address.complementary || "",
+			neighborhood: user.address.neighborhood,
+			city: user.address.city,
+			street: user.address.street,
+			streetNumber: user.address.streetNumber,
+			zipcode: user.address.zipcode,
+			countryCode: user.address.countryCode,
+			state: user.address.state,
 		});
 		if (user.image) {
 			this.imageShelf.getPickerFields().setUploadedImage(user.image);
+		}
+		if (user.address){
+			this.disableForm.setValue(false);
 		}
 	};
 
@@ -71,6 +93,16 @@ export default class Store {
 					name,
 					phone,
 					birthdate: null,
+					address: {
+						neighborhood: data.neighborhood,
+						city: data.city,
+						state: this.stateUF.value,
+						street: data.street,
+						streetNumber: data.streetNumber,
+						complementary: data.complementary,
+						zipcode: data.zipcode,
+						countryCode: "BR",
+					},
 				});
 			}
 			showSuccessToast(pageStrings.success);

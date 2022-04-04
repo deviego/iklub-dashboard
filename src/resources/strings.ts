@@ -17,6 +17,18 @@ const strings = new LocalizedStrings({
 			imagePicker: {
 				selectAnImage: "Selecione uma imagem",
 			},
+			addressForm: {
+				title: "Endereço:",
+				zipcode: "CEP:",
+				street: "Rua:",
+				neighborhood: "Bairro:",
+				number: "Número:",
+				complement: "Complemento:",
+				addressPlaceholder: "Digite um endereço...",
+				city: "Cidade:",
+				countryCode: "Código do País:",
+				state: "Estado:",
+			},
 		},
 		nav: {
 			home: "Home",

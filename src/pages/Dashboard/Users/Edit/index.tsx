@@ -6,6 +6,7 @@ import {
 	Box,
 } from "@chakra-ui/react";
 import {
+	AddressForm,
 	CentralizedCard,
 	ImagePicker,
 	Label,
@@ -86,6 +87,13 @@ const Edit: React.FC = () => {
 				mask="99 999999999"
 				errorText={store.formShelf.fieldError.getFieldError("phone")}
 				{...store.formShelf.field("phone")}
+			/>
+			<AddressForm
+				formValues={{
+					field: store.formShelf.field,
+				}}
+				isLoading={store.loader.isLoading}
+				disableForm={store.disableForm.value}
 			/>
 		</CentralizedCard>
 	);
