@@ -123,10 +123,10 @@ const strings = new LocalizedStrings({
 			confirmNewPassword: "Confirme sua nova senha",
 			samePasswordError: "As senhas não correspondem",
 		},
-		users: {
+		users :{
 			table: {
 				title: "Lista de Usuários",
-				header: ["", "Usuários", "Email", "Data de Cadastro"],
+				header: ["", "Usuários", "Email", "Data de Cadastro" ],
 				delete: (userName: string) => `Usuário ${userName} foi deletado!`,
 				statusUser: (isUserBlocked: boolean) => `O Usuário ${isUserBlocked ? "foi bloqueado" : "foi desbloaqueado"}`,
 				totalText: "Usuários cadastrados",
@@ -145,7 +145,7 @@ const strings = new LocalizedStrings({
 			totalText: "Restaurantes cadastrados",
 			table: {
 				title: "Lista Usuários do Restaurante",
-				header: ["", "Nome do Restaurante", "Documento do Restaurante", "Data de Cadastro"],
+				header:  ["", "Nome do Restaurante", "Documento do Restaurante", "Data de Cadastro"],
 				delete: (userName: string) => `Restaurante ${userName} foi deletado!`,
 				statusRestaurant: (isUserBlocked: boolean) => `O Restaurante ${isUserBlocked ? "foi bloqueado" : "foi desbloqueado"}`,
 				addButtonText: "Adicionar novo Restaurante",
@@ -174,7 +174,7 @@ const strings = new LocalizedStrings({
 				successBankAccount: (isEdit?: boolean) => isEdit ? "Conta editada com sucesso" : "Conta Bancária criada com sucesso",
 			},
 			modal: {
-				title: (isRestaurantBlocked: boolean) => ` ${isRestaurantBlocked ? "Habilitar" : "Desabilitar"} Restaurante`,
+				title: ( isRestaurantBlocked: boolean) => ` ${isRestaurantBlocked ? "Habilitar" : "Desabilitar"} Restaurante`,
 				description: (itemName: string, isRestaurantBlocked: boolean) => `Tem certeza que deseja ${isRestaurantBlocked ? "habilitar" : "desabilitar"} ${itemName}?`,
 				button: {
 					disable: "Desabilitar",
