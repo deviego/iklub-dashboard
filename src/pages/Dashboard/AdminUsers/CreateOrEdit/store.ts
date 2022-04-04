@@ -70,6 +70,7 @@ export default class Store {
 					email,
 					name,
 					password,
+					restauranId: null,
 				});
 			}
 

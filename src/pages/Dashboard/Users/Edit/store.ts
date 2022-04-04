@@ -71,6 +71,7 @@ export default class Store {
 					name,
 					phone,
 					birthdate: null,
+					address: this.user.address,
 				});
 			}
 			showSuccessToast(pageStrings.success);

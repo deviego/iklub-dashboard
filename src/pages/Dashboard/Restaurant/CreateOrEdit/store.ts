@@ -22,7 +22,7 @@ export default class Store {
 		neighborhood: "",
 		city: "",
 		countryCode: "",
-		state: api.StateUF.BA,
+		state: "",
 	});
 
 	public stateUF = new AttributeShelf(api.StateUF.BA);
@@ -71,11 +71,12 @@ export default class Store {
 			streetNumber: restaurant.address.streetNumber,
 			zipcode: restaurant.address.zipcode,
 			countryCode: restaurant.address.countryCode,
-			state: restaurant.address.state,
+			state: "",
 		});
 		if (restaurant.image) {
 			this.imageShelf.getPickerFields().setUploadedImage(restaurant.image);
 		}
+		this.stateUF.setValue(restaurant.address.state);
 	};
 
 	public createOrEditRestaurant = async (onSuccess: () => void) => {
