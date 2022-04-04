@@ -5,14 +5,18 @@ import {
 	IconButton,
 	Tooltip,
 	Button,
+	Image,
+	Box,
 } from "@chakra-ui/react";
 import { EditIcon } from "@chakra-ui/icons";
 import {
 	CentralizedCard,
 	DetailsRow,
+	Label,
 } from "~/components";
 import strings from "~/resources/strings";
 import Store from "./store";
+import imagePlaceholder from "../../../../../static/pick_image.svg";
 
 interface IParams {
 	id?: string;
@@ -42,6 +46,7 @@ const Details: React.FC = () => {
 							icon={
 								<EditIcon w="24px"
 									h="24px"
+									mt={23}
 									onClick={() => onGoToEditUser(id || "")}
 								/>
 							}
@@ -64,6 +69,20 @@ const Details: React.FC = () => {
 		>
 			{store.fetchModelShelf.model.value &&
 				<>
+					<Box>
+						<Label fontWeight="bold" marginBottom={1}>
+							{commonStrings.fields.photo}
+						</Label>
+						<Image
+							width={120}
+							height={120}
+							backgroundColor="white"
+							p={0}
+							m={0}
+							src={store.fetchModelShelf.fetchedModel.image ? store.fetchModelShelf.fetchedModel.image.url : imagePlaceholder}
+							rounded="lg"
+						/>
+					</Box>
 					<DetailsRow
 						label={commonStrings.fields.name}
 						value={store.fetchModelShelf.fetchedModel.name}
@@ -71,6 +90,10 @@ const Details: React.FC = () => {
 					<DetailsRow
 						label={commonStrings.fields.email}
 						value={store.fetchModelShelf.fetchedModel.email}
+					/>
+					<DetailsRow
+						label={commonStrings.fields.phone}
+						value={store.fetchModelShelf.fetchedModel.phone}
 					/>
 				</>}
 		</CentralizedCard>
