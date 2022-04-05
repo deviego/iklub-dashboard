@@ -31,7 +31,6 @@ export default class Store {
 	public loader = new LoaderShelf();
 	public imageShelf = new ImagePickerShelf(api.uploadImage);
 
-	public disableForm = new AttributeShelf(true);
 	public stateUF = new AttributeShelf(api.StateUF.BA);
 
 	public id = new AttributeShelf("");
@@ -69,7 +68,6 @@ export default class Store {
 			this.imageShelf.getPickerFields().setUploadedImage(user.image);
 		}
 		if (user.address){
-			this.disableForm.setValue(false);
 			this.formAddressShelf = new FormShelf({
 				complementary: user.address.complementary || "",
 				neighborhood: user.address.neighborhood,
@@ -87,7 +85,7 @@ export default class Store {
 		}
 	};
 
-	public EditUser = async (onSuccess: () => void) => {
+	public editUser = async (onSuccess: () => void) => {
 		this.loader.tryStart();
 		try {
 			const data = this.formShelf.getValues();

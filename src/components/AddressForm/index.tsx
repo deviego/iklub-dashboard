@@ -102,14 +102,6 @@ export const AddressForm: React.FC<IProps> = observer((props) => {
 					errorText={formValues?.field("city").error}
 					{...formValues?.field("city")}
 				/>
-				<TextInput
-					labelText={commonStrings.fields.countryCode}
-					labelProps={{ fontWeight: "bold" }}
-					type="text"
-					isDisabled={isLoading}
-					errorText={formValues?.field("countryCode").error}
-					{...formValues?.field("countryCode")}
-				/>
 				<EnumSelect
 					items={api.allValuesStateUF()}
 					currentValue={formValues.state.value}
