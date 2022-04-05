@@ -10,9 +10,11 @@ import {
 } from "react-icons/ri";
 import { BiCoffee } from "react-icons/bi";
 import strings from "../resources/strings";
+import API from "~/resources/api";
 
+const useMainRoutes = (currentUser: API.AdminUser | null) => {
+	const isRestaurantAdminUser = !!currentUser?.restaurant;
 
-const useMainRoutes = () => {
 	const commonRoutes = [
 		{
 			Icon: AiOutlineHome,
@@ -34,11 +36,13 @@ const useMainRoutes = () => {
 			text: strings.nav.restaurants,
 			path: "/dashboard/restaurants",
 		},
-		{
-			Icon: BiCoffee,
-			text: strings.nav.products,
-			path: "/dashboard/products",
-		},
+		isRestaurantAdminUser && (
+			{
+				Icon: BiCoffee,
+				text: strings.nav.products,
+				path: "/dashboard/products",
+			}
+		),
 	];
 
 	return commonRoutes;

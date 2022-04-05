@@ -10,6 +10,7 @@ import {
 	Label,
 	MoneyInput,
 } from "~/components";
+import { useGlobalStore } from "~/contexts/useGlobalContext";
 
 import strings from "~/resources/strings";
 
@@ -22,6 +23,7 @@ interface IParams {
 const CreateOrEdit: React.FC = () => {
 	const pageStrings = strings.products;
 	const commonStrings = strings.common;
+	const { authStore } = useGlobalStore();
 
 	const { id } = useParams<IParams>();
 	const history = useHistory();
@@ -33,8 +35,17 @@ const CreateOrEdit: React.FC = () => {
 	const store = useLocalObservable(() => new Store(id));
 
 	const onSubmit = () => {
-		store.createOrEditRestaurant(onSuccess);
+		if (authStore.currentAdminUser) {
+			store.createOrEditRestaurant(authStore.currentAdminUser, onSuccess);
+		}
 	};
+
+	React.useEffect(() => {
+		if (authStore.currentAdminUser && store.id.value) {
+			const isAdmin = !authStore.currentAdminUser.restaurant;
+			store.getProduct(store.id.value, isAdmin);
+		}
+	}, [authStore.currentAdminUser]);
 	return (
 		<CentralizedCard
 			title={{

@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import { PaginatedListShelf } from "@startapp/mobx-utils";
-import { Flex, Td, Text, Tr } from "@chakra-ui/react";
+import { Flex, Td, Text, Tr, FlexProps, BoxProps } from "@chakra-ui/react";
 
 import { Table, TableCellWithActionButtons } from "~/components";
 
@@ -12,12 +12,13 @@ import format from "~/resources/format";
 import strings from "~/resources/strings";
 import API from "~/resources/api";
 
-interface IProps {
+interface IProps extends FlexProps {
 	paginatedListShelf: PaginatedListShelf<API.Product>;
 	deleteProduct?: (id: string) => Promise<void>;
 	renderRow?: (item: API.Product, index: number) => React.ReactElement | null;
 	changeDisableStatus?: (id: string, disableAt: Date | null) => Promise<void>;
 	enableCreateButton?: boolean;
+	cardTableProps?: BoxProps;
 }
 
 export const ProductTable: React.FC<IProps> = observer((props) => {
@@ -26,7 +27,9 @@ export const ProductTable: React.FC<IProps> = observer((props) => {
 		deleteProduct,
 		enableCreateButton,
 		changeDisableStatus,
+		cardTableProps,
 		renderRow,
+		...rest
 	} = props;
 	const componentStrings = strings.products.table;
 	const modal = strings.common.modal;
@@ -41,9 +44,9 @@ export const ProductTable: React.FC<IProps> = observer((props) => {
 		dialog.closeDialog();
 	};
 
-	const onGoToEditProduct = (id: string) => history.push(`products/edit/${id}`);
-	const onGoToDetailsProduct = (id: string) => history.push(`products/details/${id}`);
-	const onGoToCreateProduct = () => history.push("products/create");
+	const onGoToEditProduct = (id: string) => history.push(`/dashboard/products/edit/${id}`);
+	const onGoToDetailsProduct = (id: string) => history.push(`/dashboard/products/details/${id}`);
+	const onGoToCreateProduct = () => history.push("/dashboard/products/create");
 
 	const openDialog = (user: API.Product) => {
 		dialog.showDialog({
@@ -92,7 +95,7 @@ export const ProductTable: React.FC<IProps> = observer((props) => {
 	};
 
 	return (
-		<Flex flexDir="column" p={{ base: "2", lg: "16" }}>
+		<Flex flexDir="column" p={{ base: "2", lg: "16" }} {...rest}>
 			<Table
 				data={paginatedListShelf.items}
 				headers={componentStrings.header}
@@ -127,6 +130,7 @@ export const ProductTable: React.FC<IProps> = observer((props) => {
 				prevPage={paginatedListShelf.previousPage}
 				nextPage={paginatedListShelf.nextPage}
 				hasNextPage={paginatedListShelf.hasNextPage}
+				{...cardTableProps}
 			/>
 		</Flex>
 	);

@@ -1,9 +1,10 @@
 import React from "react";
+import { observer } from "mobx-react-lite";
 import { Icon, Flex, Image } from "@chakra-ui/react";
 import { DrawerContainer, DrawerProfile } from "../../../components";
 import { AiOutlineMenu } from "react-icons/ai";
 
-export const NavbarContent: React.FC = () => {
+export const NavbarContent: React.FC = observer(() => {
 	const [isOpen, setIsOpen] = React.useState<boolean>(false);
 	const [isOpenProfile, setIsOpenProfile] = React.useState<boolean>(false);
 
@@ -39,4 +40,4 @@ export const NavbarContent: React.FC = () => {
 			/>
 		</>
 	);
-};
+});

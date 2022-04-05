@@ -33,14 +33,14 @@ export default class Store {
 
 		if (id) {
 			this.id.setValue(id);
-			this.getProduct(id);
 		}
 	}
 
-	public getProduct = async (id: string) => {
+	public getProduct = async (id: string, isAdmin: boolean) => {
 		this.loader.tryStart();
 		try {
-			const products = await api.getProductForRestaurantAdminUser(id);
+			const method = isAdmin ? api.getProduct :api.getProductForRestaurantAdminUser;
+			const products = await method(id);
 			this.setInitValues(products);
 		} catch (e) {
 			const errorMessage = Errors.handleError(e);
@@ -63,29 +63,32 @@ export default class Store {
 		}
 	};
 
-	public createOrEditRestaurant = async (onSuccess: () => void) => {
+	public createNewProductObject = (): api.NewProduct => {
+
+		const data = this.formShelf.getValues();
+
+		return ({
+			image: this.imageShelf.uncertainfiedImage,
+			title: data.title,
+			description: data.description,
+			price: this.price.value,
+			totalNumberOfDoses: Number(data.totalNumberOfDoses),
+		});
+	};
+
+	public createOrEditRestaurant = async (currentAdminUser: api.AdminUser, onSuccess: () => void) => {
 		this.loader.tryStart();
 		try {
 
-			const data = this.formShelf.getValues();
 			if (this.id.value) {
-
-				await api.editProduct(this.id.value, {
-					image: this.imageShelf.uncertainfiedImage,
-					title: data.title,
-					description: data.description,
-					price: this.price.value,
-					totalNumberOfDoses: Number(data.totalNumberOfDoses),
-				});
+				await api.editProduct(this.id.value, this.createNewProductObject());
 
 			} else {
-				await api.createProduct({
-					image: this.imageShelf.uncertainfiedImage,
-					title: data.title,
-					description: data.description,
-					price: this.price.value,
-					totalNumberOfDoses: Number(data.totalNumberOfDoses),
-				});
+				if (!currentAdminUser.restaurant) {
+					await api.createProduct(this.createNewProductObject(), "9f1f52b7-7968-4a39-b4f0-a8aa387e0dec");
+				} else {
+					await api.createProductForRestaurantUser(this.createNewProductObject());
+				}
 			}
 
 			showSuccessToast(pageStrings.success(!!this.id.value));
