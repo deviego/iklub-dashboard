@@ -1,6 +1,6 @@
 import { FormShelf, ImagePickerShelf } from "@startapp/mobx-utils/src/web";
-import { makeAutoObservable } from "mobx";
-import { LoaderShelf, AttributeShelf } from "@startapp/mobx-utils";
+import { makeAutoObservable, reaction } from "mobx";
+import { LoaderShelf, AttributeShelf, PaginatedListShelf } from "@startapp/mobx-utils";
 import format from "../../../../resources/format";
 
 import { Errors } from "~/resources/errors";
@@ -27,6 +27,20 @@ export default class Store {
 	}
 
 	public id = new AttributeShelf("");
+
+	public searchRestaurant = new AttributeShelf("");
+
+	public autoCompleteRestaurant = new PaginatedListShelf(
+		async (page: number) => await api.autocompleteRestaurant(this.searchRestaurant.value, page),
+	);
+
+	private autoCompleteReaction = reaction(() => this.searchRestaurant.value,
+		() => this.autoCompleteRestaurant.refresh(),
+	);
+
+	public dispose = () => {
+		this.autoCompleteReaction();
+	};
 
 	constructor(id?: string) {
 		makeAutoObservable(this);
