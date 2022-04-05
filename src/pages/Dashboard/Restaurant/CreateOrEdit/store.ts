@@ -68,7 +68,9 @@ export default class Store {
 		if (restaurant.image) {
 			this.imageShelf.getPickerFields().setUploadedImage(restaurant.image);
 		}
-		this.stateUF.setValue(restaurant.address.state);
+		if (restaurant.address){
+			this.stateUF.setValue(restaurant.address.state);
+		}
 	};
 
 	public createOrEditRestaurant = async (onSuccess: () => void) => {
