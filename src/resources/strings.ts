@@ -17,6 +17,9 @@ const strings = new LocalizedStrings({
 			imagePicker: {
 				selectAnImage: "Selecione uma imagem",
 			},
+			checkinPeriodFilter: {
+				filterDate: "Filtrar por data de criação",
+			},
 		},
 		nav: {
 			home: "Home",
