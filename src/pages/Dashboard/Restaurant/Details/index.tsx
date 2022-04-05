@@ -27,7 +27,7 @@ const Details: React.FC = () => {
 
 	const store = useLocalObservable(() => new Store(id || ""));
 
-	const onGoToEditRestaurant = (userId: string) => history.push(`/dashboard/restaurants/edit/${userId}`);
+	const onGoToEditRestaurant = (restaurantId: string) => history.push(`/dashboard/restaurants/edit/${restaurantId}`);
 	const onGoToCreateUser = () => history.push(`/dashboard/restaurants/${id}/adminUsers/create/`);
 
 	const goBack = () => history.goBack();
