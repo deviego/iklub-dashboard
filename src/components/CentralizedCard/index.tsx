@@ -27,12 +27,12 @@ export const CentralizedCard: React.FC<IProps> = (props) => {
 			w="100%"
 			flexDirection="column"
 			alignItems="center"
-			p={{ base: 3, sm: 16 }}
+			p={{base: 3, sm: 16}}
 		>
 			{title && (
 				<Flex
 					w="100%"
-					maxW={{ base: "100%", md: "75%", lg: "60%" }}
+					maxW={{ base:"100%", md:"75%", lg: "60%" }}
 					mb={5}
 					alignItems="center"
 				>
@@ -49,7 +49,7 @@ export const CentralizedCard: React.FC<IProps> = (props) => {
 			)}
 			<Card
 				w="100%"
-				maxW={{ base: "100%", md: "75%", lg: "60%" }}
+				maxW={{ base:"100%", md:"75%", lg:"60%" }}
 				p={{ base: isTable ? 0 : 6, sm: isTable ? 6 : 16 }}
 				borderRadius={12}
 				boxShadow={isTable ? 0 : "lg"}

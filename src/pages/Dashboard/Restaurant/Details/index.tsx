@@ -13,7 +13,7 @@ import {
 } from "~/components";
 import strings from "~/resources/strings";
 import Store from "./store";
-import AdminUsersTable from "./AdminUsersTable/index";
+import AdminUsersTable from "./AdminUsers/Table/index";
 
 interface IParams {
 	id?: string;
@@ -27,8 +27,8 @@ const Details: React.FC = () => {
 
 	const store = useLocalObservable(() => new Store(id || ""));
 
-	const onGoToEditUser = (userId: string) => history.push(`/dashboard/restaurants/edit/${userId}`);
-	const onGoToCreateUser = () => history.push("/dashboard/adminUsers/create/");
+	const onGoToEditRestaurant = (userId: string) => history.push(`/dashboard/restaurants/edit/${userId}`);
+	const onGoToCreateUser = () => history.push(`/dashboard/restaurants/${id}/adminUsers/create/`);
 
 	const goBack = () => history.goBack();
 
@@ -48,7 +48,7 @@ const Details: React.FC = () => {
 										w="24px"
 										h="24px"
 										mt={23}
-										onClick={() => onGoToEditUser(id || "")}
+										onClick={() => onGoToEditRestaurant(id || "")}
 									/>
 								}
 							/>
