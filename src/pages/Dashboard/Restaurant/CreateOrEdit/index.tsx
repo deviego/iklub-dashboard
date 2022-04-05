@@ -4,8 +4,6 @@ import { observer, useLocalObservable } from "mobx-react-lite";
 
 import { RestaurantForm } from "~/components";
 
-// import api from "~/resources/api";
-
 import strings from "~/resources/strings";
 
 import Store from "./store";
