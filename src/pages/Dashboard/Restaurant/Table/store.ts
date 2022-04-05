@@ -1,6 +1,7 @@
 import {
 	LoaderShelf,
 	PaginatedListShelf,
+	AttributeShelf,
 } from "@startapp/mobx-utils";
 import { showErrorToast, showSuccessToast } from "~/resources/toast";
 import { Errors } from "~/resources/errors";
@@ -12,8 +13,8 @@ export default class Store {
 
 	// FIX-ME: Agora metodo pede data como parametro;
 
-	public paginetedListShelf: PaginatedListShelf<api.AdminUser> = new PaginatedListShelf(
-		api.getAllAdminUsers,
+	public paginetedListShelf: PaginatedListShelf<api.Restaurant> = new PaginatedListShelf(
+		(page)=>api.getAllRestaurants(page, this.dateFilter.value),
 		{
 			fetchOnConstructor: true,
 			onFetchError: (e) => {
@@ -24,6 +25,7 @@ export default class Store {
 	);
 
 	public loader = new LoaderShelf();
+	public dateFilter = new AttributeShelf<Date | null>(null);
 
 	constructor() {
 		makeAutoObservable(this);
