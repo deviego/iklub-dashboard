@@ -1,6 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import { LoaderShelf, AttributeShelf } from "@startapp/mobx-utils";
 import { FormShelf, ImagePickerShelf } from "@startapp/mobx-utils/src/web";
+
 import { Errors } from "~/resources/errors";
 import api from "~/resources/api";
 import { showErrorToast, showSuccessToast } from "~/resources/toast";
@@ -16,8 +17,21 @@ export default class Store {
 		phone: "",
 	});
 
+	public formAddressShelf = new FormShelf({
+		zipcode: "",
+		street: "",
+		streetNumber: "",
+		complementary: "",
+		neighborhood: "",
+		city: "",
+		countryCode: "",
+		state:"",
+	});
+
 	public loader = new LoaderShelf();
 	public imageShelf = new ImagePickerShelf(api.uploadImage);
+
+	public stateUF = new AttributeShelf(api.StateUF.BA);
 
 	public id = new AttributeShelf("");
 	public user: api.User;
@@ -49,20 +63,47 @@ export default class Store {
 			name: user.name,
 			phone: user.phone,
 		});
+
 		if (user.image) {
 			this.imageShelf.getPickerFields().setUploadedImage(user.image);
 		}
+		if (user.address){
+			this.formAddressShelf = new FormShelf({
+				complementary: user.address.complementary || "",
+				neighborhood: user.address.neighborhood,
+				city: user.address.city,
+				street: user.address.street,
+				streetNumber: user.address.streetNumber,
+				zipcode: user.address.zipcode,
+				countryCode: user.address.countryCode,
+				state: "",
+			});
+		}
+
+		if (user.address){
+			this.stateUF.setValue(user.address.state);
+		}
 	};
 
-	public EditUser = async (onSuccess: () => void) => {
+	public editUser = async (onSuccess: () => void) => {
 		this.loader.tryStart();
 		try {
 			const data = this.formShelf.getValues();
+			const dataAddress = this.formAddressShelf.getValues();
 			const {
 				email,
 				name,
 				phone,
 			} = data;
+
+			const {
+				neighborhood,
+				city,
+				street,
+				streetNumber,
+				complementary,
+				zipcode,
+			} = dataAddress;
 
 			if (this.id.value) {
 				await api.editUser(this.id.value, {
@@ -70,8 +111,17 @@ export default class Store {
 					email,
 					name,
 					phone,
-					address: null,
 					birthdate: null,
+					address: {
+						neighborhood,
+						city,
+						state: this.stateUF.value,
+						street,
+						streetNumber,
+						complementary,
+						zipcode,
+						countryCode: "BR",
+					},
 				});
 			}
 			showSuccessToast(pageStrings.success);
