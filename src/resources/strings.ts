@@ -101,7 +101,7 @@ const strings = new LocalizedStrings({
 		login: {
 			loginIn: "Login",
 			recoveryPassword: "Recuperar Senha",
-			success: (userName: string) => `Bem vindo ${userName}.`,
+			success: (userName: string) => `Bem vindo ao Dashboard, ${userName}!`,
 			fields: {
 				email: "E-mail",
 				password: "Senha",
