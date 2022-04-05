@@ -7,9 +7,10 @@ import {
 } from "@chakra-ui/react";
 import { observer } from "mobx-react-lite";
 
-import { TextInput } from "..";
+import { TextInput, EnumSelect } from "..";
 
 import strings from "~/resources/strings";
+import api from "~/resources/api";
 
 export type AddressField =  "zipcode" | "street" | "streetNumber" | "complementary" | "neighborhood" | "city" | "countryCode" | "state";
 
@@ -24,6 +25,10 @@ interface FormValues {
 		}) => void;
 		value: string;
 		error: string | null;
+	};
+	state: {
+		value: string;
+		setValue: (value: api.StateUF) => void;
 	};
 }
 
@@ -105,13 +110,12 @@ export const AddressForm: React.FC<IProps> = observer((props) => {
 					errorText={formValues?.field("countryCode").error}
 					{...formValues?.field("countryCode")}
 				/>
-				<TextInput
-					labelText={commonStrings.fields.state}
-					labelProps={{ fontWeight: "bold" }}
-					type="text"
-					isDisabled={isLoading}
-					errorText={formValues?.field("state").error}
-					{...formValues?.field("state")}
+				<EnumSelect
+					items={api.allValuesStateUF()}
+					currentValue={formValues.state.value}
+					label={commonStrings.fields.state}
+					onChangeEnum={formValues.state.setValue}
+					tranlateEnum={api.translateStateUF}
 				/>
 			</Box>
 		</Center>

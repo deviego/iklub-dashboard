@@ -1,6 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import { LoaderShelf, AttributeShelf } from "@startapp/mobx-utils";
 import { FormShelf, ImagePickerShelf } from "@startapp/mobx-utils/src/web";
+
 import { Errors } from "~/resources/errors";
 import api from "~/resources/api";
 import { showErrorToast, showSuccessToast } from "~/resources/toast";
@@ -79,6 +80,10 @@ export default class Store {
 				countryCode: user.address.countryCode,
 				state: "",
 			});
+		}
+
+		if (user.address){
+			this.stateUF.setValue(user.address.state);
 		}
 	};
 

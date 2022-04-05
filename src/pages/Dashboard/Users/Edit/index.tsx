@@ -5,6 +5,7 @@ import {
 	Button,
 	Box,
 } from "@chakra-ui/react";
+
 import {
 	AddressForm,
 	CentralizedCard,
@@ -12,7 +13,9 @@ import {
 	Label,
 	TextInput,
 } from "~/components";
+
 import strings from "~/resources/strings";
+
 import Store from "./store";
 
 interface IParams {
@@ -91,6 +94,10 @@ const Edit: React.FC = () => {
 			<AddressForm
 				formValues={{
 					field: store.formAddressShelf.field,
+					state: {
+						value: store.stateUF.value,
+						setValue: store.stateUF.setValue,
+					},
 				}}
 				isLoading={store.loader.isLoading}
 				disableForm={store.disableForm.value}

@@ -19,3 +19,4 @@ export { Fetchable } from "./Fetchable";
 export { IProps as IPaginationProps } from "./Pagination";
 export { AutoCompleteModal } from "./AutoCompleteModal";
 export { AddressForm } from "./AddressForm";
+export { EnumSelect } from "./EnumSelect";
