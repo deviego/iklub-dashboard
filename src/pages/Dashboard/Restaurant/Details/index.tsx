@@ -13,7 +13,6 @@ import {
 	DetailsRow,
 	ProductTable,
 } from "~/components";
-import { useGlobalStore } from "~/contexts/useGlobalContext";
 import strings from "~/resources/strings";
 import Store from "./store";
 
@@ -23,21 +22,14 @@ interface IParams {
 
 const Details: React.FC = () => {
 	const commonStrings = strings.common;
-	const { authStore } = useGlobalStore();
 
 	const { id } = useParams<IParams>();
 	const history = useHistory();
 
 	const store = useLocalObservable(() => new Store(id || ""));
-	console.log(authStore.currentAdminUser);
+
 	const onGoToEditUser = (userId: string) => history.push(`/dashboard/restaurants/edit/${userId}`);
 	const goBack = () => history.goBack();
-
-	React.useEffect(() => {
-		if (authStore.currentAdminUser) {
-			store.initPaginatedList(authStore.currentAdminUser);
-		}
-	}, [authStore.currentAdminUser]);
 
 	return (
 		<>

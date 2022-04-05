@@ -12,7 +12,7 @@ import { makeAutoObservable } from "mobx";
 export default class Store {
 
 	public paginetedListShelf: PaginatedListShelf<api.Product> = new PaginatedListShelf(
-		api.getAllProductsForRestaurantAdminUser,
+		api.getAllProducts,
 		{
 			fetchOnConstructor: true,
 			onFetchError: (e) => {

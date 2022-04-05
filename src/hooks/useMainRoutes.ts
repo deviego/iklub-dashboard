@@ -40,7 +40,7 @@ const useMainRoutes = (currentUser: API.AdminUser | null) => {
 			text: strings.nav.restaurants,
 			path: "/dashboard/restaurants",
 		},
-		isRestaurantAdminUser && (
+		!isRestaurantAdminUser && (
 			{
 				Icon: BiCoffee,
 				text: strings.nav.products,

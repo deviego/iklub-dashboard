@@ -33,14 +33,14 @@ export default class Store {
 
 		if (id) {
 			this.id.setValue(id);
+			this.getProduct(id);
 		}
 	}
 
-	public getProduct = async (id: string, isAdmin: boolean) => {
+	public getProduct = async (id: string) => {
 		this.loader.tryStart();
 		try {
-			const method = isAdmin ? api.getProduct :api.getProductForRestaurantAdminUser;
-			const products = await method(id);
+			const products = await api.getProduct(id);
 			this.setInitValues(products);
 		} catch (e) {
 			const errorMessage = Errors.handleError(e);
@@ -76,7 +76,7 @@ export default class Store {
 		});
 	};
 
-	public createOrEditRestaurant = async (currentAdminUser: api.AdminUser, onSuccess: () => void) => {
+	public createOrEditRestaurant = async (onSuccess: () => void) => {
 		this.loader.tryStart();
 		try {
 
@@ -84,11 +84,7 @@ export default class Store {
 				await api.editProduct(this.id.value, this.createNewProductObject());
 
 			} else {
-				if (!currentAdminUser.restaurant) {
-					await api.createProduct(this.createNewProductObject(), "9f1f52b7-7968-4a39-b4f0-a8aa387e0dec");
-				} else {
-					await api.createProductForRestaurantUser(this.createNewProductObject());
-				}
+				await api.createProduct(this.createNewProductObject(), "9f1f52b7-7968-4a39-b4f0-a8aa387e0dec");
 			}
 
 			showSuccessToast(pageStrings.success(!!this.id.value));

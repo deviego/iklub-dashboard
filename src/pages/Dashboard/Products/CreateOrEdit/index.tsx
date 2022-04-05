@@ -36,16 +36,10 @@ const CreateOrEdit: React.FC = () => {
 
 	const onSubmit = () => {
 		if (authStore.currentAdminUser) {
-			store.createOrEditRestaurant(authStore.currentAdminUser, onSuccess);
+			store.createOrEditRestaurant(onSuccess);
 		}
 	};
 
-	React.useEffect(() => {
-		if (authStore.currentAdminUser && store.id.value) {
-			const isAdmin = !authStore.currentAdminUser.restaurant;
-			store.getProduct(store.id.value, isAdmin);
-		}
-	}, [authStore.currentAdminUser]);
 	return (
 		<CentralizedCard
 			title={{

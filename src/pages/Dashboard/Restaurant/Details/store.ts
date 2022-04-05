@@ -17,26 +17,26 @@ export default class Store{
 		makeAutoObservable(this);
 		this.id = id;
 
+		this.paginetedListShelf = new PaginatedListShelf(
+			(page) => api.getAllProductsByRestaurant(page, this.id),
+			{
+				onFetchError: this.onFecthError,
+			},
+		);
+
 		this.fetchModelShelf = new FetchModelShelf(
 			id,
 			api.getRestaurantById,
 			{
 				fetchOnConstructor: true,
+				onAfterFetch: () => {
+					this.paginetedListShelf?.fetchPage(0);
+				},
 				onFetchError: this.onFecthError,
 			},
 		);
 
 	}
-
-	public initPaginatedList = (currentAdminUser: api.AdminUser) => {
-		this.paginetedListShelf = new PaginatedListShelf(
-			currentAdminUser && currentAdminUser.restaurant ? api.getAllProductsForRestaurantAdminUser : (page) => api.getAllProductsByRestaurant(page, this.id),
-			{
-				fetchOnConstructor: true,
-				onFetchError: this.onFecthError,
-			},
-		);
-	};
 
 	private onFecthError = (e: any) => {
 		const error = Errors.treatError(e);
