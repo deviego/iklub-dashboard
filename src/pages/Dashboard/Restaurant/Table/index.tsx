@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { observer, useLocalObservable } from "mobx-react-lite";
 import { Flex, Td, Text, Tr } from "@chakra-ui/react";
 
-import { DateFilter, Table, TableCellWithActionButtons } from "~/components";
+import { Table, TableCellWithActionButtons } from "~/components";
 
 // import { useGlobalStore } from "~/contexts/useGlobalContext";
 
@@ -75,11 +75,9 @@ const TableView: React.FC = () => {
 	// 		],
 	// 	});
 	// };
-	const [date, setDate] = React.useState<Date | null>(null);
 
 	return (
 		<Flex flexDir="column" p={{ base: "2", lg: "16" }}>
-			<DateFilter selectedDate={date} onChangeSelectedDate={setDate} />
 			<Table
 				data={store.paginetedListShelf.items}
 				headers={pageStrings.header}
