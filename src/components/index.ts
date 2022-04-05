@@ -18,3 +18,4 @@ export { RestaurantForm } from "./RestaurantForm";
 export { Fetchable } from "./Fetchable";
 export { IProps as IPaginationProps } from "./Pagination";
 export { AutoCompleteModal } from "./AutoCompleteModal";
+export { EnumSelect } from "./EnumSelect";
