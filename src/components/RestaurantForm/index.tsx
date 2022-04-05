@@ -151,14 +151,6 @@ export const RestaurantForm: React.FC<IProps> = observer((props) => {
 				{...formValues?.field("city")}
 			/>
 			<TextInput
-				labelText={commonStrings.fields.countryCode}
-				labelProps={{ fontWeight: "bold" }}
-				type="text"
-				isDisabled={isLoading}
-				errorText={formValues?.field("countryCode").error}
-				{...formValues?.field("countryCode")}
-			/>
-			<TextInput
 				labelText={commonStrings.fields.state}
 				labelProps={{ fontWeight: "bold" }}
 				type="text"
