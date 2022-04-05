@@ -2,11 +2,10 @@ import {
 	AiOutlineHome,
 } from "react-icons/ai";
 
-import { RiUserFollowLine } from "react-icons/ri";
-
 import {
 	RiRestaurant2Line,
 	RiUserLine,
+	RiUserFollowLine,
 } from "react-icons/ri";
 import { BiCoffee } from "react-icons/bi";
 import strings from "../resources/strings";
@@ -25,6 +24,11 @@ const useMainRoutes = (currentUser: API.AdminUser | null) => {
 			Icon: RiUserFollowLine,
 			text: strings.nav.adminUsers,
 			path: "/dashboard/adminUsers",
+		},
+		{
+			Icon: RiUserFollowLine,
+			text: strings.nav.adminRestaurantUsers,
+			path: "/dashboard/adminRestaurantUsers",
 		},
 		{
 			Icon: RiUserLine,
