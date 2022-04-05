@@ -226,6 +226,7 @@ const strings = new LocalizedStrings({
 			table: {
 				title: "Tabela de Produtos",
 				header:  ["", "Nome do Produto", "Preço", "Total de Doses","Data de Cadastro"],
+				delete: (name: string) => `Produto ${name} foi deletado!`,
 				statusDisable: (isBlocked: boolean) => `O Produto ${isBlocked ? "foi disabilitado" : "foi habilitado"}`,
 				addButtonText: "Adicionar novo Produto",
 			},

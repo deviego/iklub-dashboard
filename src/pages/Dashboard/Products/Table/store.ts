@@ -35,7 +35,7 @@ export default class Store {
 
 			const deletedProduct = await api.deleteProduct(id);
 
-			showSuccessToast(strings.users.table.delete(deletedProduct.title));
+			showSuccessToast(strings.products.table.delete(deletedProduct.title));
 			this.paginetedListShelf.refresh();
 		} catch (e) {
 			const errorMessage = Errors.handleError(e);
