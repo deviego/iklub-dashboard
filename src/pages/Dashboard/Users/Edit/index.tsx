@@ -5,13 +5,17 @@ import {
 	Button,
 	Box,
 } from "@chakra-ui/react";
+
 import {
+	AddressForm,
 	CentralizedCard,
 	ImagePicker,
 	Label,
 	TextInput,
 } from "~/components";
+
 import strings from "~/resources/strings";
+
 import Store from "./store";
 
 interface IParams {
@@ -32,7 +36,7 @@ const Edit: React.FC = () => {
 	const store = useLocalObservable(() => new Store(id));
 
 	const onSubmit = () => {
-		store.EditUser(onSuccess);
+		store.editUser(onSuccess);
 	};
 
 	return (
@@ -86,6 +90,16 @@ const Edit: React.FC = () => {
 				mask="99 999999999"
 				errorText={store.formShelf.fieldError.getFieldError("phone")}
 				{...store.formShelf.field("phone")}
+			/>
+			<AddressForm
+				formValues={{
+					field: store.formAddressShelf.field,
+					state: {
+						value: store.stateUF.value,
+						setValue: store.stateUF.setValue,
+					},
+				}}
+				isLoading={store.loader.isLoading}
 			/>
 		</CentralizedCard>
 	);

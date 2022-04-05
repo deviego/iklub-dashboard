@@ -8,6 +8,9 @@ import {
 	Label,
 	ImagePicker,
 } from "..";
+import { EnumSelect } from "../EnumSelect";
+import api from "~/resources/api";
+
 
 type FieldType = "name" | "corporateName" | "documentNumber" |  "zipcode" | "street" | "streetNumber" | "complementary" | "neighborhood" | "city" | "countryCode" | "state";
 
@@ -26,6 +29,11 @@ interface FormValues {
 		pick: () => void;
 		src: string | null;
 	};
+	state: {
+		value: string;
+		setValue: (value: api.StateUF) => void;
+	};
+
 }
 
 interface IProps {
@@ -150,22 +158,14 @@ export const RestaurantForm: React.FC<IProps> = observer((props) => {
 				errorText={formValues?.field("city").error}
 				{...formValues?.field("city")}
 			/>
-			<TextInput
-				labelText={commonStrings.fields.countryCode}
-				labelProps={{ fontWeight: "bold" }}
-				type="text"
-				isDisabled={isLoading}
-				errorText={formValues?.field("countryCode").error}
-				{...formValues?.field("countryCode")}
+			<EnumSelect
+				items={api.allValuesStateUF()}
+				currentValue={formValues.state.value}
+				label={commonStrings.fields.state}
+				onChangeEnum={formValues.state.setValue}
+				tranlateEnum={api.translateStateUF}
 			/>
-			<TextInput
-				labelText={commonStrings.fields.state}
-				labelProps={{ fontWeight: "bold" }}
-				type="text"
-				isDisabled={isLoading}
-				errorText={formValues?.field("state").error}
-				{...formValues?.field("state")}
-			/>
+
 		</CentralizedCard>
 	);
 });

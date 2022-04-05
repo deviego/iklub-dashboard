@@ -20,3 +20,5 @@ export { IProps as IPaginationProps } from "./Pagination";
 export { AutoCompleteModal } from "./AutoCompleteModal";
 export { DatePicker } from "./DatePicker";
 export { DateFilter } from "./DateFilter";
+export { AddressForm } from "./AddressForm";
+export { EnumSelect } from "./EnumSelect";
