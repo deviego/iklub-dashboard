@@ -36,7 +36,7 @@ const Edit: React.FC = () => {
 	const store = useLocalObservable(() => new Store(id));
 
 	const onSubmit = () => {
-		store.EditUser(onSuccess);
+		store.editUser(onSuccess);
 	};
 
 	return (
@@ -100,7 +100,6 @@ const Edit: React.FC = () => {
 					},
 				}}
 				isLoading={store.loader.isLoading}
-				disableForm={store.disableForm.value}
 			/>
 		</CentralizedCard>
 	);

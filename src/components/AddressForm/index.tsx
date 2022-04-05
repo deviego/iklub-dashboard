@@ -35,7 +35,6 @@ interface FormValues {
 interface IProps extends CenterProps {
 	formValues: FormValues;
 	isLoading: boolean;
-	disableForm: boolean;
 }
 
 
