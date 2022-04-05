@@ -11,8 +11,8 @@ import { makeAutoObservable } from "mobx";
 
 export default class Store {
 
-	public paginetedListShelf: PaginatedListShelf<api.Restaurant> = new PaginatedListShelf(
-		(page) => api.getAllRestaurants(page, null),
+	public paginetedListShelf: PaginatedListShelf<api.Product> = new PaginatedListShelf(
+		api.getAllProductsForRestaurantAdminUser,
 		{
 			fetchOnConstructor: true,
 			onFetchError: (e) => {
@@ -29,13 +29,13 @@ export default class Store {
 		makeAutoObservable(this);
 	}
 
-	public deleteRestaurant = async (id: string) => {
+	public deleteProduct = async (id: string) => {
 		this.loader.tryStart();
 		try {
 
-			const deletedRestaurant = await api.deleteRestaurant(id);
+			const deletedProduct = await api.deleteProduct(id);
 
-			showSuccessToast(strings.users.table.delete(deletedRestaurant.name));
+			showSuccessToast(strings.users.table.delete(deletedProduct.title));
 			this.paginetedListShelf.refresh();
 		} catch (e) {
 			const errorMessage = Errors.handleError(e);
@@ -45,16 +45,14 @@ export default class Store {
 		}
 	};
 
-	public changeRestaurantBlockStatus = async (id: string, blockedAt: Date | null) => {
+	public changeProductDisableStatus = async (id: string, disableAt: Date | null) => {
 		this.loader.tryStart();
 		try {
-			if (blockedAt) {
-				await api.changeRestaurantBlockStatus(id, false);
-				showSuccessToast(strings.restaurants.table.statusRestaurant(false));
-			} else {
-				await api.changeRestaurantBlockStatus(id, true);
-				showSuccessToast(strings.restaurants.table.statusRestaurant(true));
-			}
+
+			const disableOrEnable = disableAt ? false : true;
+			await api.changeProductDisableStatus(id, disableOrEnable);
+
+			showSuccessToast(strings.products.table.statusDisable(disableOrEnable));
 			this.paginetedListShelf.refresh();
 		} catch (e) {
 			const errorMessage = Errors.handleError(e);

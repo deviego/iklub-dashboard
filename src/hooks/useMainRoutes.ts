@@ -8,6 +8,7 @@ import {
 	RiRestaurant2Line,
 	RiUserLine,
 } from "react-icons/ri";
+import { BiCoffee } from "react-icons/bi";
 import strings from "../resources/strings";
 
 
@@ -32,6 +33,11 @@ const useMainRoutes = () => {
 			Icon: RiRestaurant2Line,
 			text: strings.nav.restaurants,
 			path: "/dashboard/restaurants",
+		},
+		{
+			Icon: BiCoffee,
+			text: strings.nav.products,
+			path: "/dashboard/products",
 		},
 	];
 

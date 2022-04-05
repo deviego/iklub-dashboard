@@ -6,6 +6,7 @@ import { MainLayout } from "~/layout";
 import AdminUsers from "./AdminUsers";
 import Users from "./Users";
 import Restaurant from "./Restaurant";
+import Products from "./Products";
 
 const Dashboard: React.FC = () => (
 	<MainLayout>
@@ -18,6 +19,7 @@ const Dashboard: React.FC = () => (
 			<Route path="/dashboard/adminUsers" component={AdminUsers} />
 			<Route path="/dashboard/users" component={Users} />
 			<Route path="/dashboard/restaurants" component={Restaurant} />
+			<Route path="/dashboard/products" component={Products} />
 		</Switch>
 	</MainLayout>
 );

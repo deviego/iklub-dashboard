@@ -70,6 +70,7 @@ export default class Store {
 					email,
 					name,
 					password,
+					restauranId: "9f1f52b7-7968-4a39-b4f0-a8aa387e0dec",
 				});
 			}
 

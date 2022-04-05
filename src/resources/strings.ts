@@ -23,6 +23,7 @@ const strings = new LocalizedStrings({
 			restaurants: "Restaurantes",
 			adminUsers: "Usuários Adminstrativos",
 			users: "Users",
+			products: "Produtos",
 			logout: "Sair",
 		},
 		actions: {
@@ -81,6 +82,11 @@ const strings = new LocalizedStrings({
 				city: "Cidade:",
 				countryCode: "Código do País:",
 				state: "Estado:",
+				totalAmountOfDoses: "Total de Doses:",
+				price: "Preço:",
+				title: "Title:",
+				description: "Descrição:",
+				createdAt: "Data de Criação:",
 			},
 			mask: {
 				date: "__/__/____",
@@ -173,6 +179,29 @@ const strings = new LocalizedStrings({
 			modal: {
 				title: ( isRestaurantBlocked: boolean) => ` ${isRestaurantBlocked ? "Habilitar" : "Desabilitar"} Restaurante`,
 				description: (itemName: string, isRestaurantBlocked: boolean) => `Tem certeza que deseja ${isRestaurantBlocked ? "habilitar" : "desabilitar"} ${itemName}?`,
+				button: {
+					disable: "Desabilitar",
+					enable: "Habilitar",
+					cancel: "Cancelar",
+				},
+			},
+		},
+		products: {
+			title: "Products",
+			table: {
+				title: "Tabela de Produtos",
+				header:  ["", "Nome do Produto", "Preço", "Total de Doses","Data de Cadastro"],
+				statusDisable: (isBlocked: boolean) => `O Produto ${isBlocked ? "foi disabilitado" : "foi habilitado"}`,
+				addButtonText: "Adicionar novo Produto",
+			},
+			createOrEdit: {
+				title: (isEdit?: boolean) => isEdit ? "Edição de Produto" : "Cadastro de Produto",
+				button: (isEdit?: boolean) => isEdit ? "Editar" : "Cadastrar",
+			},
+			success: (isEdit?: boolean) => isEdit ? "Produto editado com sucesso" : "Produto criado com sucesso",
+			modal: {
+				title: (isDisabled: boolean) => ` ${isDisabled ? "Habilitar" : "Desabilitar"} Produto`,
+				description: (itemName: string, isDisabled: boolean) => `Tem certeza que deseja ${isDisabled ? "habilitar" : "desabilitar"} ${itemName}?`,
 				button: {
 					disable: "Desabilitar",
 					enable: "Habilitar",
