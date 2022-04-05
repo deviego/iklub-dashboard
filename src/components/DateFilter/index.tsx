@@ -9,7 +9,6 @@ import { DatePicker } from "~/components";
 interface IProps extends StackProps {
 	selectedDate: Date | null;
 	onChangeSelectedDate: (date: Date) => void;
-
 }
 
 export const DateFilter: React.FC<IProps> = observer((props) => {
@@ -20,7 +19,7 @@ export const DateFilter: React.FC<IProps> = observer((props) => {
 
 	return (
 		<Stack
-			w="40%"
+			w={{ base: "100%", md: "75", lg: "60%" }}
 			p={3}
 			maxW="3xl"
 			direction="row"
