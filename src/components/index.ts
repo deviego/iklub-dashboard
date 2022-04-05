@@ -20,4 +20,5 @@ export { IProps as IPaginationProps } from "./Pagination";
 export { AutoCompleteModal } from "./AutoCompleteModal";
 export { MoneyInput } from "./MoneyInput";
 export { ProductTable } from "./ProductTable";
+export { AddressForm } from "./AddressForm";
 export { EnumSelect } from "./EnumSelect";
