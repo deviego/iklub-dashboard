@@ -88,9 +88,9 @@ const TableView: React.FC = () => {
 						<TableCellWithActionButtons
 							onView={() => onGoToDetailsRestaurant(item.id)}
 							onEdit={() => onGoToEditRestaurant(item.id)}
-						// onDelete={() => openDialog(item)}
-						// onBlock={() => openDialogBlockedRestaurant(item)}
-						// isBlocked={!!item.blockedAt}
+							// onDelete={() => openDialog(item)}
+							// onBlock={() => openDialogBlockedRestaurant(item)}
+							// isBlocked={!!item.blockedAt}
 						/>
 						<Td>
 							<Text>{item.name}</Text>
