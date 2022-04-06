@@ -15,6 +15,7 @@ import {
 } from "~/components";
 import strings from "~/resources/strings";
 import Store from "./store";
+import AdminUsersTable from "./AdminUsers/Table/index";
 
 interface IParams {
 	id?: string;
@@ -28,13 +29,34 @@ const Details: React.FC = () => {
 
 	const store = useLocalObservable(() => new Store(id || ""));
 
-	const onGoToEditUser = (userId: string) => history.push(`/dashboard/restaurants/edit/${userId}`);
+	const onGoToEditRestaurant = (restaurantId: string) => history.push(`/dashboard/restaurants/edit/${restaurantId}`);
+	const onGoToCreateUser = () => history.push(`/dashboard/restaurants/${id}/adminUsers/create/`);
+
 	const goBack = () => history.goBack();
 
 	const productsAdminRoute = "/dashboard/productsForAdmin";
 
 	return (
 		<>
+			{id && (
+				<CentralizedCard
+					isTable
+					title={{ text: strings.adminRestaurantUsers.table.title }}
+					button={
+						<Button
+							minW={{ base: "100%", md: 280 }}
+							size="lg"
+							mt={10}
+							isLoading={store.loader.isLoading}
+							onClick={onGoToCreateUser}
+						>
+							{strings.adminRestaurantUsers.table.tableAddButton}
+						</Button>
+					}
+				>
+					<AdminUsersTable restaurantId={id} />
+				</CentralizedCard>
+			)}
 			<CentralizedCard
 				title={{
 					text: commonStrings.detailsTitle,
@@ -49,13 +71,25 @@ const Details: React.FC = () => {
 										w="24px"
 										h="24px"
 										mt={23}
-										onClick={() => onGoToEditUser(id || "")}
+										onClick={() => onGoToEditRestaurant(id || "")}
 									/>
 								}
 							/>
 						</Tooltip>
 					),
 				}}
+				button={(
+					<Button
+						variant="outline"
+						minW={{ base: "100%", md: 280 }}
+						size="lg"
+						mt={10}
+						isLoading={store.loader.isLoading}
+						onClick={goBack}
+					>
+						{strings.actions.back}
+					</Button>
+				)}
 			>
 				{store.fetchModelShelf.model.value &&
 					<>
@@ -103,34 +137,7 @@ const Details: React.FC = () => {
 						/>
 					</>}
 			</CentralizedCard>
-			{store.paginetedListShelf && (
-				<ProductTable
-					maxW={{ base:"100%", md:"75%", lg: "60%" }}
-					cardTableProps={{ maxW: "100%" }}
-					mx="auto"
-					px={0}
-					paginatedListShelf={store.paginetedListShelf}
-					deleteProduct={store.deleteProduct}
-					changeDisableStatus={store.changeProductDisableStatus}
-					redirectTo={{
-						edit: (productId) => `${productsAdminRoute}/edit/${productId}`,
-						details: (productId) => `${productsAdminRoute}/details/${productId}`,
-					}}
-				/>
-			)}
-			<Flex alignItems="center" w="100%" pb={20}>
-				<Button
-					variant="outline"
-					minW={{ base: "100%", md: 280 }}
-					mx="auto"
-					size="lg"
-					mt={10}
-					isLoading={store.loader.isLoading}
-					onClick={goBack}
-				>
-					{strings.actions.back}
-				</Button>
-			</Flex>
+
 		</>
 	);
 };
