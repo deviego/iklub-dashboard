@@ -44,7 +44,7 @@ const useMainRoutes = (currentUser: API.AdminUser | null) => {
 			{
 				Icon: BiCoffee,
 				text: strings.nav.products,
-				path: "/dashboard/products",
+				path: "/dashboard/productsForAdmin",
 			}
 		),
 	];

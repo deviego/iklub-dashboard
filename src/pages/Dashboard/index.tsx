@@ -20,7 +20,7 @@ const Dashboard: React.FC = () => {
 				<Route path="/dashboard/users" component={Users} />
 				<Route path="/dashboard/restaurants" component={Restaurant} />
 				<Route path="/dashboard/adminRestaurantUsers" component={AdminRestaurantUsers} />
-				<Route path="/dashboard/products" component={Products} />
+				<Route path="/dashboard/productsForAdmin" component={Products} />
 			</Switch>
 		</MainLayout>
 	);
