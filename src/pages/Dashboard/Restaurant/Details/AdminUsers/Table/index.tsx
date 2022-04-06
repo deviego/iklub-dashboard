@@ -1,6 +1,6 @@
 import React from "react";
 import { observer, useLocalObservable } from "mobx-react-lite";
-import { Flex, Td, Text, Tr } from "@chakra-ui/react";
+import { Td, Text, Tr } from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
 import { Table, TableCellWithActionButtons } from "~/components";
 import strings from "~/resources/strings";
@@ -26,8 +26,7 @@ const AdminUsersTable: React.FC<IProps> = (props) => {
 		dialog.closeDialog();
 	};
 
-	const onGoToEditUser = (id: string) => history.push(`/dashboard/adminUsers/edit/${id}`);
-	const onGoToCreateUser = () => history.push("/dashboard/adminUsers/create/");
+	const onGoToEditUser = (id: string) => history.push(`/dashboard/restaurants/${restaurantId}/adminUsers/edit/${id}`);
 
 	const openDialog = (user: API.AdminUser) => {
 		dialog.showDialog({
@@ -50,38 +49,33 @@ const AdminUsersTable: React.FC<IProps> = (props) => {
 	};
 
 	return (
-		<Flex flexDirection="column">
-			<Text fontSize="md" fontWeight="bold">
-				{pageStrings.title}
-			</Text>
-			<Table
-				data={store._items}
-				headers={pageStrings.header}
-				onAdd={onGoToCreateUser}
-				addButtonText={pageStrings.addButtonText}
-				renderRow={(item) => (
-					<Tr key={item.id} >
-						<TableCellWithActionButtons
-							onEdit={() => onGoToEditUser(item.id)}
-							onDelete={() => openDialog(item)}
-						/>
-						<Td>
-							<Text>{item.name}</Text>
-						</Td>
-						<Td>
-							<Text>{item.email}</Text>
-						</Td>
-					</Tr>
-				)}
-				loading={store._loading}
-				emptyMessage={strings.common.noResutls}
-				currentPage={store.page}
-				prevPage={store.previousPage}
-				nextPage={store.nextPage}
-				hasNextPage={store._isHaveNextPage}
-				isCard
-			/>
-		</Flex>
+
+		<Table
+			data={store._items}
+			headers={pageStrings.header}
+			addButtonText={pageStrings.addButtonText}
+			renderRow={(item) => (
+				<Tr key={item.id} >
+					<TableCellWithActionButtons
+						onEdit={() => onGoToEditUser(item.id)}
+						onDelete={() => openDialog(item)}
+					/>
+					<Td>
+						<Text>{item.name}</Text>
+					</Td>
+					<Td>
+						<Text>{item.email}</Text>
+					</Td>
+				</Tr>
+			)}
+			loading={store._loading}
+			emptyMessage={strings.common.noResutls}
+			currentPage={store.page}
+			prevPage={store.previousPage}
+			nextPage={store.nextPage}
+			hasNextPage={store._isHaveNextPage}
+			isCard
+		/>
 	);
 };
 

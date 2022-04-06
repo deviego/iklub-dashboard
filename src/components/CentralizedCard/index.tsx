@@ -50,9 +50,9 @@ export const CentralizedCard: React.FC<IProps> = (props) => {
 			<Card
 				w="100%"
 				maxW={{ base:"100%", md:"75%", lg:"60%" }}
-				p={{base: isTable ? 0 : 6, sm: isTable ? 0 : 16 }}
+				p={{ base: isTable ? 0 : 6, sm: isTable ? 6 : 16 }}
 				borderRadius={12}
-				boxShadow="lg"
+				boxShadow={isTable ? 0 : "lg"}
 				bg="white"
 			>
 				<Stack w="100%" spacing={8}>
