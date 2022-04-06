@@ -1,4 +1,5 @@
 import React from "react";
+import { observer } from "mobx-react-lite";
 import { Text, Box, Icon, Link, Image, Flex } from "@chakra-ui/react";
 import strings from "../../../resources/strings";
 import useMainRoutes from "../../../hooks/useMainRoutes";
@@ -10,11 +11,11 @@ interface IProps {
 	onClose: () => void;
 }
 
-export const DrawerLinks: React.FC<IProps> = (props) => {
+export const DrawerLinks: React.FC<IProps> = observer((props) => {
 
 	const { onClose } = props;
 	const { authStore } = useGlobalStore();
-	const routes = useMainRoutes();
+	const routes = useMainRoutes(authStore.currentAdminUser);
 	const fontSizeBreakPoint = { base: "sm", lg: "md" };
 	const history = useHistory();
 
@@ -96,4 +97,4 @@ export const DrawerLinks: React.FC<IProps> = (props) => {
 			</Box>
 		</>
 	);
-};
+});

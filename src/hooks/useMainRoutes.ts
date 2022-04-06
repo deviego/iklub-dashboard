@@ -7,9 +7,13 @@ import {
 	RiUserLine,
 	RiUserFollowLine,
 } from "react-icons/ri";
+import { BiCoffee } from "react-icons/bi";
 import strings from "../resources/strings";
+import API from "~/resources/api";
 
-const useMainRoutes = () => {
+const useMainRoutes = (currentUser: API.AdminUser | null) => {
+	const isRestaurantAdminUser = !!currentUser?.restaurant;
+
 	const commonRoutes = [
 		{
 			Icon: AiOutlineHome,
@@ -36,6 +40,13 @@ const useMainRoutes = () => {
 			text: strings.nav.restaurants,
 			path: "/dashboard/restaurants",
 		},
+		!isRestaurantAdminUser && (
+			{
+				Icon: BiCoffee,
+				text: strings.nav.products,
+				path: "/dashboard/productsForAdmin",
+			}
+		),
 	];
 
 	return commonRoutes;
