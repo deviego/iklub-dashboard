@@ -54,8 +54,8 @@ export default class Store {
 	public getProduct = async (id: string) => {
 		this.loader.tryStart();
 		try {
-			const products = await api.getProduct(id);
-			this.setInitValues(products);
+			const product = await api.getProduct(id);
+			this.setInitValues(product);
 		} catch (e) {
 			const errorMessage = Errors.handleError(e);
 			showErrorToast(errorMessage);

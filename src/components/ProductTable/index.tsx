@@ -17,18 +17,22 @@ interface IProps extends FlexProps {
 	deleteProduct?: (id: string) => Promise<void>;
 	renderRow?: (item: API.Product, index: number) => React.ReactElement | null;
 	changeDisableStatus?: (id: string, disableAt: Date | null) => Promise<void>;
-	enableCreateButton?: boolean;
 	cardTableProps?: BoxProps;
+	redirectTo?: {
+		create?: () => string;
+		edit?: (id?: string) => string;
+		details?: (id?: string) => string;
+	};
 }
 
 export const ProductTable: React.FC<IProps> = observer((props) => {
 	const {
 		paginatedListShelf,
 		deleteProduct,
-		enableCreateButton,
 		changeDisableStatus,
 		cardTableProps,
 		renderRow,
+		redirectTo,
 		...rest
 	} = props;
 	const componentStrings = strings.products.table;
@@ -44,9 +48,21 @@ export const ProductTable: React.FC<IProps> = observer((props) => {
 		dialog.closeDialog();
 	};
 
-	const onGoToEditProduct = (id: string) => history.push(`/dashboard/products/edit/${id}`);
-	const onGoToDetailsProduct = (id: string) => history.push(`/dashboard/products/details/${id}`);
-	const onGoToCreateProduct = () => history.push("/dashboard/products/create");
+	const onGoToEditProduct = (id: string) => {
+		if (redirectTo?.edit) {
+			history.push(redirectTo.edit(id));
+		}
+	};
+	const onGoToDetailsProduct = (id: string) => {
+		if (redirectTo?.details) {
+			history.push(redirectTo.details(id));
+		}
+	};
+	const onGoToCreateProduct = () => {
+		if (redirectTo?.create) {
+			history.push(redirectTo.create());
+		}
+	};
 
 	const openDialog = (user: API.Product) => {
 		dialog.showDialog({
@@ -99,13 +115,13 @@ export const ProductTable: React.FC<IProps> = observer((props) => {
 			<Table
 				data={paginatedListShelf.items}
 				headers={componentStrings.header}
-				onAdd={enableCreateButton ? onGoToCreateProduct : undefined}
+				{...redirectTo && redirectTo.create && {onAdd: onGoToCreateProduct}}
 				addButtonText={componentStrings.addButtonText}
 				renderRow={renderRow || ((item) => (
-					<Tr key={item.id} >
+					<Tr key={item.id}>
 						<TableCellWithActionButtons
-							onView={() => onGoToDetailsProduct(item.id)}
-							onEdit={() => onGoToEditProduct(item.id)}
+							{...redirectTo?.details && {onView: () => onGoToDetailsProduct(item.id)}}
+							{...redirectTo?.edit && {onEdit: () => onGoToEditProduct(item.id)}}
 							onDelete={deleteProduct ? () => openDialog(item) : undefined}
 							onBlock={changeDisableStatus ? () => openDialogDisableStatusProduct(item) : undefined}
 							isBlocked={!!item.disabledAt}
