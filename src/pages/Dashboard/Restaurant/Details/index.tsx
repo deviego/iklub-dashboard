@@ -5,16 +5,19 @@ import {
 	IconButton,
 	Tooltip,
 	Button,
-	Flex,
 } from "@chakra-ui/react";
 import { EditIcon } from "@chakra-ui/icons";
+
 import {
 	CentralizedCard,
 	DetailsRow,
 	ProductTable,
 } from "~/components";
+
 import strings from "~/resources/strings";
+
 import Store from "./store";
+
 import AdminUsersTable from "./AdminUsers/Table/index";
 
 interface IParams {
@@ -59,18 +62,6 @@ const Details: React.FC = () => {
 						</Tooltip>
 					),
 				}}
-				button={(
-					<Button
-						variant="outline"
-						minW={{ base: "100%", md: 280 }}
-						size="lg"
-						mt={10}
-						isLoading={store.loader.isLoading}
-						onClick={goBack}
-					>
-						{strings.actions.back}
-					</Button>
-				)}
 			>
 				{store.fetchModelShelf.model.value &&
 					<>
@@ -117,19 +108,6 @@ const Details: React.FC = () => {
 							value={store.fetchModelShelf.fetchedModel.address.state}
 						/>
 					</>}
-				<Flex alignItems="center" w="100%" pb={20}>
-					<Button
-						variant="outline"
-						minW={{ base: "100%", md: 280 }}
-						mx="auto"
-						size="lg"
-						mt={10}
-						isLoading={store.loader.isLoading}
-						onClick={goBack}
-					>
-						{strings.actions.back}
-					</Button>
-				</Flex>
 			</CentralizedCard>
 			{id && (
 				<CentralizedCard
@@ -151,19 +129,37 @@ const Details: React.FC = () => {
 				</CentralizedCard>
 			)}
 			{store.paginetedListShelf && (
-				<ProductTable
-					maxW={{ base: "100%", md: "75%", lg: "60%" }}
-					cardTableProps={{ maxW: "100%" }}
-					mx="auto"
-					px={0}
-					paginatedListShelf={store.paginetedListShelf}
-					deleteProduct={store.deleteProduct}
-					changeDisableStatus={store.changeProductDisableStatus}
-					redirectTo={{
-						edit: (productId) => `${productsAdminRoute}/edit/${productId}`,
-						details: (productId) => `${productsAdminRoute}/details/${productId}`,
-					}}
-				/>
+				<CentralizedCard
+					isTable
+					title={{ text: strings.products.table.title }}
+					button={(
+						<Button
+							variant="outline"
+							minW={{ base: "100%", md: 280 }}
+							size="lg"
+							mt={10}
+							isLoading={store.loader.isLoading}
+							onClick={goBack}
+						>
+							{strings.actions.back}
+						</Button>
+					)}
+				>
+					<ProductTable
+						maxW={{ base: "100%", md: "75%", lg: "60%" }}
+						cardTableProps={{ maxW: "100%" }}
+						mx="auto"
+						px={0}
+						minH={300}
+						paginatedListShelf={store.paginetedListShelf}
+						deleteProduct={store.deleteProduct}
+						changeDisableStatus={store.changeProductDisableStatus}
+						redirectTo={{
+							edit: (productId) => `${productsAdminRoute}/edit/${productId}`,
+							details: (productId) => `${productsAdminRoute}/details/${productId}`,
+						}}
+					/>
+				</CentralizedCard>
 			)}
 		</>
 	);
