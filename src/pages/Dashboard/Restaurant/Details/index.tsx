@@ -31,6 +31,8 @@ const Details: React.FC = () => {
 	const onGoToEditUser = (userId: string) => history.push(`/dashboard/restaurants/edit/${userId}`);
 	const goBack = () => history.goBack();
 
+	const productsAdminRoute = "/dashboard/productsForAdmin";
+
 	return (
 		<>
 			<CentralizedCard
@@ -110,6 +112,10 @@ const Details: React.FC = () => {
 					paginatedListShelf={store.paginetedListShelf}
 					deleteProduct={store.deleteProduct}
 					changeDisableStatus={store.changeProductDisableStatus}
+					redirectTo={{
+						edit: (productId) => `${productsAdminRoute}/edit/${productId}`,
+						details: (productId) => `${productsAdminRoute}/details/${productId}`,
+					}}
 				/>
 			)}
 			<Flex alignItems="center" w="100%" pb={20}>
