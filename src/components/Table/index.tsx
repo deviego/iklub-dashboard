@@ -80,7 +80,7 @@ export const Table = <DataType,>(props: IProps<DataType>) => {
 				maxW={{ base:"100%", md: isCard ? "100%" : "75%" }}
 				px={0}
 				borderRadius={12}
-				boxShadow={isCard ? 0 : "lg"}
+				boxShadow={isCard ? "none" : "lg"}
 				bg="white"
 				{...rest}
 			>
