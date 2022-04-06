@@ -229,6 +229,12 @@ const strings = new LocalizedStrings({
 					cancel: "Cancelar",
 				},
 			},
+			adminUsersTable: {
+				title: "Lista de Usuários Admin:",
+				header: ["", "Usuários Admin", "Email"],
+				delete: (userName: string) => `Usuário ${userName} foi deletado!`,
+				addButtonText: "Adicionar novo usuário admin",
+			},
 		},
 		adminUsers: {
 			table: {

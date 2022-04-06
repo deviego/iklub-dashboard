@@ -20,6 +20,7 @@ import {
 import strings from "~/resources/strings";
 
 import Store from "./store";
+import AdminUsersTable from "./AdminUsers/Table/index";
 
 import imagePlaceholder from "../../../../../static/pick_image.svg";
 
@@ -35,78 +36,100 @@ const Details: React.FC = () => {
 
 	const store = useLocalObservable(() => new Store(id || ""));
 
-	const onGoToEditUser = (userId: string) => history.push(`/dashboard/restaurants/edit/${userId}`);
+	const onGoToEditRestaurant = (restaurantId: string) => history.push(`/dashboard/restaurants/edit/${restaurantId}`);
+	const onGoToCreateUser = () => history.push(`/dashboard/restaurants/${id}/adminUsers/create/`);
+
 	const goBack = () => history.goBack();
 
 	return (
-		<CentralizedCard
-			title={{
-				text: commonStrings.detailsTitle,
-				helper: (
-					<Tooltip label={strings.common.edit}>
-						<IconButton
-							variant="icon"
-							aria-label="Edit"
+		<>
+			{id && (
+				<CentralizedCard
+					isTable
+					title={{ text: strings.adminRestaurantUsers.table.title }}
+					button={
+						<Button
+							minW={{ base: "100%", md: 280 }}
 							size="lg"
-							icon={
-								<EditIcon
-									w="24px"
-									h="24px"
-									mt={23}
-									onClick={() => onGoToEditUser(id || "")}
-								/>
-							}
-						/>
-					</Tooltip>
-				),
-			}}
-			button={(
-				<Button
-					variant="outline"
-					minW={{ base: "100%", md: 280 }}
-					size="lg"
-					mt={10}
-					isLoading={store.loader.isLoading}
-					onClick={goBack}
+							mt={10}
+							isLoading={store.loader.isLoading}
+							onClick={onGoToCreateUser}
+						>
+							{strings.adminRestaurantUsers.table.tableAddButton}
+						</Button>
+					}
 				>
-					{strings.actions.back}
-				</Button>
+					<AdminUsersTable restaurantId={id} />
+				</CentralizedCard>
 			)}
-		>
-			{store.fetchModelShelf.model.value &&
-				<>
-
-					<Box>
-						<Label fontWeight="bold" marginBottom={1}>
-							{commonStrings.fields.photo}
-						</Label>
-						<Image
-							width={120}
-							height={120}
-							backgroundColor="white"
-							p={0}
-							m={0}
-							src={store.fetchModelShelf.fetchedModel.image ? store.fetchModelShelf.fetchedModel.image.url : imagePlaceholder}
-							rounded="lg"
+			<CentralizedCard
+				title={{
+					text: commonStrings.detailsTitle,
+					helper: (
+						<Tooltip label={strings.common.edit}>
+							<IconButton
+								variant="icon"
+								aria-label="Edit"
+								size="lg"
+								icon={
+									<EditIcon
+										w="24px"
+										h="24px"
+										mt={23}
+										onClick={() => onGoToEditRestaurant(id || "")}
+									/>
+								}
+							/>
+						</Tooltip>
+					),
+				}}
+				button={(
+					<Button
+						variant="outline"
+						minW={{ base: "100%", md: 280 }}
+						size="lg"
+						mt={10}
+						isLoading={store.loader.isLoading}
+						onClick={goBack}
+					>
+						{strings.actions.back}
+					</Button>
+				)}
+			>
+				{store.fetchModelShelf.model.value &&
+					<>
+						<Box>
+							<Label fontWeight="bold" marginBottom={1}>
+								{commonStrings.fields.photo}
+							</Label>
+							<Image
+								width={120}
+								height={120}
+								backgroundColor="white"
+								p={0}
+								m={0}
+								src={store.fetchModelShelf.fetchedModel.image ? store.fetchModelShelf.fetchedModel.image.url : imagePlaceholder}
+								rounded="lg"
+							/>
+						</Box>
+						<DetailsRow
+							label={commonStrings.fields.name}
+							value={store.fetchModelShelf.fetchedModel.name}
 						/>
-					</Box>
-					<DetailsRow
-						label={commonStrings.fields.name}
-						value={store.fetchModelShelf.fetchedModel.name}
-					/>
-					<DetailsRow
-						label={commonStrings.fields.corporateName}
-						value={store.fetchModelShelf.fetchedModel.corporateName}
-					/>
-					<DetailsRow
-						label={commonStrings.fields.documentNumber}
-						value={store.fetchModelShelf.fetchedModel.documentNumber}
-					/>
-					<AddressDetails
-						address={store.fetchModelShelf.fetchedModel.address}
-					/>
-				</>}
-		</CentralizedCard>
+						<DetailsRow
+							label={commonStrings.fields.corporateName}
+							value={store.fetchModelShelf.fetchedModel.corporateName}
+						/>
+						<DetailsRow
+							label={commonStrings.fields.documentNumber}
+							value={store.fetchModelShelf.fetchedModel.documentNumber}
+						/>
+						<AddressDetails
+							address={store.fetchModelShelf.fetchedModel.address}
+						/>
+					</>}
+			</CentralizedCard>
+		</>
 	);
 };
 
