@@ -1,17 +1,26 @@
 import {
 	LoaderShelf,
 	PaginatedListShelf,
+	AttributeShelf,
 } from "@startapp/mobx-utils";
 import { showErrorToast, showSuccessToast } from "~/resources/toast";
 import { Errors } from "~/resources/errors";
 import strings from "~/resources/strings";
 import api from "~/resources/api";
 import { makeAutoObservable } from "mobx";
+import API from "~/resources/api";
 
 export default class Store {
 
+	public loader = new LoaderShelf();
+	public dateFilter = new AttributeShelf<Date | null>(null);
+	public getAllRestaurants = async (pageOffSet: number): Promise<API.Restaurant[]> => {
+		const restaurants = await api.getAllRestaurants(pageOffSet, this.dateFilter.value);
+		return restaurants;
+	};
+
 	public paginetedListShelf: PaginatedListShelf<api.Restaurant> = new PaginatedListShelf(
-		(page) => api.getAllRestaurants(page, null),
+		this.getAllRestaurants,
 		{
 			fetchOnConstructor: true,
 			onFetchError: (e) => {
@@ -20,12 +29,15 @@ export default class Store {
 			},
 		},
 	);
-
-	public loader = new LoaderShelf();
-
 	constructor() {
 		makeAutoObservable(this);
 	}
+
+	public onChangeDateFilter = (newDate: Date) => {
+		this.dateFilter.setValue(newDate);
+		this.paginetedListShelf.refresh();
+	};
+
 
 	public deleteRestaurant = async (id: string) => {
 		this.loader.tryStart();
