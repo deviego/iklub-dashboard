@@ -80,11 +80,28 @@ export default class Store {
 		this.loader.tryStart();
 		try {
 
+			const data = this.formShelf.getValues();
+
 			if (this.id.value) {
 				await api.editProduct(this.id.value, this.createNewProductObject());
+				await api.editProduct(this.id.value,{
+					image: this.imageShelf.uncertainfiedImage,
+					title: data.title,
+					description: data.description,
+					price: this.price.value,
+					totalNumberOfDoses: Number(data.totalNumberOfDoses),
+				});
 
 			} else {
-				await api.createProduct(this.createNewProductObject(), "9f1f52b7-7968-4a39-b4f0-a8aa387e0dec");
+				await api.createProduct(
+					{
+						image: this.imageShelf.uncertainfiedImage,
+						title: data.title,
+						description: data.description,
+						price: this.price.value,
+						totalNumberOfDoses: Number(data.totalNumberOfDoses),
+					}
+					, "9f1f52b7-7968-4a39-b4f0-a8aa387e0dec");
 			}
 
 			showSuccessToast(pageStrings.success(!!this.id.value));
