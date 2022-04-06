@@ -34,6 +34,25 @@ const Details: React.FC = () => {
 
 	return (
 		<>
+			{id && (
+				<CentralizedCard
+					isTable
+					title={{ text: strings.adminRestaurantUsers.table.title }}
+					button={
+						<Button
+							minW={{ base: "100%", md: 280 }}
+							size="lg"
+							mt={10}
+							isLoading={store.loader.isLoading}
+							onClick={onGoToCreateUser}
+						>
+							{strings.adminRestaurantUsers.table.tableAddButton}
+						</Button>
+					}
+				>
+					<AdminUsersTable restaurantId={id} />
+				</CentralizedCard>
+			)}
 			<CentralizedCard
 				title={{
 					text: commonStrings.detailsTitle,
@@ -68,25 +87,6 @@ const Details: React.FC = () => {
 					</Button>
 				)}
 			>
-				{id && (
-					<CentralizedCard
-						isTable
-						title={{ text: strings.adminRestaurantUsers.table.title }}
-						button={
-							<Button
-								minW={{ base: "100%", md: 280 }}
-								size="lg"
-								mt={10}
-								isLoading={store.loader.isLoading}
-								onClick={onGoToCreateUser}
-							>
-								{strings.adminRestaurantUsers.table.tableAddButton}
-							</Button>
-						}
-					>
-						<AdminUsersTable restaurantId={id} />
-					</CentralizedCard>
-				)}
 				{store.fetchModelShelf.model.value &&
 					<>
 						<DetailsRow
@@ -131,11 +131,10 @@ const Details: React.FC = () => {
 							label={commonStrings.fields.state}
 							value={store.fetchModelShelf.fetchedModel.address.state}
 						/>
-
 					</>}
 			</CentralizedCard>
-		</>
 
+		</>
 	);
 };
 
