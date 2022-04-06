@@ -49,7 +49,6 @@ const AdminUsersTable: React.FC<IProps> = (props) => {
 	};
 
 	return (
-
 		<Table
 			data={store._items}
 			headers={pageStrings.header}
