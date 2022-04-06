@@ -17,6 +17,11 @@ const Dashboard: React.FC = () => (
 				path="/"
 				component={Home}
 			/>
+			<Route
+				exact
+				path="/dashboard"
+				component={Home}
+			/>
 			<Route path="/dashboard/adminUsers" component={AdminUsers} />
 			<Route path="/dashboard/users" component={Users} />
 			<Route path="/dashboard/restaurants" component={Restaurant} />

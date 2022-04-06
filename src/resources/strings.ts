@@ -98,10 +98,13 @@ const strings = new LocalizedStrings({
 				},
 			},
 		},
+		home: {
+			message: (userName: string) => `Bem vindo ao Dashboard,  ${userName}!`,
+		},
 		login: {
 			loginIn: "Login",
 			recoveryPassword: "Recuperar Senha",
-			success: (userName: string) => `Bem vindo ao Dashboard, ${userName}!`,
+			success: (userName: string) => `Bem vindo  ${userName}.`,
 			fields: {
 				email: "E-mail",
 				password: "Senha",
