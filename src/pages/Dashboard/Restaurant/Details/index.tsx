@@ -5,17 +5,26 @@ import {
 	IconButton,
 	Tooltip,
 	Button,
+	Box,
+	Image,
 	Flex,
 } from "@chakra-ui/react";
 import { EditIcon } from "@chakra-ui/icons";
+
 import {
+	AddressDetails,
 	CentralizedCard,
 	DetailsRow,
+	Label,
 	ProductTable,
 } from "~/components";
+
 import strings from "~/resources/strings";
+
 import Store from "./store";
 import AdminUsersTable from "./AdminUsers/Table/index";
+
+import imagePlaceholder from "../../../../../static/pick_image.svg";
 
 interface IParams {
 	id?: string;
@@ -74,47 +83,34 @@ const Details: React.FC = () => {
 			>
 				{store.fetchModelShelf.model.value &&
 					<>
+						<Box>
+							<Label fontWeight="bold" marginBottom={1}>
+								{commonStrings.fields.photo}
+							</Label>
+							<Image
+								width={120}
+								height={120}
+								backgroundColor="white"
+								p={0}
+								m={0}
+								src={store.fetchModelShelf.fetchedModel.image ? store.fetchModelShelf.fetchedModel.image.url : imagePlaceholder}
+								rounded="lg"
+							/>
+						</Box>
 						<DetailsRow
 							label={commonStrings.fields.name}
 							value={store.fetchModelShelf.fetchedModel.name}
 						/>
 						<DetailsRow
+							label={commonStrings.fields.corporateName}
+							value={store.fetchModelShelf.fetchedModel.corporateName}
+						/>
+						<DetailsRow
 							label={commonStrings.fields.documentNumber}
 							value={store.fetchModelShelf.fetchedModel.documentNumber}
 						/>
-						<DetailsRow
-							label={commonStrings.fields.zipcode}
-							value={store.fetchModelShelf.fetchedModel.address.zipcode}
-						/>
-						<DetailsRow
-							label={commonStrings.fields.street}
-							value={store.fetchModelShelf.fetchedModel.address.street}
-						/>
-						<DetailsRow
-							label={commonStrings.fields.streetNumber}
-							value={store.fetchModelShelf.fetchedModel.address.streetNumber}
-						/>
-						{store.fetchModelShelf.fetchedModel.address.complementary &&
-							<DetailsRow
-								label={commonStrings.fields.complementary}
-								value={store.fetchModelShelf.fetchedModel.address.complementary}
-							/>}
-						{store.fetchModelShelf.fetchedModel.address.neighborhood &&
-							<DetailsRow
-								label={commonStrings.fields.neighborhood}
-								value={store.fetchModelShelf.fetchedModel.address.neighborhood}
-							/>}
-						<DetailsRow
-							label={commonStrings.fields.city}
-							value={store.fetchModelShelf.fetchedModel.address.city}
-						/>
-						<DetailsRow
-							label={commonStrings.fields.countryCode}
-							value={store.fetchModelShelf.fetchedModel.address.countryCode}
-						/>
-						<DetailsRow
-							label={commonStrings.fields.state}
-							value={store.fetchModelShelf.fetchedModel.address.state}
+						<AddressDetails
+							address={store.fetchModelShelf.fetchedModel.address}
 						/>
 					</>}
 				<Flex alignItems="center" w="100%" pb={20}>

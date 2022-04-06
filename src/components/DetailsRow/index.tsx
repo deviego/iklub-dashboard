@@ -9,7 +9,7 @@ export interface IUserInfoCardProps {
 export const DetailsRow: React.FC<IUserInfoCardProps> = (props) => {
 	const { value, label } = props;
 	return (
-		<Box w="100%" >
+		<Box w="100%" mb={6} >
 			{!Array.isArray(value) ?
 				(
 					<Stack spacing={1}>
