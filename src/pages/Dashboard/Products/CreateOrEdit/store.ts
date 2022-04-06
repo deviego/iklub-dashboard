@@ -5,6 +5,7 @@ import format from "../../../../resources/format";
 
 import { Errors } from "~/resources/errors";
 import api from "~/resources/api";
+import { CustomError } from "~/resources/customError";
 import { showErrorToast, showSuccessToast } from "~/resources/toast";
 import strings from "~/resources/strings";
 
@@ -30,12 +31,14 @@ export default class Store {
 
 	public searchRestaurant = new AttributeShelf("");
 
-	public autoCompleteRestaurant = new PaginatedListShelf(
+	public selectedRestaurant = new AttributeShelf<api.Restaurant | null>(null);
+
+	public restaurantPaginatedList = new PaginatedListShelf(
 		async (page: number) => await api.autocompleteRestaurant(this.searchRestaurant.value, page),
 	);
 
 	private autoCompleteReaction = reaction(() => this.searchRestaurant.value,
-		() => this.autoCompleteRestaurant.refresh(),
+		() => this.restaurantPaginatedList.refresh(),
 	);
 
 	public dispose = () => {
@@ -98,7 +101,8 @@ export default class Store {
 				await api.editProduct(this.id.value, this.createNewProductObject());
 
 			} else {
-				await api.createProduct(this.createNewProductObject(), "9f1f52b7-7968-4a39-b4f0-a8aa387e0dec");
+				const restaurant = this.validateIfSelectRestaurant();
+				await api.createProduct(this.createNewProductObject(), restaurant.id);
 			}
 
 			showSuccessToast(pageStrings.success(!!this.id.value));
@@ -109,5 +113,12 @@ export default class Store {
 		} finally {
 			this.loader.end();
 		}
+	};
+
+	private validateIfSelectRestaurant = (): api.Restaurant => {
+		if (!this.selectedRestaurant.value) {
+			throw new CustomError(api.ErrorType.InvalidArgument, strings.error.missingRestaurant);
+		}
+		return this.selectedRestaurant.value;
 	};
 }

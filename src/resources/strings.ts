@@ -94,6 +94,7 @@ const strings = new LocalizedStrings({
 			stillLoading: "Ainda Carregando, aguarde.",
 			notLoggedIn: "Usuario não logado",
 			default: "Houve um erro, tente novamente mais tarde.",
+			missingRestaurant: "É preciso selecionar o restaurante dono do produto",
 		},
 		common: {
 			noResutls: "Sem Resultados",
@@ -134,6 +135,7 @@ const strings = new LocalizedStrings({
 				title: "Title:",
 				description: "Descrição:",
 				createdAt: "Data de Criação:",
+				restaurant: "Restaurante:",
 			},
 			mask: {
 				date: "__/__/____",
@@ -248,6 +250,7 @@ const strings = new LocalizedStrings({
 			createOrEdit: {
 				title: (isEdit?: boolean) => isEdit ? "Edição de Produto" : "Cadastro de Produto",
 				button: (isEdit?: boolean) => isEdit ? "Editar" : "Cadastrar",
+				searchRestaurant: "Buscar restaurante...",
 			},
 			success: (isEdit?: boolean) => isEdit ? "Produto editado com sucesso" : "Produto criado com sucesso",
 			modal: {
