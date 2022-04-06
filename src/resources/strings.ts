@@ -4,6 +4,37 @@ import LocalizedStrings from "localized-strings";
 const strings = new LocalizedStrings({
 	ptBR: {
 		removeCharactersExceptLetterNumber: (character: string) => character.replace(/[^a-zA-Z0-9]/g, ""),
+		enum: {
+			StateUF: {
+				AC: "Acre",
+				AL: "Alagoas",
+				AP: "Amapá",
+				AM: "Amazonas",
+				BA: "Bahia",
+				CE: "Ceará",
+				DF: "Distrito Federal",
+				ES: "Espírito Santo",
+				GO: "Goiás",
+				MA: "Maranhão",
+				MT: "Mato Grosso",
+				MS: "Mato Grosso do Sul",
+				MG: "Minas Gerais",
+				PA: "Pará",
+				PB: "Paraíba",
+				PR: "Paraná",
+				PE: "Pernambuco",
+				PI: "Piauí",
+				RJ: "Rio de Janeiro",
+				RN: "Rio Grande do Norte",
+				RS: "Rio Grande do Sul",
+				RO: "Rondônia",
+				RR: "Roraima",
+				SC: "Santa Catarina",
+				SP: "São Paulo",
+				SE: "Sergipe",
+				TO: "Tocantins",
+			},
+		},
 		components: {
 			autoCompleteList: {
 				empty: "Não há itens na lista",
@@ -17,11 +48,27 @@ const strings = new LocalizedStrings({
 			imagePicker: {
 				selectAnImage: "Selecione uma imagem",
 			},
+			checkinPeriodFilter: {
+				filterDate: "Filtrar por data de criação",
+			},
+			addressForm: {
+				title: "Endereço:",
+				zipcode: "CEP:",
+				street: "Rua:",
+				neighborhood: "Bairro:",
+				number: "Número:",
+				complement: "Complemento:",
+				addressPlaceholder: "Digite um endereço...",
+				city: "Cidade:",
+				countryCode: "Código do País:",
+				state: "Estado:",
+			},
 		},
 		nav: {
 			home: "Home",
 			restaurants: "Restaurantes",
 			adminUsers: "Usuários Adminstrativos",
+			products: "Produtos",
 			users: "Usuários",
 			adminRestaurantUsers: "Usuários Restaurantes",
 			logout: "Sair",
@@ -82,6 +129,11 @@ const strings = new LocalizedStrings({
 				city: "Cidade:",
 				countryCode: "Código do País:",
 				state: "Estado:",
+				totalAmountOfDoses: "Total de Doses:",
+				price: "Preço:",
+				title: "Title:",
+				description: "Descrição:",
+				createdAt: "Data de Criação:",
 			},
 			mask: {
 				date: "__/__/____",
@@ -127,10 +179,10 @@ const strings = new LocalizedStrings({
 			confirmNewPassword: "Confirme sua nova senha",
 			samePasswordError: "As senhas não correspondem",
 		},
-		users :{
+		users: {
 			table: {
 				title: "Lista de Usuários",
-				header: ["", "Usuários", "Email", "Data de Cadastro" ],
+				header: ["", "Usuários", "Email", "Data de Cadastro"],
 				delete: (userName: string) => `Usuário ${userName} foi deletado!`,
 				statusUser: (isUserBlocked: boolean) => `O Usuário ${isUserBlocked ? "foi bloqueado" : "foi desbloaqueado"}`,
 				totalText: "Usuários cadastrados",
@@ -149,7 +201,7 @@ const strings = new LocalizedStrings({
 			totalText: "Restaurantes cadastrados",
 			table: {
 				title: "Lista Usuários do Restaurante",
-				header:  ["", "Nome do Restaurante", "Documento do Restaurante", "Data de Cadastro"],
+				header: ["", "Nome do Restaurante", "Documento do Restaurante", "Data de Cadastro"],
 				delete: (userName: string) => `Restaurante ${userName} foi deletado!`,
 				statusRestaurant: (isUserBlocked: boolean) => `O Restaurante ${isUserBlocked ? "foi bloqueado" : "foi desbloqueado"}`,
 				addButtonText: "Adicionar novo Restaurante",
@@ -178,8 +230,38 @@ const strings = new LocalizedStrings({
 				successBankAccount: (isEdit?: boolean) => isEdit ? "Conta editada com sucesso" : "Conta Bancária criada com sucesso",
 			},
 			modal: {
-				title: ( isRestaurantBlocked: boolean) => ` ${isRestaurantBlocked ? "Habilitar" : "Desabilitar"} Restaurante`,
+				title: (isRestaurantBlocked: boolean) => ` ${isRestaurantBlocked ? "Habilitar" : "Desabilitar"} Restaurante`,
 				description: (itemName: string, isRestaurantBlocked: boolean) => `Tem certeza que deseja ${isRestaurantBlocked ? "habilitar" : "desabilitar"} ${itemName}?`,
+				button: {
+					disable: "Desabilitar",
+					enable: "Habilitar",
+					cancel: "Cancelar",
+				},
+			},
+			adminUsersTable: {
+				title: "Lista de Usuários Admin:",
+				header: ["", "Usuários Admin", "Email"],
+				delete: (userName: string) => `Usuário ${userName} foi deletado!`,
+				addButtonText: "Adicionar novo usuário admin",
+			},
+		},
+		products: {
+			title: "Products",
+			table: {
+				title: "Tabela de Produtos",
+				header:  ["", "Nome do Produto", "Preço", "Total de Doses","Data de Cadastro"],
+				delete: (name: string) => `Produto ${name} foi deletado!`,
+				statusDisable: (isBlocked: boolean) => `O Produto ${isBlocked ? "foi disabilitado" : "foi habilitado"}`,
+				addButtonText: "Adicionar novo Produto",
+			},
+			createOrEdit: {
+				title: (isEdit?: boolean) => isEdit ? "Edição de Produto" : "Cadastro de Produto",
+				button: (isEdit?: boolean) => isEdit ? "Editar" : "Cadastrar",
+			},
+			success: (isEdit?: boolean) => isEdit ? "Produto editado com sucesso" : "Produto criado com sucesso",
+			modal: {
+				title: (isDisabled: boolean) => ` ${isDisabled ? "Habilitar" : "Desabilitar"} Produto`,
+				description: (itemName: string, isDisabled: boolean) => `Tem certeza que deseja ${isDisabled ? "habilitar" : "desabilitar"} ${itemName}?`,
 				button: {
 					disable: "Desabilitar",
 					enable: "Habilitar",

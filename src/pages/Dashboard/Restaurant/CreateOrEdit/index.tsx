@@ -40,6 +40,10 @@ const CreateOrEdit: React.FC = () => {
 						pick: store.imageShelf.getPickerFields().pick,
 						src: store.imageShelf.src,
 					},
+					state: {
+						value: store.stateUF.value,
+						setValue: store.stateUF.setValue,
+					},
 				}}
 				submit={{
 					onClick: onSubmit,

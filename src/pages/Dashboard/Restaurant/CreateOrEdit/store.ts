@@ -22,10 +22,9 @@ export default class Store {
 		neighborhood: "",
 		city: "",
 		countryCode: "",
-		state: api.StateUF.BA,
 	});
 
-	public stateUF = new AttributeShelf(api.StateUF.BA);
+	public stateUF = new AttributeShelf(api.StateUF.AC);
 	public loader = new LoaderShelf();
 	public imageShelf = new ImagePickerShelf(api.uploadImage);
 
@@ -39,12 +38,6 @@ export default class Store {
 			this.getRestaurant(id);
 		}
 	}
-
-	public setStateEnum = async (stateGooglePlace: string) => {
-		const allStateEnum = api.allValuesStateUF();
-		const stateFiltered = allStateEnum.find((state: api.StateUF) => state === stateGooglePlace);
-		this.stateUF.setValue(stateFiltered || api.StateUF.BA);
-	};
 
 	public getRestaurant = async (id: string) => {
 		this.loader.tryStart();
@@ -71,10 +64,12 @@ export default class Store {
 			streetNumber: restaurant.address.streetNumber,
 			zipcode: restaurant.address.zipcode,
 			countryCode: restaurant.address.countryCode,
-			state: restaurant.address.state,
 		});
 		if (restaurant.image) {
 			this.imageShelf.getPickerFields().setUploadedImage(restaurant.image);
+		}
+		if (restaurant.address){
+			this.stateUF.setValue(restaurant.address.state);
 		}
 	};
 
