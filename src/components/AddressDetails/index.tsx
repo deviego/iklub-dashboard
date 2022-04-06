@@ -23,21 +23,20 @@ export const AddressDetails: React.FC<IProps> = (props) => {
 					label={commonStrings.fields.zipcode}
 					value={address.zipcode}
 				/>
-				{address.street && address.streetNumber &&
-					<HStack m={0}>
-						<Box w={{base: "50%", md: "70%"}}>
-							<DetailsRow
-								label={commonStrings.fields.street}
-								value={address.street}
-							/>
-						</Box>
-						<Box w={{base: "50%", md: "30%"}}>
-							<DetailsRow
-								label={commonStrings.fields.streetNumber}
-								value={address.streetNumber}
-							/>
-						</Box>
-					</HStack>}
+				<HStack m={0}>
+					<Box w={{base: "50%", md: "70%"}}>
+						<DetailsRow
+							label={commonStrings.fields.street}
+							value={address.street}
+						/>
+					</Box>
+					<Box w={{base: "50%", md: "30%"}}>
+						<DetailsRow
+							label={commonStrings.fields.streetNumber}
+							value={address.streetNumber}
+						/>
+					</Box>
+				</HStack>
 				{address.complementary &&
 					<DetailsRow
 						label={commonStrings.fields.complementary}
