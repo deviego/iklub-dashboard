@@ -9,13 +9,18 @@ import {
 	Box,
 } from "@chakra-ui/react";
 import { EditIcon } from "@chakra-ui/icons";
+
 import {
+	AddressDetails,
 	CentralizedCard,
 	DetailsRow,
 	Label,
 } from "~/components";
+
 import strings from "~/resources/strings";
+
 import Store from "./store";
+
 import imagePlaceholder from "../../../../../static/pick_image.svg";
 
 interface IParams {
@@ -95,6 +100,12 @@ const Details: React.FC = () => {
 						label={commonStrings.fields.phone}
 						value={store.fetchModelShelf.fetchedModel.phone}
 					/>
+					{
+						store.fetchModelShelf.fetchedModel.address &&
+							<AddressDetails
+								address={store.fetchModelShelf.fetchedModel.address}
+							/>
+					}
 				</>}
 		</CentralizedCard>
 	);
