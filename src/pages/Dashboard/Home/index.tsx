@@ -16,7 +16,13 @@ const Home: React.FC = () => {
 		<>
 			{
 				authStore.currentAdminUser &&
-					<Text fontSize="lg" fontWeight="bold" marginTop={5} textAlign="center" p={4}>
+					<Text
+						fontSize="lg"
+						fontWeight="bold"
+						marginTop={5}
+						textAlign="center"
+						p={4}
+					>
 						{
 							pageStrings.message(authStore.currentAdminUser.name)
 						}
