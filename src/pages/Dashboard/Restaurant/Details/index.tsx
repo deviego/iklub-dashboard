@@ -139,9 +139,7 @@ const Details: React.FC = () => {
 					)}
 				>
 					<ProductTable
-						maxW={{ base: "100%", md: "75%", lg: "60%" }}
 						cardTableProps={{ maxW: "100%" }}
-						mx="auto"
 						px={0}
 						paginatedListShelf={store.paginetedListShelf}
 						deleteProduct={store.deleteProduct}
