@@ -74,27 +74,23 @@ const Details: React.FC = () => {
 				)}
 			>
 				{store.fetchModelShelf.model.value &&
-					<>
-						<DetailsRestaurant
-							restaurant={store.fetchModelShelf.fetchedModel}
-						/>
-					</>}
+					<DetailsRestaurant
+						restaurant={store.fetchModelShelf.fetchedModel}
+					/>}
 			</CentralizedCard>
 			{id && (
 				<CentralizedCard
 					isTable
 					title={{ text: strings.adminRestaurantUsers.table.title }}
 					button={
-						<>
-							<Button
-								variant="outline"
-								size="lg"
-								isLoading={store.loader.isLoading}
-								onClick={onGoToCreateUser}
-							>
-								{strings.adminRestaurantUsers.table.tableAddButton}
-							</Button>
-						</>
+						<Button
+							variant="outline"
+							size="lg"
+							isLoading={store.loader.isLoading}
+							onClick={onGoToCreateUser}
+						>
+							{strings.adminRestaurantUsers.table.tableAddButton}
+						</Button>
 					}
 				>
 					<AdminUsersTable restaurantId={id} />
