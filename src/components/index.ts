@@ -25,3 +25,5 @@ export { DateFilter } from "./DateFilter";
 export { AddressForm } from "./AddressForm";
 export { EnumSelect } from "./EnumSelect";
 export { AddressDetails } from "./AddressDetails";
+export { DetailsForm } from "./DetailsForm";
+export { ButtonActions } from "./ButtonActions";
