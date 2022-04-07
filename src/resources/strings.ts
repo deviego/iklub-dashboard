@@ -152,10 +152,13 @@ const strings = new LocalizedStrings({
 				},
 			},
 		},
+		home: {
+			message: (userName: string) => `Bem vindo ao Dashboard,  ${userName}!`,
+		},
 		login: {
 			loginIn: "Login",
 			recoveryPassword: "Recuperar Senha",
-			success: (userName: string) => `Bem vindo ${userName}.`,
+			success: (userName: string) => `Bem vindo  ${userName}.`,
 			fields: {
 				email: "E-mail",
 				password: "Senha",
@@ -236,6 +239,12 @@ const strings = new LocalizedStrings({
 					enable: "Habilitar",
 					cancel: "Cancelar",
 				},
+			},
+			adminUsersTable: {
+				title: "Lista de Usuários Admin:",
+				header: ["", "Usuários Admin", "Email"],
+				delete: (userName: string) => `Usuário ${userName} foi deletado!`,
+				addButtonText: "Adicionar novo usuário admin",
 			},
 		},
 		products: {

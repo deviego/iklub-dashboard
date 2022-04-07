@@ -127,7 +127,10 @@ const CreateOrEdit: React.FC = () => {
 							key={restaurant.id}
 							restaurant={restaurant}
 							isSelected={(store.selectedRestaurant.value && store.selectedRestaurant.value.id === restaurant.id) || false}
-							onClickCard={(item) => store.selectedRestaurant.setValue(item)}
+							onClickCard={(item) => {
+								store.selectedRestaurant.setValue(item);
+								onClose();
+							}}
 						/>
 					),
 					paginantionProps: {

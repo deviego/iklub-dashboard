@@ -97,8 +97,17 @@ export default class Store {
 		this.loader.tryStart();
 		try {
 
+			const data = this.formShelf.getValues();
+
 			if (this.id.value) {
 				await api.editProduct(this.id.value, this.createNewProductObject());
+				await api.editProduct(this.id.value,{
+					image: this.imageShelf.uncertainfiedImage,
+					title: data.title,
+					description: data.description,
+					price: this.price.value,
+					totalNumberOfDoses: Number(data.totalNumberOfDoses),
+				});
 
 			} else {
 				const restaurant = this.validateIfSelectRestaurant();
