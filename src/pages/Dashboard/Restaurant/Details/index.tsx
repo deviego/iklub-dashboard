@@ -2,13 +2,13 @@ import React from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { observer, useLocalObservable } from "mobx-react-lite";
 import {
+	Button,
 	IconButton,
 	Tooltip,
 } from "@chakra-ui/react";
 import { EditIcon } from "@chakra-ui/icons";
 
 import {
-	ButtonActions,
 	CentralizedCard,
 	DetailsRestaurant,
 	ProductTable,
@@ -63,12 +63,14 @@ const Details: React.FC = () => {
 					),
 				}}
 				button={(
-					<ButtonActions
-						isLoading={store.loader.isLoading}
-						action={goBack}
-						value={strings.actions.back}
+					<Button
 						variant="outline"
-					/>
+						size="lg"
+						isLoading={store.loader.isLoading}
+						onClick={goBack}
+					>
+						{strings.actions.back}
+					</Button>
 				)}
 			>
 				{store.fetchModelShelf.model.value &&
@@ -84,11 +86,14 @@ const Details: React.FC = () => {
 					title={{ text: strings.adminRestaurantUsers.table.title }}
 					button={
 						<>
-							<ButtonActions
+							<Button
+								variant="outline"
+								size="lg"
 								isLoading={store.loader.isLoading}
-								action={onGoToCreateUser}
-								value={strings.adminRestaurantUsers.table.tableAddButton}
-							/>
+								onClick={onGoToCreateUser}
+							>
+								{strings.adminRestaurantUsers.table.tableAddButton}
+							</Button>
 						</>
 					}
 				>

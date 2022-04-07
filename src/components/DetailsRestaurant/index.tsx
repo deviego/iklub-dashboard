@@ -31,7 +31,7 @@ export const DetailsRestaurant: React.FC<IProps> = (props) => {
 					backgroundColor="white"
 					p={0}
 					m={0}
-					src={restaurant.image ?restaurant.image.url : imagePlaceholder}
+					src={restaurant.image ? restaurant.image.url : imagePlaceholder}
 					rounded="lg"
 				/>
 			</Box>
