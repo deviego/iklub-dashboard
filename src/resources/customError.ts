@@ -1,10 +1,10 @@
 import api from "./api";
 
 export class CustomError<ErroType extends api.ErrorType> {
-	public error: ErroType;
+	public type: ErroType;
 	public message: string;
 	constructor(error: ErroType, message: string) {
-		this.error = error;
+		this.type = error;
 		this.message = message;
 	}
 }
