@@ -23,11 +23,3 @@ export const Button: ComponentStyleConfig = {
 		},
 	},
 };
-
-
-// 	lg: (props) => ({
-// 		...theme.components.Button.sizes.lg(props),
-// 		margin: 10,
-// 		minW: { base: "100%", md: 280 },
-// 	}),
-// },
