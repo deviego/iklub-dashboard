@@ -10,7 +10,7 @@ import { EditIcon } from "@chakra-ui/icons";
 import {
 	ButtonActions,
 	CentralizedCard,
-	DetailsForm,
+	DetailsRestaurant,
 	ProductTable,
 } from "~/components";
 
@@ -73,8 +73,8 @@ const Details: React.FC = () => {
 			>
 				{store.fetchModelShelf.model.value &&
 					<>
-						<DetailsForm
-							formRestaurant={store.fetchModelShelf.fetchedModel}
+						<DetailsRestaurant
+							restaurant={store.fetchModelShelf.fetchedModel}
 						/>
 					</>}
 			</CentralizedCard>

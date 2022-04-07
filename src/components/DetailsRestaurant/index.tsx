@@ -10,12 +10,12 @@ import { AddressDetails, DetailsRow, Label } from "..";
 import imagePlaceholder from "../../../static/pick_image.svg";
 
 interface IProps {
-	formRestaurant: API.Restaurant;
+	restaurant: API.Restaurant;
 }
 
-export const DetailsForm: React.FC<IProps> = (props) => {
+export const DetailsRestaurant: React.FC<IProps> = (props) => {
 
-	const { formRestaurant } = props;
+	const { restaurant } = props;
 
 	const commonStrings = strings.common;
 
@@ -31,25 +31,25 @@ export const DetailsForm: React.FC<IProps> = (props) => {
 					backgroundColor="white"
 					p={0}
 					m={0}
-					src={formRestaurant.image ?formRestaurant.image.url : imagePlaceholder}
+					src={restaurant.image ?restaurant.image.url : imagePlaceholder}
 					rounded="lg"
 				/>
 			</Box>
 			<Box>
 				<DetailsRow
 					label={commonStrings.fields.name}
-					value={formRestaurant.name}
+					value={restaurant.name}
 				/>
 				<DetailsRow
 					label={commonStrings.fields.corporateName}
-					value={formRestaurant.corporateName}
+					value={restaurant.corporateName}
 				/>
 				<DetailsRow
 					label={commonStrings.fields.documentNumber}
-					value={formRestaurant.documentNumber}
+					value={restaurant.documentNumber}
 				/>
 				<AddressDetails
-					address={formRestaurant.address}
+					address={restaurant.address}
 				/>
 			</Box>
 		</>

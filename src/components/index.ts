@@ -26,5 +26,5 @@ export { AddressForm } from "./AddressForm";
 export { EnumSelect } from "./EnumSelect";
 export { RestaurantCard } from "./RestaurantCard";
 export { AddressDetails } from "./AddressDetails";
-export { DetailsForm } from "./DetailsForm";
+export { DetailsRestaurant } from "./DetailsRestaurant";
 export { ButtonActions } from "./ButtonActions";
