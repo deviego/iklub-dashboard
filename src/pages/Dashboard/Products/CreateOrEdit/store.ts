@@ -80,19 +80,6 @@ export default class Store {
 		}
 	};
 
-	public createNewProductObject = (): api.NewProduct => {
-
-		const data = this.formShelf.getValues();
-
-		return ({
-			image: this.imageShelf.uncertainfiedImage,
-			title: data.title,
-			description: data.description,
-			price: this.price.value,
-			totalNumberOfDoses: Number(data.totalNumberOfDoses),
-		});
-	};
-
 	public createOrEditRestaurant = async (onSuccess: () => void) => {
 		this.loader.tryStart();
 		try {
@@ -100,7 +87,6 @@ export default class Store {
 			const data = this.formShelf.getValues();
 
 			if (this.id.value) {
-				await api.editProduct(this.id.value, this.createNewProductObject());
 				await api.editProduct(this.id.value,{
 					image: this.imageShelf.uncertainfiedImage,
 					title: data.title,
@@ -111,7 +97,13 @@ export default class Store {
 
 			} else {
 				const restaurant = this.validateIfSelectRestaurant();
-				await api.createProduct(this.createNewProductObject(), restaurant.id);
+				await api.createProduct({
+					image: this.imageShelf.uncertainfiedImage,
+					title: data.title,
+					description: data.description,
+					price: this.price.value,
+					totalNumberOfDoses: Number(data.totalNumberOfDoses),
+				}, restaurant.id);
 			}
 
 			showSuccessToast(pageStrings.success(!!this.id.value));
