@@ -1,14 +1,18 @@
 import * as React from "react";
 
-import strings from "~/resources/strings";
-import API from "~/resources/api";
 import {
 	Box,
 	Image,
 } from "@chakra-ui/react";
-import { DetailsRow, Label } from "..";
-import imagePlaceholder from "../../../static/pick_image.svg";
+
+import strings from "~/resources/strings";
+import API from "~/resources/api";
 import format from "~/resources/format";
+
+import { DetailsRow, Label } from "..";
+
+import imagePlaceholder from "../../../static/pick_image.svg";
+
 
 interface IProps {
 	product: API.PurchasedProduct;
