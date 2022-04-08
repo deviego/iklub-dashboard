@@ -88,7 +88,6 @@ const Details: React.FC = () => {
 			{store.paginetedListShelf && (
 				<CentralizedCard
 					isTable
-					title={{ text: strings.products.table.title }}
 					button={(
 						<Button
 							variant="outline"
