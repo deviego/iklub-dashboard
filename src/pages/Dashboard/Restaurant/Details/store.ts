@@ -30,7 +30,9 @@ export default class Store{
 			{
 				fetchOnConstructor: true,
 				onAfterFetch: () => {
-					this.paginetedListShelf?.fetchPage(0);
+					if (this.paginetedListShelf) {
+						this.paginetedListShelf.fetchPage(0);
+					}
 				},
 				onFetchError: this.onFecthError,
 			},
