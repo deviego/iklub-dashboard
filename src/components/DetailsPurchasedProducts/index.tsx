@@ -14,12 +14,12 @@ import { DetailsRow, Label } from "..";
 import imagePlaceholder from "../../../static/pick_image.svg";
 
 interface IProps {
-	product: API.PurchasedProduct;
+	purchasedProduct: API.PurchasedProduct;
 }
 
-export const DetailsProduct: React.FC<IProps> = (props) => {
+export const DetailsPurchasedProduct: React.FC<IProps> = (props) => {
 
-	const { product } = props;
+	const { purchasedProduct } = props;
 
 	const commonStrings = strings.common;
 
@@ -35,30 +35,30 @@ export const DetailsProduct: React.FC<IProps> = (props) => {
 					backgroundColor="white"
 					p={0}
 					m={0}
-					src={product.product ? product.product.image?.url : imagePlaceholder}
+					src={purchasedProduct.product ? purchasedProduct.product.image?.url : imagePlaceholder}
 					rounded="lg"
 				/>
 			</Box>
 			<Box>
 				<DetailsRow
 					label={commonStrings.fields.name}
-					value={product.product.title}
+					value={purchasedProduct.product.title}
 				/>
 				<DetailsRow
 					label={commonStrings.fields.price}
-					value={format.currencyForBR(product.product.price)}
+					value={format.currencyForBR(purchasedProduct.product.price)}
 				/>
 				<DetailsRow
 					label={commonStrings.fields.totalAmountOfDoses}
-					value={product.product.totalNumberOfDoses.toString()}
+					value={purchasedProduct.product.totalNumberOfDoses.toString()}
 				/>
 				<DetailsRow
 					label={commonStrings.fields.description}
-					value={product.product.description}
+					value={purchasedProduct.product.description}
 				/>
 				<DetailsRow
 					label={commonStrings.fields.createdAt}
-					value={format.date(product.purchasedAt)}
+					value={format.date(purchasedProduct.purchasedAt)}
 				/>
 			</Box>
 		</>

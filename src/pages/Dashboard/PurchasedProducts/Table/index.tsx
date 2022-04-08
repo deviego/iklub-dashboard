@@ -11,13 +11,13 @@ import strings from "~/resources/strings";
 import Store from "./store";
 
 const TableView: React.FC = () => {
-	const pageStrings = strings.purchaseProducts.table;
+	const pageStrings = strings.purchasedProducts.table;
 
 	const store = useLocalObservable(() => new Store());
 
 	const history = useHistory();
 
-	const onGoToDetailsPurchaseProducts = (id: string) => history.push(`purchaseProducts/details/${id}`);
+	const onGoToDetailsPurchasedProducts = (id: string) => history.push(`purchasedProducts/details/${id}`);
 
 	return (
 		<Flex flexDir="column" p={{ base: "2", lg: "16" }}>
@@ -27,7 +27,7 @@ const TableView: React.FC = () => {
 				renderRow={(item) => (
 					<Tr key={item.id} >
 						<TableCellWithActionButtons
-							onView={() => onGoToDetailsPurchaseProducts(item.id)}
+							onView={() => onGoToDetailsPurchasedProducts(item.id)}
 						/>
 						<Td>
 							<Text>{item.product.title}</Text>

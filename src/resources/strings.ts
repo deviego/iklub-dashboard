@@ -69,7 +69,7 @@ const strings = new LocalizedStrings({
 			restaurants: "Restaurantes",
 			adminUsers: "Usuários Adminstrativos",
 			products: "Produtos",
-			purchaseProducts: "Produtos Comprados",
+			purchasedProducts: "Produtos Comprados",
 			users: "Usuários",
 			adminRestaurantUsers: "Usuários Restaurantes",
 			logout: "Sair",
@@ -302,14 +302,14 @@ const strings = new LocalizedStrings({
 				success: (isEdit?: boolean) => isEdit ? "Usuário editado com sucesso" : "Usuário criado com sucesso",
 			},
 		},
-		purchaseProducts: {
+		purchasedProducts: {
 			table: {
 				title: "Lista Produtos Comprados",
 				header: ["", "Nome do Produto", "Preço", "Doses Consumidas", "Nome do Usuário", "Email" ,"Data da Compra"],
 			},
 			details: {
 				titleProduct: "Detalhes do Produto",
-				titleUser: "Detalhes do usuário",
+				titleUser: "Detalhes do Usuário",
 			},
 		},
 	},

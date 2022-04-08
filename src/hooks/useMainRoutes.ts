@@ -50,8 +50,8 @@ const useMainRoutes = (currentUser: API.AdminUser | null) => {
 		!isRestaurantAdminUser && (
 			{
 				Icon: BiCart,
-				text: strings.nav.purchaseProducts,
-				path: "/dashboard/purchaseProducts",
+				text: strings.nav.purchasedProducts,
+				path: "/dashboard/purchasedProducts",
 			}
 		),
 	];

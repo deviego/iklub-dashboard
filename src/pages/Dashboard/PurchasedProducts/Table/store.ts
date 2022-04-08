@@ -1,7 +1,4 @@
-import {
-	LoaderShelf,
-	PaginatedListShelf,
-} from "@startapp/mobx-utils";
+import { PaginatedListShelf } from "@startapp/mobx-utils";
 import { makeAutoObservable } from "mobx";
 import { showErrorToast } from "~/resources/toast";
 import { Errors } from "~/resources/errors";
@@ -19,8 +16,6 @@ export default class Store {
 			},
 		},
 	);
-
-	public loader = new LoaderShelf();
 
 	constructor() {
 		makeAutoObservable(this);

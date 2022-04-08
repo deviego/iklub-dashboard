@@ -4,14 +4,14 @@ import { Route, Switch } from "react-router-dom";
 import Table from "./Table";
 import Details from "./Details";
 
-const Restaurant: React.FC = () => (
+const PurchasedProducts: React.FC = () => (
 	<Switch>
-		<Route exact path="/dashboard/purchaseProducts" component={Table} />
+		<Route exact path="/dashboard/purchasedProducts" component={Table} />
 		<Route
-			path="/dashboard/purchaseProducts/details/:id"
+			path="/dashboard/purchasedProducts/details/:id"
 			component={Details}
 		/>
 	</Switch>
 );
 
-export default observer(Restaurant);
+export default observer(PurchasedProducts);

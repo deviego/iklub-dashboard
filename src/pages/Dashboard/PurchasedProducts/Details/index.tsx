@@ -7,7 +7,7 @@ import {
 
 import {
 	CentralizedCard,
-	DetailsProduct,
+	DetailsPurchasedProduct,
 	DetailsUser,
 } from "~/components";
 
@@ -20,7 +20,7 @@ interface IParams {
 }
 
 const Details: React.FC = () => {
-	const pageStrings = strings.purchaseProducts;
+	const pageStrings = strings.purchasedProducts;
 
 	const { id } = useParams<IParams>();
 	const history = useHistory();
@@ -37,8 +37,8 @@ const Details: React.FC = () => {
 				}}
 			>
 				{store.fetchModelShelf.model.value &&
-					<DetailsProduct
-						product={store.fetchModelShelf.fetchedModel}
+					<DetailsPurchasedProduct
+						purchasedProduct={store.fetchModelShelf.fetchedModel}
 					/>}
 			</CentralizedCard>
 
@@ -52,7 +52,7 @@ const Details: React.FC = () => {
 						minW={{ base: "100%", md: 280 }}
 						size="lg"
 						mt={10}
-						isLoading={store.loader.isLoading}
+						isLoading={store.fetchModelShelf.loader.isLoading}
 						onClick={goBack}
 					>
 						{strings.actions.back}
