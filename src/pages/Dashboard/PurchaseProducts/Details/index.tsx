@@ -15,7 +15,6 @@ import strings from "~/resources/strings";
 
 import Store from "./store";
 
-
 interface IParams {
 	id?: string;
 }

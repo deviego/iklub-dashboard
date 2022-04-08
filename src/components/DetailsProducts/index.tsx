@@ -13,7 +13,6 @@ import { DetailsRow, Label } from "..";
 
 import imagePlaceholder from "../../../static/pick_image.svg";
 
-
 interface IProps {
 	product: API.PurchasedProduct;
 }
