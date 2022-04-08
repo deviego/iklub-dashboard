@@ -16,4 +16,10 @@ export const Button: ComponentStyleConfig = {
 			borderWidth: "1px",
 		}),
 	},
+	sizes: {
+		lg: {
+			minW: { base: "100%", md: 280 },
+			m: 10,
+		},
+	},
 };
