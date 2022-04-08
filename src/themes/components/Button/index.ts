@@ -18,8 +18,7 @@ export const Button: ComponentStyleConfig = {
 	},
 	sizes: {
 		lg: {
-			minW: { base: "100%", md: 280 },
-			m: 10,
+			mt: 6,
 		},
 	},
 };

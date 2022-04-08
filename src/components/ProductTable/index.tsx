@@ -111,7 +111,7 @@ export const ProductTable: React.FC<IProps> = observer((props) => {
 	};
 
 	return (
-		<Flex flexDir="column" p={{ base: "2", lg: "16" }} {...rest}>
+		<Flex {...rest}>
 			<Table
 				data={paginatedListShelf.items}
 				headers={componentStrings.header}

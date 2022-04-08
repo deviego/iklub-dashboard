@@ -1,6 +1,6 @@
 import React from "react";
 import { observer, useLocalObservable } from "mobx-react-lite";
-import { Td, Text, Tr } from "@chakra-ui/react";
+import { Flex, Td, Text, Tr } from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
 import { Table, TableCellWithActionButtons } from "~/components";
 import strings from "~/resources/strings";
@@ -49,32 +49,34 @@ const AdminUsersTable: React.FC<IProps> = (props) => {
 	};
 
 	return (
-		<Table
-			data={store._items}
-			headers={pageStrings.header}
-			addButtonText={pageStrings.addButtonText}
-			renderRow={(item) => (
-				<Tr key={item.id} >
-					<TableCellWithActionButtons
-						onEdit={() => onGoToEditUser(item.id)}
-						onDelete={() => openDialog(item)}
-					/>
-					<Td>
-						<Text>{item.name}</Text>
-					</Td>
-					<Td>
-						<Text>{item.email}</Text>
-					</Td>
-				</Tr>
-			)}
-			loading={store._loading}
-			emptyMessage={strings.common.noResutls}
-			currentPage={store.page}
-			prevPage={store.previousPage}
-			nextPage={store.nextPage}
-			hasNextPage={store._isHaveNextPage}
-			isCard
-		/>
+		<Flex flexDir="column" p={{ base: "2", lg: "16" }} >
+			<Table
+				data={store._items}
+				headers={pageStrings.header}
+				addButtonText={pageStrings.addButtonText}
+				renderRow={(item) => (
+					<Tr key={item.id} >
+						<TableCellWithActionButtons
+							onEdit={() => onGoToEditUser(item.id)}
+							onDelete={() => openDialog(item)}
+						/>
+						<Td>
+							<Text>{item.name}</Text>
+						</Td>
+						<Td>
+							<Text>{item.email}</Text>
+						</Td>
+					</Tr>
+				)}
+				loading={store._loading}
+				emptyMessage={strings.common.noResutls}
+				currentPage={store.page}
+				prevPage={store.previousPage}
+				nextPage={store.nextPage}
+				hasNextPage={store._isHaveNextPage}
+				isCard
+			/>
+		</Flex>
 	);
 };
 
