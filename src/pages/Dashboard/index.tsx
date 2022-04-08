@@ -9,6 +9,7 @@ import Users from "./Users";
 import Restaurant from "./Restaurant";
 import AdminRestaurantUsers from "./AdminRestaurantUsers";
 import Products from "./Products";
+import PurchaseProducts from "./PurchaseProducts";
 
 const Dashboard: React.FC = () => {
 	useAuthRoute();
@@ -21,6 +22,7 @@ const Dashboard: React.FC = () => {
 				<Route path="/dashboard/restaurants" component={Restaurant} />
 				<Route path="/dashboard/adminRestaurantUsers" component={AdminRestaurantUsers} />
 				<Route path="/dashboard/productsForAdmin" component={Products} />
+				<Route path="/dashboard/purchaseProducts" component={PurchaseProducts} />
 			</Switch>
 		</MainLayout>
 	);
