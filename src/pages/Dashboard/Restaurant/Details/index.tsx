@@ -54,7 +54,6 @@ const Details: React.FC = () => {
 									<EditIcon
 										w="24px"
 										h="24px"
-										mt={23}
 										onClick={() => onGoToEditRestaurant(id || "")}
 									/>
 								}
@@ -62,16 +61,6 @@ const Details: React.FC = () => {
 						</Tooltip>
 					),
 				}}
-				button={(
-					<Button
-						variant="outline"
-						size="lg"
-						isLoading={store.loader.isLoading}
-						onClick={goBack}
-					>
-						{strings.actions.back}
-					</Button>
-				)}
 			>
 				{store.fetchModelShelf.model.value &&
 					<DetailsRestaurant
@@ -84,8 +73,8 @@ const Details: React.FC = () => {
 					title={{ text: strings.adminRestaurantUsers.table.title }}
 					button={
 						<Button
-							variant="outline"
 							size="lg"
+							minW={{ base: "100%", md: 280 }}
 							isLoading={store.loader.isLoading}
 							onClick={onGoToCreateUser}
 						>
@@ -105,7 +94,6 @@ const Details: React.FC = () => {
 							variant="outline"
 							minW={{ base: "100%", md: 280 }}
 							size="lg"
-							mt={10}
 							isLoading={store.loader.isLoading}
 							onClick={goBack}
 						>
