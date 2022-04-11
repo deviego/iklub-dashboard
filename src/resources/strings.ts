@@ -301,6 +301,12 @@ const strings = new LocalizedStrings({
 				success: (isEdit?: boolean) => isEdit ? "Usuário editado com sucesso" : "Usuário criado com sucesso",
 			},
 		},
+		purchasedProductsByUser: {
+			table: {
+				title: "Lista Produtos Comprados pelo Usuário",
+				header: ["Nome do Produto", "Preço", "Doses Consumidas", "Data da Compra"],
+			},
+		},
 	},
 });
 
