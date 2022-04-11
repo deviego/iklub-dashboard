@@ -27,3 +27,5 @@ export { EnumSelect } from "./EnumSelect";
 export { RestaurantCard } from "./RestaurantCard";
 export { AddressDetails } from "./AddressDetails";
 export { DetailsRestaurant } from "./DetailsRestaurant";
+export { DetailsPurchasedProduct } from "./DetailsPurchasedProducts";
+export { DetailsUser } from "./DetailsUser";

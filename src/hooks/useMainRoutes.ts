@@ -7,7 +7,7 @@ import {
 	RiUserLine,
 	RiUserFollowLine,
 } from "react-icons/ri";
-import { BiCoffee } from "react-icons/bi";
+import { BiCoffee, BiCart } from "react-icons/bi";
 import strings from "../resources/strings";
 import API from "~/resources/api";
 
@@ -45,6 +45,13 @@ const useMainRoutes = (currentUser: API.AdminUser | null) => {
 				Icon: BiCoffee,
 				text: strings.nav.products,
 				path: "/dashboard/productsForAdmin",
+			}
+		),
+		!isRestaurantAdminUser && (
+			{
+				Icon: BiCart,
+				text: strings.nav.purchasedProducts,
+				path: "/dashboard/purchasedProducts",
 			}
 		),
 	];
