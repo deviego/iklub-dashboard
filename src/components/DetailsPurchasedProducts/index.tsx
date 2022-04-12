@@ -14,7 +14,7 @@ import { DetailsRow, Label } from "..";
 import imagePlaceholder from "../../../static/pick_image.svg";
 
 interface IProps {
-	purchasedProduct: API.PurchasedProduct;
+	purchasedProduct: API.PurchasedProductWithoutUser;
 }
 
 export const DetailsPurchasedProduct: React.FC<IProps> = (props) => {
@@ -57,7 +57,7 @@ export const DetailsPurchasedProduct: React.FC<IProps> = (props) => {
 					value={purchasedProduct.product.description}
 				/>
 				<DetailsRow
-					label={commonStrings.fields.createdAt}
+					label={commonStrings.fields.purchasedAt}
 					value={format.date(purchasedProduct.purchasedAt)}
 				/>
 			</Box>

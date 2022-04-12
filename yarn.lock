@@ -2812,9 +2812,9 @@
     "@sinonjs/commons" "^1.7.0"
 
 "@startapp/cbwhiski-admin-api@^1.1.498122392":
-  version "1.1.512665812"
-  resolved "https://npm.startapp.one/@startapp%2fcbwhiski-admin-api/-/cbwhiski-admin-api-1.1.512665812.tgz#c3827d967d4c72092ef088f4704619d0c8b80dec"
-  integrity sha512-+UN1yn990gNHS5bvF1cpgKfWxG5sV/+TDSvfQaVA/awaEOC15bm7q7ctam7JCa6mzdZnxbobf23FVV4klnl/HA==
+  version "1.1.514154474"
+  resolved "https://npm.startapp.one/@startapp%2fcbwhiski-admin-api/-/cbwhiski-admin-api-1.1.514154474.tgz#4711c75de1db5208b6889909b9428e9e35570af0"
+  integrity sha512-OAQzbGLeax8Sbww/v+PiM9UeaMxQVou5bYEQ9hdcNsF8kQz0q2AAOnQPJUureM7cZXoYjVoqKzFudL6oe72VDQ==
   dependencies:
     "@types/node" "^8.0.29"
     "@types/ua-parser-js" "^0.7.32"
