@@ -9,7 +9,7 @@ export default class Store {
 
 	public fetchModelShelf: FetchModelShelf<api.User>;
 
-	public paginetedListShelf: PaginatedListShelf<api.PurchasedProductWithoutUser	>;
+	public paginetedListShelf: PaginatedListShelf<api.PurchasedProductWithoutUser>;
 
 	constructor(id: string) {
 		makeAutoObservable(this);
