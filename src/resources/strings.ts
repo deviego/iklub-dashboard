@@ -136,7 +136,11 @@ const strings = new LocalizedStrings({
 				title: "Title:",
 				description: "Descrição:",
 				createdAt: "Data de Criação:",
+				purchasedAt: "Data de Compra:",
 				restaurant: "Restaurante:",
+				consumedDoses: "Doses Consumidas:",
+				availableDoses: "Doses Disponíveis:",
+				statusDoses: "Situação das Doses:",
 			},
 			mask: {
 				date: "__/__/____",
@@ -310,6 +314,12 @@ const strings = new LocalizedStrings({
 			details: {
 				titleProduct: "Detalhes do Produto",
 				titleUser: "Detalhes do Usuário",
+			},
+		},
+		purchasedProductsByUser: {
+			table: {
+				title: "Lista Produtos Comprados pelo Usuário",
+				header: ["", "Nome do Produto", "Total de Doses", "Doses Disponíveis", "Doses Consumidas", "Data da Compra"],
 			},
 		},
 	},
