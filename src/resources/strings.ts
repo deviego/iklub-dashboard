@@ -312,6 +312,12 @@ const strings = new LocalizedStrings({
 				titleUser: "Detalhes do Usuário",
 			},
 		},
+		purchasedProductsByUser: {
+			table: {
+				title: "Lista Produtos Comprados pelo Usuário",
+				header: ["Nome do Produto", "Preço", "Doses Consumidas", "Data da Compra"],
+			},
+		},
 	},
 });
 
