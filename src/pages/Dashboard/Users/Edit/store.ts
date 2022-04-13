@@ -14,6 +14,7 @@ export default class Store {
 	public formShelf = new FormShelf({
 		email: "",
 		name: "",
+		documentNumber: "",
 		phone: "",
 	});
 
@@ -25,7 +26,7 @@ export default class Store {
 		neighborhood: "",
 		city: "",
 		countryCode: "",
-		state:"",
+		state: "",
 	});
 
 	public loader = new LoaderShelf();
@@ -60,6 +61,7 @@ export default class Store {
 	public setInitValues = (user: api.User) => {
 		this.formShelf = new FormShelf({
 			email: user.email,
+			documentNumber: user.documentNumber || "",
 			name: user.name,
 			phone: user.phone,
 		});
@@ -67,7 +69,7 @@ export default class Store {
 		if (user.image) {
 			this.imageShelf.getPickerFields().setUploadedImage(user.image);
 		}
-		if (user.address){
+		if (user.address) {
 			this.formAddressShelf = new FormShelf({
 				complementary: user.address.complementary || "",
 				neighborhood: user.address.neighborhood,
@@ -80,7 +82,7 @@ export default class Store {
 			});
 		}
 
-		if (user.address){
+		if (user.address) {
 			this.stateUF.setValue(user.address.state);
 		}
 	};
@@ -93,6 +95,7 @@ export default class Store {
 			const {
 				email,
 				name,
+				documentNumber,
 				phone,
 			} = data;
 
@@ -110,6 +113,7 @@ export default class Store {
 					image: this.imageShelf.uncertainfiedImage,
 					email,
 					name,
+					documentNumber,
 					phone,
 					birthdate: null,
 					address: {

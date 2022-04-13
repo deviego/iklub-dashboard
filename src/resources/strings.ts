@@ -123,6 +123,7 @@ const strings = new LocalizedStrings({
 				photo: "Foto:",
 				phone: "Celular:",
 				documentNumber: "CNPJ: ",
+				cpf:"CPF: ",
 				zipcode: "CEP:",
 				street: "Rua:",
 				streetNumber: "Número:",

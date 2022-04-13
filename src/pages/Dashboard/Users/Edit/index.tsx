@@ -83,6 +83,15 @@ const Edit: React.FC = () => {
 				{...store.formShelf.field("email")}
 			/>
 			<TextInput
+				labelText={commonStrings.fields.cpf}
+				labelProps={{fontWeight: "bold"}}
+				type="text"
+				mask="999.999.999-99"
+				isDisabled={store.loader.isLoading}
+				errorText={store.formShelf.fieldError.getFieldError("documentNumber")}
+				{...store.formShelf.field("documentNumber")}
+			/>
+			<TextInput
 				labelText={commonStrings.fields.phone}
 				labelProps={{fontWeight: "bold"}}
 				type="text"
