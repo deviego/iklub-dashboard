@@ -27,7 +27,7 @@ const Details: React.FC = () => {
 
 	const store = useLocalObservable(() => new Store(id || ""));
 
-	const onGoToEditUser = (userId: string) => history.push(`/dashboard/adminUsers/edit/${userId}`);
+	const onGoToEditUser = (userId: string) => history.push(`/dashboard/admin/adminUsers/edit/${userId}`);
 	const goBack = () => history.goBack();
 
 	return (

@@ -37,8 +37,8 @@ const Details: React.FC = () => {
 
 	const store = useLocalObservable(() => new Store(id || ""));
 
-	const onGoToEditUser = (userId: string) => history.push(`/dashboard/users/edit/${userId}`);
-	const onGoToDetailsPurchasedProduct = (productId: string) => history.push(`/dashboard/users/purchasedProducts/details/${productId}`);
+	const onGoToEditUser = (userId: string) => history.push(`/dashboard/admin/users/edit/${userId}`);
+	const onGoToDetailsPurchasedProduct = (productId: string) => history.push(`/dashboard/admin/users/purchasedProducts/details/${productId}`);
 
 	const goBack = () => history.goBack();
 

@@ -57,7 +57,7 @@ export default class Store {
 	public getProduct = async (id: string) => {
 		this.loader.tryStart();
 		try {
-			const product = await api.getProduct(id);
+			const product = await api.getProductForRestaurantAdminUser(id);
 			this.setInitValues(product);
 		} catch (e) {
 			const errorMessage = Errors.handleError(e);

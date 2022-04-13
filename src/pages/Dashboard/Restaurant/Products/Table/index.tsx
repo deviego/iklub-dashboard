@@ -8,7 +8,7 @@ import Store from "./store";
 const TableView: React.FC = () => {
 	const store = useLocalObservable(() => new Store());
 
-	const productsAdminRoute = "/dashboard/productsForAdmin";
+	const productsAdminRoute = "/dashboard/restaurant/products";
 
 	return (
 		<ProductTable

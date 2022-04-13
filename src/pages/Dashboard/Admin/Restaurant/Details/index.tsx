@@ -32,12 +32,12 @@ const Details: React.FC = () => {
 
 	const store = useLocalObservable(() => new Store(id || ""));
 
-	const onGoToEditRestaurant = (restaurantId: string) => history.push(`/dashboard/restaurants/edit/${restaurantId}`);
+	const onGoToEditRestaurant = (restaurantId: string) => history.push(`/dashboard/admin/restaurants/edit/${restaurantId}`);
 	const onGoToCreateUser = () => history.push(`/dashboard/restaurants/${id}/adminUsers/create/`);
 
 	const goBack = () => history.goBack();
 
-	const productsAdminRoute = "/dashboard/productsForAdmin";
+	const productsAdminRoute = "/dashboard/admin/productsForAdmin";
 
 	return (
 		<>

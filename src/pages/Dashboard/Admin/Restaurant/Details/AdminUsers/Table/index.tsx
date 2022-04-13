@@ -26,7 +26,7 @@ const AdminUsersTable: React.FC<IProps> = (props) => {
 		dialog.closeDialog();
 	};
 
-	const onGoToEditUser = (id: string) => history.push(`/dashboard/restaurants/${restaurantId}/adminUsers/edit/${id}`);
+	const onGoToEditUser = (id: string) => history.push(`/dashboard/admin/restaurants/${restaurantId}/adminUsers/edit/${id}`);
 
 	const openDialog = (user: API.AdminUser) => {
 		dialog.showDialog({

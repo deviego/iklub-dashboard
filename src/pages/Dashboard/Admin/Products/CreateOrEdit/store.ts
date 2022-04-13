@@ -35,6 +35,9 @@ export default class Store {
 
 	public restaurantPaginatedList = new PaginatedListShelf(
 		async (page: number) => await api.autocompleteRestaurant(this.searchRestaurant.value, page),
+		{
+			onAfterFetch: () => {},
+		},
 	);
 
 	private autoCompleteReaction = reaction(() => this.searchRestaurant.value,
