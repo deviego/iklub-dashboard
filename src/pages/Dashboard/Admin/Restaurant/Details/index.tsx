@@ -33,7 +33,7 @@ const Details: React.FC = () => {
 	const store = useLocalObservable(() => new Store(id || ""));
 
 	const onGoToEditRestaurant = (restaurantId: string) => history.push(`/dashboard/admin/restaurants/edit/${restaurantId}`);
-	const onGoToCreateUser = () => history.push(`/dashboard/restaurants/${id}/adminUsers/create/`);
+	const onGoToCreateUser = () => history.push(`/dashboard/admin/restaurants/${id}/adminUsers/create/`);
 
 	const goBack = () => history.goBack();
 
