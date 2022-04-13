@@ -1,7 +1,6 @@
 import { LoaderShelf, FetchModelShelf } from "@startapp/mobx-utils";
 import { makeAutoObservable } from "mobx";
 
-
 import { Errors } from "~/resources/errors";
 import { showErrorToast } from "~/resources/toast";
 import api from "~/resources/api";
