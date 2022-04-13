@@ -8,17 +8,17 @@ import DetailsPurchasedProducts from "./DetailsPurchasedProducts";
 
 const Users: React.FC = () => (
 	<Switch>
-		<Route exact path="/dashboard/users" component={Table} />
+		<Route exact path="/dashboard/admin/users" component={Table} />
 		<Route
-			path="/dashboard/users/details/:id"
+			path="/dashboard/admin/users/details/:id"
 			component={Details}
 		/>
 		<Route
-			path="/dashboard/users/purchasedProducts/details/:id"
+			path="/dashboard/admin/users/purchasedProducts/details/:id"
 			component={DetailsPurchasedProducts}
 		/>
 		<Route
-			path="/dashboard/users/edit/:id"
+			path="/dashboard/admin/users/edit/:id"
 			component={CreateOrEdit}
 		/>
 	</Switch>

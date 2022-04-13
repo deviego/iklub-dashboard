@@ -5,22 +5,22 @@ import Table from "./Table";
 import CreateOrEdit from "./CreateOrEdit";
 import Details from "./Details";
 
-const AdminRestaurantUsers: React.FC = () => (
+const Users: React.FC = () => (
 	<Switch>
-		<Route exact path="/dashboard/adminRestaurantUsers" component={Table} />
+		<Route exact path="/dashboard/admin/adminUsers" component={Table} />
 		<Route
-			path="/dashboard/adminRestaurantUsers/create/"
+			path="/dashboard/admin/adminUsers/create/"
 			component={CreateOrEdit}
 		/>
 		<Route
-			path="/dashboard/adminRestaurantUsers/edit/:id"
+			path="/dashboard/admin/adminUsers/edit/:id"
 			component={CreateOrEdit}
 		/>
 		<Route
-			path="/dashboard/adminRestaurantUsers/details/:id"
+			path="/dashboard/admin/adminUsers/details/:id"
 			component={Details}
 		/>
 	</Switch>
 );
 
-export default observer(AdminRestaurantUsers);
+export default observer(Users);

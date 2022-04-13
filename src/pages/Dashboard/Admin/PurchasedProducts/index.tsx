@@ -6,9 +6,9 @@ import Details from "./Details";
 
 const PurchasedProducts: React.FC = () => (
 	<Switch>
-		<Route exact path="/dashboard/purchasedProducts" component={Table} />
+		<Route exact path="/dashboard/admin/purchasedProducts" component={Table} />
 		<Route
-			path="/dashboard/purchasedProducts/details/:id"
+			path="/dashboard/admin/purchasedProducts/details/:id"
 			component={Details}
 		/>
 	</Switch>

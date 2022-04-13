@@ -1,7 +1,7 @@
 import { FormShelf, ImagePickerShelf } from "@startapp/mobx-utils/src/web";
 import { makeAutoObservable, reaction } from "mobx";
 import { LoaderShelf, AttributeShelf, PaginatedListShelf } from "@startapp/mobx-utils";
-import format from "../../../../resources/format";
+import format from "~/resources/format";
 
 import { Errors } from "~/resources/errors";
 import api from "~/resources/api";

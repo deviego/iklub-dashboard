@@ -17,7 +17,7 @@ import {
 import strings from "~/resources/strings";
 import Store from "./store";
 import format from "~/resources/format";
-import imagePlaceholder from "../../../../../static/pick_image.svg";
+import imagePlaceholder from "../../../../../../static/pick_image.svg";
 
 interface IParams {
 	id?: string;

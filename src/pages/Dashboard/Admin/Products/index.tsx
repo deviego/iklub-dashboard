@@ -6,7 +6,7 @@ import CreateOrEdit from "./CreateOrEdit";
 import Details from "./Details";
 
 const Products: React.FC = () => {
-	const productsRoute = "/dashboard/productsForAdmin";
+	const productsRoute = "/dashboard/admin/productsForAdmin";
 	return (
 		<Switch>
 			<Route exact path={productsRoute} component={Table} />
