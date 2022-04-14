@@ -96,6 +96,8 @@ const strings = new LocalizedStrings({
 			notLoggedIn: "Usuario não logado",
 			default: "Houve um erro, tente novamente mais tarde.",
 			missingRestaurant: "É preciso selecionar o restaurante dono do produto",
+			currentUserIsNotSuperAdmin: "Sem Permissão para acessar rota. Não é super admin",
+			currentUserIsNotRestaurantAdmin: "Sem Permissão para acessar rota. Não é um admin restaurante",
 		},
 		common: {
 			noResutls: "Sem Resultados",
@@ -123,6 +125,7 @@ const strings = new LocalizedStrings({
 				photo: "Foto:",
 				phone: "Celular:",
 				documentNumber: "CNPJ: ",
+				cpf:"CPF: ",
 				zipcode: "CEP:",
 				street: "Rua:",
 				streetNumber: "Número:",

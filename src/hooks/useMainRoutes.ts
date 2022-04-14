@@ -14,49 +14,61 @@ import API from "~/resources/api";
 const useMainRoutes = (currentUser: API.AdminUser | null) => {
 	const isRestaurantAdminUser = !!currentUser?.restaurant;
 
-	const commonRoutes = [
+	const createAdminRoute = (path?: string) => `/dashboard/admin${path ? "/" + path : ""}`;
+	const createRestaurantRoute = (path?: string) => `/dashboard/restaurant${path ? "/" + path : ""}`;
+
+	const adminRoutes = [
 		{
 			Icon: AiOutlineHome,
 			text: strings.nav.home,
-			path: "/dashboard",
+			path: createAdminRoute(),
 		},
 		{
 			Icon: RiUserFollowLine,
 			text: strings.nav.adminUsers,
-			path: "/dashboard/adminUsers",
+			path: createAdminRoute("adminUsers"),
 		},
 		{
 			Icon: RiUserFollowLine,
 			text: strings.nav.adminRestaurantUsers,
-			path: "/dashboard/adminRestaurantUsers",
+			path: createAdminRoute("adminRestaurantUsers"),
 		},
 		{
 			Icon: RiUserLine,
 			text: strings.nav.users,
-			path: "/dashboard/users",
+			path: createAdminRoute("users"),
 		},
 		{
 			Icon: RiRestaurant2Line,
 			text: strings.nav.restaurants,
-			path: "/dashboard/restaurants",
+			path: createAdminRoute("restaurants"),
 		},
-		!isRestaurantAdminUser && (
-			{
-				Icon: BiCoffee,
-				text: strings.nav.products,
-				path: "/dashboard/productsForAdmin",
-			}
-		),
-		!isRestaurantAdminUser && (
-			{
-				Icon: BiCart,
-				text: strings.nav.purchasedProducts,
-				path: "/dashboard/purchasedProducts",
-			}
-		),
+		{
+			Icon: BiCoffee,
+			text: strings.nav.products,
+			path: createAdminRoute("productsForAdmin"),
+		},
+		{
+			Icon: BiCart,
+			text: strings.nav.purchasedProducts,
+			path: createAdminRoute("purchasedProducts"),
+		},
 	];
 
-	return commonRoutes;
+	const restaurantAdminUserRoutes = [
+		{
+			Icon: AiOutlineHome,
+			text: strings.nav.home,
+			path: createRestaurantRoute(),
+		},
+		{
+			Icon: BiCoffee,
+			text: strings.nav.products,
+			path: createRestaurantRoute("products"),
+		},
+	];
+
+	return isRestaurantAdminUser ? restaurantAdminUserRoutes : adminRoutes;
 };
 
 export default useMainRoutes;
