@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { FetchModelShelf, PaginatedListShelf } from "@startapp/mobx-utils";
+import { AttributeShelf, FetchModelShelf, LoaderShelf, PaginatedListShelf } from "@startapp/mobx-utils";
 
 import api from "~/resources/api";
 
@@ -10,6 +10,9 @@ export default class Store {
 
 	public fetchModelShelf: FetchModelShelf<api.PurchasedProduct>;
 	public paginetedListShelf: PaginatedListShelf<api.Consumption>;
+	public isConsumeModalOpen = new AttributeShelf(false);
+	public consumeQuantity = new AttributeShelf(1);
+	public loader = new LoaderShelf();
 
 	constructor(id: string) {
 		makeAutoObservable(this);
@@ -36,6 +39,18 @@ export default class Store {
 				},
 			},
 		);
-
 	}
+
+	public onConsumePurchasedProduct = async () => {
+		this.loader.tryStart();
+		try {
+			// await api.consumeDoses();
+		} catch (e) {
+			const error = Errors.treatError(e);
+			showErrorToast(error.message);
+		} finally {
+			this.loader.end();
+		}
+
+	};
 }

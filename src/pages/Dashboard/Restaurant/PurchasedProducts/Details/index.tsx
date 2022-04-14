@@ -56,6 +56,14 @@ const Details: React.FC = () => {
 						/>
 						<DetailsBalance
 							purchasedProduct={store.fetchModelShelf.fetchedModel}
+							consumeCounterProps={{
+								isOpen: store.isConsumeModalOpen.value,
+								onChangeIsOpen: store.isConsumeModalOpen.setValue,
+								maxQuantity: store.fetchModelShelf.fetchedModel.totalDoses,
+								quantity: store.consumeQuantity.value,
+								onChangeQuantity: store.consumeQuantity.setValue,
+								onConfirm: store.onConsumePurchasedProduct,
+							}}
 						/>
 					</>}
 			</CentralizedCard>

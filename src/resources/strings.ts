@@ -55,6 +55,9 @@ const strings = new LocalizedStrings({
 			checkinPeriodFilter: {
 				filterDate: "Filtrar por data de criação",
 			},
+			consumeCounter: {
+				title: "Insira a quantidade a ser consumida",
+			},
 			addressForm: {
 				title: "Endereço:",
 				zipcode: "CEP:",
@@ -66,6 +69,9 @@ const strings = new LocalizedStrings({
 				city: "Cidade:",
 				countryCode: "Código do País:",
 				state: "Estado:",
+			},
+			detailsBalance: {
+				consumeDoses: "Consumir doses",
 			},
 		},
 		nav: {
