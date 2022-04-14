@@ -34,6 +34,10 @@ const strings = new LocalizedStrings({
 				SE: "Sergipe",
 				TO: "Tocantins",
 			},
+			ConsumptionStatus: {
+				accepted: "Aceito",
+				pending: "Pendente",
+			},
 		},
 		components: {
 			autoCompleteList: {
@@ -259,7 +263,7 @@ const strings = new LocalizedStrings({
 			title: "Products",
 			table: {
 				title: "Tabela de Produtos",
-				header:  ["", "Nome do Produto", "Preço", "Total de Doses","Data de Cadastro"],
+				header: ["", "Nome do Produto", "Preço", "Total de Doses", "Data de Cadastro"],
 				delete: (name: string) => `Produto ${name} foi deletado!`,
 				statusDisable: (isBlocked: boolean) => `O Produto ${isBlocked ? "foi disabilitado" : "foi habilitado"}`,
 				addButtonText: "Adicionar novo Produto",
@@ -312,11 +316,16 @@ const strings = new LocalizedStrings({
 		purchasedProducts: {
 			table: {
 				title: "Lista Produtos Comprados",
-				header: ["", "Nome do Produto", "Preço", "Doses Consumidas", "Nome do Usuário", "Email" ,"Data da Compra"],
+				header: ["", "Nome do Produto", "Preço", "Doses Consumidas", "Nome do Usuário", "Email", "Data da Compra"],
 			},
 			details: {
 				titleProduct: "Detalhes do Produto",
 				titleUser: "Detalhes do Usuário",
+			},
+			consumptionHistory: {
+				title: "Histórico de Consumo",
+				header: ["Quantidade", "Status", "Data de Validação"],
+				notValidated: "Não validado",
 			},
 		},
 		purchasedProductsByUser: {
