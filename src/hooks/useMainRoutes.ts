@@ -66,6 +66,11 @@ const useMainRoutes = (currentUser: API.AdminUser | null) => {
 			text: strings.nav.products,
 			path: createRestaurantRoute("products"),
 		},
+		{
+			Icon: BiCart,
+			text: strings.nav.purchasedProducts,
+			path: createRestaurantRoute("purchasedProducts"),
+		},
 	];
 
 	return isRestaurantAdminUser ? restaurantAdminUserRoutes : adminRoutes;
