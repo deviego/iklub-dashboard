@@ -7,7 +7,6 @@ import {
 
 import {
 	CentralizedCard,
-	DetailsBalance,
 	DetailsPurchasedProduct,
 	DetailsUser,
 } from "~/components";
@@ -32,17 +31,6 @@ const Details: React.FC = () => {
 
 	return (
 		<>
-			<CentralizedCard
-				title={{
-					text: pageStrings.details.titleBalance,
-				}}
-			>
-				{store.fetchModelShelf.model.value &&
-
-					<DetailsBalance
-						purchasedProduct={store.fetchModelShelf.fetchedModel}
-					/>}
-			</CentralizedCard>
 			<CentralizedCard
 				title={{
 					text: pageStrings.details.titleProduct,
