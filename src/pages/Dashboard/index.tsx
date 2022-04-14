@@ -2,27 +2,30 @@ import React from "react";
 import { observer } from "mobx-react-lite";
 import { Route, Switch } from "react-router-dom";
 import { useAuthRoute } from "../../hooks/useAuthRoute";
+import { useHistory, useLocation } from "react-router";
 import { MainLayout } from "~/layout";
-import Home from "./Home";
-import AdminUsers from "./AdminUsers";
-import Users from "./Users";
+import Admin from "./Admin";
 import Restaurant from "./Restaurant";
-import AdminRestaurantUsers from "./AdminRestaurantUsers";
-import Products from "./Products";
-import PurchasedProducts from "./PurchasedProducts";
+import API from "~/resources/api";
 
 const Dashboard: React.FC = () => {
-	useAuthRoute();
+	const location = useLocation();
+	const history = useHistory();
+	const onSuccess = (admin: API.AdminUser) => {
+		if (location.pathname  === "/dashboard") {
+			if (admin.restaurant) {
+				history.push("/dashboard/restaurant");
+			} else {
+				history.push("/dashboard/admin");
+			}
+		}
+	};
+	useAuthRoute(onSuccess);
 	return (
 		<MainLayout>
 			<Switch>
-				<Route exact path="/dashboard" component={Home} />
-				<Route path="/dashboard/adminUsers" component={AdminUsers} />
-				<Route path="/dashboard/users" component={Users} />
-				<Route path="/dashboard/restaurants" component={Restaurant} />
-				<Route path="/dashboard/adminRestaurantUsers" component={AdminRestaurantUsers} />
-				<Route path="/dashboard/productsForAdmin" component={Products} />
-				<Route path="/dashboard/purchasedProducts" component={PurchasedProducts} />
+				<Route path="/dashboard/admin" component={Admin} />
+				<Route path="/dashboard/restaurant" component={Restaurant} />
 			</Switch>
 		</MainLayout>
 	);
