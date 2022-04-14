@@ -50,9 +50,14 @@ const Details: React.FC = () => {
 				}}
 			>
 				{store.fetchModelShelf.model.value &&
-					<DetailsUser
-						user={store.fetchModelShelf.fetchedModel.user}
-					/>}
+					<>
+						<DetailsUser
+							user={store.fetchModelShelf.fetchedModel.user}
+						/>
+						<DetailsBalance
+							purchasedProduct={store.fetchModelShelf.fetchedModel}
+						/>
+					</>}
 			</CentralizedCard>
 			<CentralizedCard
 				isTable
@@ -73,17 +78,10 @@ const Details: React.FC = () => {
 				)}
 			>
 				{store.fetchModelShelf.model.value &&
-					<>
-						<DetailsUser
-							user={store.fetchModelShelf.fetchedModel.user}
-						/>
-						<DetailsBalance purchasedProduct={store.fetchModelShelf.fetchedModel} />
-
-						<ConsumptionHistory
-							store={store.paginetedListShelf}
-							headers={pageStrings.consumptionHistory.header}
-						/>
-					</>}
+					<ConsumptionHistory
+						store={store.paginetedListShelf}
+						headers={pageStrings.consumptionHistory.header}
+					/>}
 			</CentralizedCard>
 		</>
 	);
