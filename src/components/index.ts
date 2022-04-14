@@ -30,3 +30,4 @@ export { DetailsRestaurant } from "./DetailsRestaurant";
 export { DetailsPurchasedProduct } from "./DetailsPurchasedProducts";
 export { DetailsUser } from "./DetailsUser";
 export { DetailsBalance } from "./DetailsBalance";
+export { ConsumptionHistory } from "./ConsumptionHistory";

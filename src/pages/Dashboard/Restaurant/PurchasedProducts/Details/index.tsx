@@ -7,6 +7,7 @@ import {
 
 import {
 	CentralizedCard,
+	ConsumptionHistory,
 	DetailsBalance,
 	DetailsPurchasedProduct,
 	DetailsUser,
@@ -47,6 +48,17 @@ const Details: React.FC = () => {
 				title={{
 					text: pageStrings.details.titleUser,
 				}}
+			>
+				{store.fetchModelShelf.model.value &&
+					<DetailsUser
+						user={store.fetchModelShelf.fetchedModel.user}
+					/>}
+			</CentralizedCard>
+			<CentralizedCard
+				isTable
+				title={{
+					text: pageStrings.consumptionHistory.title,
+				}}
 				button={(
 					<Button
 						variant="outline"
@@ -66,6 +78,11 @@ const Details: React.FC = () => {
 							user={store.fetchModelShelf.fetchedModel.user}
 						/>
 						<DetailsBalance purchasedProduct={store.fetchModelShelf.fetchedModel} />
+
+						<ConsumptionHistory
+							store={store.paginetedListShelf}
+							headers={pageStrings.consumptionHistory.header}
+						/>
 					</>}
 			</CentralizedCard>
 		</>

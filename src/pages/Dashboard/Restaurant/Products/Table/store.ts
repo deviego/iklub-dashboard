@@ -48,7 +48,7 @@ export default class Store {
 		try {
 
 			const disableOrEnable = disableAt ? false : true;
-			await api.changeProductDisableStatus(id, disableOrEnable);
+			await api.changeProductDisableStatusForRestaurantAdminUser(id, disableOrEnable);
 
 			showSuccessToast(strings.products.table.statusDisable(disableOrEnable));
 			this.paginetedListShelf.refresh();

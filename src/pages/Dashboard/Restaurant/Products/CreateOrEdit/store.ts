@@ -1,11 +1,10 @@
 import { FormShelf, ImagePickerShelf } from "@startapp/mobx-utils/src/web";
-import { makeAutoObservable, reaction } from "mobx";
-import { LoaderShelf, AttributeShelf, PaginatedListShelf } from "@startapp/mobx-utils";
+import { makeAutoObservable } from "mobx";
+import { LoaderShelf, AttributeShelf } from "@startapp/mobx-utils";
 import format from "~/resources/format";
 
 import { Errors } from "~/resources/errors";
 import api from "~/resources/api";
-import { CustomError } from "~/resources/customError";
 import { showErrorToast, showSuccessToast } from "~/resources/toast";
 import strings from "~/resources/strings";
 
@@ -28,22 +27,6 @@ export default class Store {
 	}
 
 	public id = new AttributeShelf("");
-
-	public searchRestaurant = new AttributeShelf("");
-
-	public selectedRestaurant = new AttributeShelf<api.Restaurant | null>(null);
-
-	public restaurantPaginatedList = new PaginatedListShelf(
-		async (page: number) => await api.autocompleteRestaurant(this.searchRestaurant.value, page),
-	);
-
-	private autoCompleteReaction = reaction(() => this.searchRestaurant.value,
-		() => this.restaurantPaginatedList.refresh(),
-	);
-
-	public dispose = () => {
-		this.autoCompleteReaction();
-	};
 
 	constructor(id?: string) {
 		makeAutoObservable(this);
@@ -96,14 +79,14 @@ export default class Store {
 				});
 
 			} else {
-				const restaurant = this.validateIfSelectRestaurant();
-				await api.createProduct({
+
+				await api.createProductForRestaurantUser({
 					image: this.imageShelf.uncertainfiedImage,
 					title: data.title,
 					description: data.description,
 					price: this.price.value,
 					totalNumberOfDoses: Number(data.totalNumberOfDoses),
-				}, restaurant.id);
+				});
 			}
 
 			showSuccessToast(pageStrings.success(!!this.id.value));
@@ -114,12 +97,5 @@ export default class Store {
 		} finally {
 			this.loader.end();
 		}
-	};
-
-	private validateIfSelectRestaurant = (): api.Restaurant => {
-		if (!this.selectedRestaurant.value) {
-			throw new CustomError(api.ErrorType.InvalidArgument, strings.error.missingRestaurant);
-		}
-		return this.selectedRestaurant.value;
 	};
 }
