@@ -113,7 +113,7 @@ export default class Store {
 					image: this.imageShelf.uncertainfiedImage,
 					email,
 					name,
-					documentNumber,
+					documentNumber: documentNumber || null,
 					phone,
 					birthdate: null,
 					address: {
