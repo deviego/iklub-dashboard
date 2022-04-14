@@ -1,35 +1,19 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
 import { Route, Switch } from "react-router-dom";
-import Table from "./Table";
-import CreateOrEdit from "./CreateOrEdit";
-import Details from "./Details";
-import CreateOrEditAdminUser from "./Details/AdminUsers/CreateOrEdit/";
+import Home from "./Home";
+import Products from "./Products";
+import { useAuthRestaurantRoute } from "~/hooks/useAuthRestaurantRoute";
 
-const Restaurant: React.FC = () => (
-	<Switch>
-		<Route exact path="/dashboard/restaurants" component={Table} />
-		<Route
-			path="/dashboard/restaurants/create/"
-			component={CreateOrEdit}
-		/>
-		<Route
-			path="/dashboard/restaurants/edit/:id"
-			component={CreateOrEdit}
-		/>
-		<Route
-			path="/dashboard/restaurants/details/:id"
-			component={Details}
-		/>
-		<Route
-			path="/dashboard/restaurants/:restaurantId/adminUsers/create/"
-			component={CreateOrEditAdminUser}
-		/>
-		<Route
-			path="/dashboard/restaurants/:restaurantId/adminUsers/edit/:userId"
-			component={CreateOrEditAdminUser}
-		/>
-	</Switch>
-);
+const Restaurant: React.FC = () => {
+	useAuthRestaurantRoute();
 
+	const restaurantRoutes = "/dashboard/restaurant";
+	return (
+		<Switch>
+			<Route exact path={restaurantRoutes + "/"} component={Home} />
+			<Route path={restaurantRoutes + "/products"} component={Products} />
+		</Switch>
+	);
+};
 export default observer(Restaurant);

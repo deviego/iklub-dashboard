@@ -129,13 +129,13 @@ export default class AuthStore {
 	};
 
 	public authenticate = async (
-		onSuccess: () => void = () => { },
+		onSuccess: (currenAdminUser?: api.AdminUser) => void = () => { },
 		onFail: () => void = () => { },
 	) => {
-		if (!(await this.isLogged())) {
+		if (!(await this.isLogged()) || !this.currentAdminUser) {
 			onFail();
 		} else {
-			onSuccess();
+			onSuccess(this.currentAdminUser);
 		}
 	};
 
