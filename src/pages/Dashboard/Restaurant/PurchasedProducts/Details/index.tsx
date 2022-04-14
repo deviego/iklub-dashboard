@@ -7,6 +7,7 @@ import {
 
 import {
 	CentralizedCard,
+	ConsumptionHistory,
 	DetailsPurchasedProduct,
 	DetailsUser,
 } from "~/components";
@@ -14,7 +15,6 @@ import {
 import strings from "~/resources/strings";
 
 import Store from "./store";
-import ConsumptionHistory from "./ConsumptionHistory";
 
 interface IParams {
 	id: string;
@@ -73,7 +73,8 @@ const Details: React.FC = () => {
 			>
 				{store.fetchModelShelf.model.value &&
 					<ConsumptionHistory
-						purchasedProductId={store.fetchModelShelf.model.value.id}
+						store={store.paginetedListShelf}
+						headers={pageStrings.consumptionHistory.header}
 					/>}
 			</CentralizedCard>
 		</>
