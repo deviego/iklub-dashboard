@@ -321,6 +321,7 @@ const strings = new LocalizedStrings({
 			details: {
 				titleProduct: "Detalhes do Produto",
 				titleUser: "Detalhes do Usuário",
+				titleBalance: "Saldo do Usuário",
 			},
 			consumptionHistory: {
 				title: "Histórico de Consumo",
