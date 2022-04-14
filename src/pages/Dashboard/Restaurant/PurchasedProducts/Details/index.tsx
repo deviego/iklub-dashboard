@@ -16,7 +16,7 @@ import strings from "~/resources/strings";
 import Store from "./store";
 
 interface IParams {
-	id?: string;
+	id: string;
 }
 
 const Details: React.FC = () => {
@@ -25,7 +25,7 @@ const Details: React.FC = () => {
 	const { id } = useParams<IParams>();
 	const history = useHistory();
 
-	const store = useLocalObservable(() => new Store(id || ""));
+	const store = useLocalObservable(() => new Store(id));
 
 	const goBack = () => history.goBack();
 
