@@ -14,7 +14,6 @@ import {
 import strings from "~/resources/strings";
 
 import Store from "./store";
-import ConsumptionHistory from "./ConsumptionHistory";
 
 interface IParams {
 	id?: string;
@@ -47,17 +46,6 @@ const Details: React.FC = () => {
 				title={{
 					text: pageStrings.details.titleUser,
 				}}
-			>
-				{store.fetchModelShelf.model.value &&
-					<DetailsUser
-						user={store.fetchModelShelf.fetchedModel.user}
-					/>}
-			</CentralizedCard>
-			<CentralizedCard
-				isTable
-				title={{
-					text: pageStrings.consumptionHistory.title,
-				}}
 				button={(
 					<Button
 						variant="outline"
@@ -72,8 +60,8 @@ const Details: React.FC = () => {
 				)}
 			>
 				{store.fetchModelShelf.model.value &&
-					<ConsumptionHistory
-						purchasedProductId={store.fetchModelShelf.model.value.id}
+					<DetailsUser
+						user={store.fetchModelShelf.fetchedModel.user}
 					/>}
 			</CentralizedCard>
 		</>
