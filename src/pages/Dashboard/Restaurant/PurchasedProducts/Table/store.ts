@@ -7,7 +7,7 @@ import api from "~/resources/api";
 export default class Store {
 
 	public paginetedListShelf: PaginatedListShelf<api.PurchasedProduct> = new PaginatedListShelf(
-		api.getAllPurchasedProducts,
+		api.getAllPurchasedProductsForRestaurantAdminUser,
 		{
 			fetchOnConstructor: true,
 			onFetchError: (e) => {

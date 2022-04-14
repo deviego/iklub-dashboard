@@ -15,7 +15,7 @@ export default class Store {
 
 		this.fetchModelShelf = new FetchModelShelf(
 			id,
-			api.getPurchasedProduct,
+			api.getPurchasedProductForRestaurantAdminUser,
 			{
 				fetchOnConstructor: true,
 				onFetchError: (e) => {
