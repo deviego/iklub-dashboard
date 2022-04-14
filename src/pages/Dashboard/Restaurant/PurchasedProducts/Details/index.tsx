@@ -34,17 +34,6 @@ const Details: React.FC = () => {
 		<>
 			<CentralizedCard
 				title={{
-					text: pageStrings.details.titleBalance,
-				}}
-			>
-				{store.fetchModelShelf.model.value &&
-
-					<DetailsBalance
-						purchasedProduct={store.fetchModelShelf.fetchedModel}
-					/>}
-			</CentralizedCard>
-			<CentralizedCard
-				title={{
 					text: pageStrings.details.titleProduct,
 				}}
 			>
@@ -72,9 +61,12 @@ const Details: React.FC = () => {
 				)}
 			>
 				{store.fetchModelShelf.model.value &&
-					<DetailsUser
-						user={store.fetchModelShelf.fetchedModel.user}
-					/>}
+					<>
+						<DetailsUser
+							user={store.fetchModelShelf.fetchedModel.user}
+						/>
+						<DetailsBalance purchasedProduct={store.fetchModelShelf.fetchedModel} />
+					</>}
 			</CentralizedCard>
 		</>
 	);
