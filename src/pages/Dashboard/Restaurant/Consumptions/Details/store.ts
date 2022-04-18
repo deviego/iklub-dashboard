@@ -16,7 +16,7 @@ export default class Store{
 
 		this.fetchModelShelf = new FetchModelShelf(
 			id,
-			api.getConsuption,
+			api.getConsumptionForRestaurantAdminUser,
 			{
 				fetchOnConstructor: true,
 				onFetchError: this.onFetchError,

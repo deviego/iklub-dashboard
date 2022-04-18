@@ -85,6 +85,9 @@ const TableView: React.FC = () => {
 							<Td>
 								<Text>{format.date(item.createdAt)}</Text>
 							</Td>
+							<Td>
+								<Text>{item.user.name}</Text>
+							</Td>
 						</Tr>
 					)}
 					loading={store.pendingConsumptionsListShelf.loader.isLoading}
@@ -113,6 +116,9 @@ const TableView: React.FC = () => {
 							</Td>
 							<Td>
 								<Text>{format.date(item.createdAt)}</Text>
+							</Td>
+							<Td>
+								<Text>{item.user.name}</Text>
 							</Td>
 						</Tr>
 					)}

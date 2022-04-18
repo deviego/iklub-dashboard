@@ -342,7 +342,7 @@ const strings = new LocalizedStrings({
 		consumptions: {
 			pendingTable: {
 				title: "Solicitações de Consumo",
-				header: ["", "Quantidade Consumida", "status", "Data da Solicitação"],
+				header: ["", "Quantidade Consumida", "status", "Data da Solicitação", "Usuário"],
 				successDelete: "Consumo deletado com sucesso",
 				deleteModal: {
 					title: "Recusar solicitação de consumo",
@@ -359,7 +359,7 @@ const strings = new LocalizedStrings({
 			},
 			table: {
 				title: "Consumos Aprovados",
-				header: ["", "Quantidade Consumida", "status", "Data da Solicitação"],
+				header: ["", "Quantidade Consumida", "status", "Data da Solicitação", "Usuário"],
 			},
 		},
 		purchasedProductsByUser: {
