@@ -328,6 +328,7 @@ const strings = new LocalizedStrings({
 				titleProduct: "Detalhes do Produto",
 				titleUser: "Detalhes do Usuário",
 				titleBalance: "Saldo do Usuário",
+				successMessage:(amout: number)=> `${amout} doses foram consumidas`,
 			},
 			consumptionHistory: {
 				title: "Histórico de Consumo",

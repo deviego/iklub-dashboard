@@ -2,9 +2,10 @@ import { makeAutoObservable } from "mobx";
 import { AttributeShelf, FetchModelShelf, LoaderShelf, PaginatedListShelf } from "@startapp/mobx-utils";
 
 import api from "~/resources/api";
+import strings from "~/resources/strings";
 
 import { Errors } from "~/resources/errors";
-import { showErrorToast } from "~/resources/toast";
+import { showErrorToast, showSuccessToast } from "~/resources/toast";
 
 export default class Store {
 
@@ -12,11 +13,12 @@ export default class Store {
 	public paginetedListShelf: PaginatedListShelf<api.Consumption>;
 	public isConsumeModalOpen = new AttributeShelf(false);
 	public consumeQuantity = new AttributeShelf(1);
+	public purchasedProductId = new AttributeShelf("");
 	public loader = new LoaderShelf();
 
 	constructor(id: string) {
 		makeAutoObservable(this);
-
+		this.purchasedProductId.setValue(id);
 		this.fetchModelShelf = new FetchModelShelf(
 			id,
 			api.getPurchasedProductForRestaurantAdminUser,
@@ -44,7 +46,11 @@ export default class Store {
 	public onConsumePurchasedProduct = async () => {
 		this.loader.tryStart();
 		try {
-			// await api.consumeDoses();
+			await api.createConsumptionForRestaurantAdminUser(
+				this.purchasedProductId.value,
+				this.consumeQuantity.value,
+			);
+			showSuccessToast(strings.purchasedProducts.details.successMessage(this.consumeQuantity.value));
 		} catch (e) {
 			const error = Errors.treatError(e);
 			showErrorToast(error.message);
