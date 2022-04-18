@@ -359,7 +359,7 @@ const strings = new LocalizedStrings({
 			},
 			table: {
 				title: "Consumos Aprovados",
-				header: ["", "Quantidade Consumida", "status", "Data da Solicitação", "Usuário"],
+				header: ["", "Quantidade Consumida", "status", "Data da Solicitação", "data de aprovação","Usuário"],
 			},
 		},
 		purchasedProductsByUser: {

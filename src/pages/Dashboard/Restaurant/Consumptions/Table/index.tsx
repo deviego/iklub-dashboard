@@ -30,7 +30,10 @@ const TableView: React.FC = () => {
 			buttons: [
 				{
 					title: strings.common.refuse,
-					onPress: () => store.deleteConsumptionRequest(consumptionId),
+					onPress: () => {
+						store.deleteConsumptionRequest(consumptionId);
+						dialog.closeDialog();
+					},
 					buttonProps: { bg: "red.500" },
 				},
 				{
@@ -50,7 +53,10 @@ const TableView: React.FC = () => {
 			buttons: [
 				{
 					title: strings.common.approve,
-					onPress: () => store.approveConsumptionRequest(consumptionId),
+					onPress: () => {
+						store.approveConsumptionRequest(consumptionId);
+						dialog.closeDialog();
+					},
 					buttonProps: { bg: "green.500" },
 				},
 				{
@@ -116,6 +122,9 @@ const TableView: React.FC = () => {
 							</Td>
 							<Td>
 								<Text>{format.date(item.createdAt)}</Text>
+							</Td>
+							<Td>
+								<Text>{item.acceptedAt ? format.date(item.acceptedAt) : null}</Text>
 							</Td>
 							<Td>
 								<Text>{item.user.name}</Text>
