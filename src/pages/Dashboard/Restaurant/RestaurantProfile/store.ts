@@ -74,27 +74,25 @@ export default class Store {
 		try {
 
 			const data = this.formShelf.getValues();
-			if (this.id.value) {
-				await api.editCurrentRestaurantAdminUser({
-					name: data.adminName,
-					email: data.email,
-					restaurant: {
-						name: data.name,
-						corporateName: data.corporateName,
-						address: {
-							neighborhood: data.neighborhood,
-							city: data.city,
-							state: this.stateUF.value,
-							street: data.street,
-							streetNumber: data.streetNumber,
-							complementary: data.complementary,
-							zipcode: data.zipcode,
-							countryCode: "BR",
-						},
-						image: this.imageShelf.uncertainfiedImage,
+			await api.editCurrentRestaurantAdminUser({
+				name: data.adminName,
+				email: data.email,
+				restaurant: {
+					name: data.name,
+					corporateName: data.corporateName,
+					address: {
+						neighborhood: data.neighborhood,
+						city: data.city,
+						state: this.stateUF.value,
+						street: data.street,
+						streetNumber: data.streetNumber,
+						complementary: data.complementary,
+						zipcode: data.zipcode,
+						countryCode: "BR",
 					},
-				});
-			}
+					image: this.imageShelf.uncertainfiedImage,
+				},
+			});
 
 			showSuccessToast(pageStrings.success(!this.id.value));
 			onSuccess();
