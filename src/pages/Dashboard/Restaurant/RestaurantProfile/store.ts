@@ -33,19 +33,18 @@ export default class Store {
 
 	public fetchModelShelf: FetchModelShelf<api.AdminUser>;
 
-	constructor(id?: string) {
+	constructor(id: string) {
 		makeAutoObservable(this);
+		this.id.setValue(id);
 
-		if (id) {
-			this.fetchModelShelf = new FetchModelShelf(
-				id,
-				api.getAdminRestaurantUser,
-				{
-					fetchOnConstructor: true,
-					onAfterFetch: this.onAfterFetch,
-				},
-			);
-		}
+		this.fetchModelShelf = new FetchModelShelf(
+			id,
+			api.getAdminRestaurantUser,
+			{
+				fetchOnConstructor: true,
+				onAfterFetch: this.onAfterFetch,
+			},
+		);
 	}
 
 	public onAfterFetch = (adminUser: api.AdminUser) => {
@@ -77,7 +76,7 @@ export default class Store {
 			const data = this.formShelf.getValues();
 			if (this.id.value) {
 				await api.editCurrentRestaurantAdminUser({
-					name: data.name,
+					name: data.adminName,
 					email: data.email,
 					restaurant: {
 						name: data.name,
