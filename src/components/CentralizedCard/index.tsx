@@ -5,7 +5,7 @@ import {
 	Card,
 } from "~/components";
 
-interface IProps {
+export interface IProps {
 	title?: {
 		text: string;
 		helper?: React.ReactElement;
