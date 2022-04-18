@@ -11,8 +11,7 @@ import {
 import { EnumSelect } from "../EnumSelect";
 import api from "~/resources/api";
 
-
-type FieldType = "name" | "corporateName" | "documentNumber" |  "zipcode" | "street" | "streetNumber" | "complementary" | "neighborhood" | "city" | "countryCode" | "state";
+type FieldType = "adminName" | "name" | "email" | "corporateName" | "documentNumber" |  "zipcode" | "street" | "streetNumber" | "complementary" | "neighborhood" | "city" | "countryCode" | "state";
 
 interface FormValues {
 	field: (field: FieldType) => {
@@ -33,14 +32,13 @@ interface FormValues {
 		value: string;
 		setValue: (value: api.StateUF) => void;
 	};
-
 }
 
 interface IProps {
 	title: string;
 	isLoading: boolean;
-	formValues: FormValues;
 	isProfile?: boolean;
+	formValues: FormValues;
 	submit?: {
 		onClick: () => void;
 		text: string;
@@ -51,7 +49,7 @@ interface IProps {
 
 export const RestaurantForm: React.FC<IProps> = observer((props) => {
 
-	const { title, isLoading, formValues, submit } = props;
+	const { title, isLoading, formValues, isProfile, submit } = props;
 
 	const commonStrings = strings.common;
 
@@ -100,15 +98,18 @@ export const RestaurantForm: React.FC<IProps> = observer((props) => {
 				errorText={formValues?.field("corporateName").error}
 				{...formValues?.field("corporateName")}
 			/>
-			<TextInput
-				labelText={commonStrings.fields.documentNumber}
-				labelProps={{ fontWeight: "bold" }}
-				type="text"
-				isDisabled={isLoading}
-				errorText={formValues?.field("documentNumber").error}
-				{...formValues?.field("documentNumber")}
-				mask="99999999/9999-99"
-			/>
+			{
+				!isProfile &&
+					<TextInput
+						labelText={commonStrings.fields.documentNumber}
+						labelProps={{ fontWeight: "bold" }}
+						type="text"
+						isDisabled={isLoading}
+						errorText={formValues?.field("documentNumber").error}
+						{...formValues?.field("documentNumber")}
+						mask="99999999/9999-99"
+					/>
+			}
 			<TextInput
 				labelText={commonStrings.fields.zipcode}
 				labelProps={{ fontWeight: "bold" }}
