@@ -7,7 +7,7 @@ import {
 import {
 	BiBlock,
 } from "react-icons/bi";
-import { SearchIcon, EditIcon, DeleteIcon } from "@chakra-ui/icons";
+import { SearchIcon, EditIcon, DeleteIcon, CheckIcon, CloseIcon} from "@chakra-ui/icons";
 import strings from "~/resources/strings";
 
 interface IProps {
@@ -15,6 +15,8 @@ interface IProps {
 	onView?: () => void;
 	onEdit?: () => void;
 	onBlock?: () => void;
+	onApprove?: () => void;
+	onRefuse?: () => void;
 	isBlocked?: boolean;
 }
 
@@ -24,6 +26,8 @@ export const TableCellWithActionButtons: React.FC<IProps> = (props) => {
 		onView,
 		onEdit,
 		onBlock,
+		onApprove,
+		onRefuse,
 		isBlocked,
 	} = props;
 
@@ -96,6 +100,30 @@ export const TableCellWithActionButtons: React.FC<IProps> = (props) => {
 								</Tooltip>
 							))
 			}
+			{onApprove && (
+				<Tooltip label={strings.common.approveToolTip}>
+					<IconButton
+						variant="icon"
+						color="green.500"
+						size="sm"
+						aria-label="Approve"
+						icon={<CheckIcon />}
+						onClick={onApprove}
+					/>
+				</Tooltip>
+			)}
+			{onRefuse && (
+				<Tooltip label={strings.common.refuseToolTip}>
+					<IconButton
+						variant="icon"
+						color="red.500"
+						size="sm"
+						aria-label="Refuse"
+						icon={<CloseIcon />}
+						onClick={onRefuse}
+					/>
+				</Tooltip>
+			)}
 		</Td>
 	);
 };

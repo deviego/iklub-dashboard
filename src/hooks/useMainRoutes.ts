@@ -8,6 +8,7 @@ import {
 	RiUserFollowLine,
 } from "react-icons/ri";
 import { BiCoffee, BiCart } from "react-icons/bi";
+import { ImGlass } from "react-icons/im";
 import strings from "../resources/strings";
 import API from "~/resources/api";
 
@@ -70,6 +71,11 @@ const useMainRoutes = (currentUser: API.AdminUser | null) => {
 			Icon: BiCart,
 			text: strings.nav.purchasedProducts,
 			path: createRestaurantRoute("purchasedProducts"),
+		},
+		{
+			Icon: ImGlass,
+			text: strings.nav.consumptions,
+			path: createRestaurantRoute("consumptions"),
 		},
 	];
 
