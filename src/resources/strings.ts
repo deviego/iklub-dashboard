@@ -76,6 +76,7 @@ const strings = new LocalizedStrings({
 			purchasedProducts: "Produtos Comprados",
 			users: "Usuários",
 			adminRestaurantUsers: "Usuários Restaurantes",
+			consumptions: "Consumos",
 			logout: "Sair",
 		},
 		actions: {
@@ -110,7 +111,12 @@ const strings = new LocalizedStrings({
 			enable: "Clique para habilitar",
 			details: "Clique para ver mais informações",
 			edit: "Clique para editar",
+			refuseToolTip: "Clique para recusar",
+			approveToolTip: "Clique para aprovar",
 			cancel: "Cancelar",
+			approve: "Aprovar",
+			refuse: "Recusar",
+			toDelete: "Deletar",
 			finish: "Finalizar",
 			confirm: "Confirmar",
 			detailsTitle: "Detalhes",
@@ -148,6 +154,10 @@ const strings = new LocalizedStrings({
 				consumedDoses: "Doses Consumidas:",
 				availableDoses: "Doses Disponíveis:",
 				statusDoses: "Situação das Doses:",
+				amount: "Quantidade",
+				approvedAt: "Aprovado em:",
+				requestedAt: "Solicitação criada em:",
+				status: "Status:",
 			},
 			mask: {
 				date: "__/__/____",
@@ -327,6 +337,29 @@ const strings = new LocalizedStrings({
 				title: "Histórico de Consumo",
 				header: ["Quantidade", "Status", "Data de Validação"],
 				notValidated: "Não validado",
+			},
+		},
+		consumptions: {
+			pendingTable: {
+				title: "Solicitações de Consumo",
+				header: ["", "Quantidade Consumida", "status", "Data da Solicitação"],
+				successDelete: "Consumo deletado com sucesso",
+				deleteModal: {
+					title: "Recusar solicitação de consumo",
+					description: "Tem certeza que deseja Recusar essa solicitação de consumo?",
+					button: {
+						delete: "Deletar",
+						cancel: "Cancelar",
+					},
+				},
+				approveModal: {
+					title: "Aprovar Consumo",
+					description: "Tem certeza que deseja aprovar essa solicitação de consumo?",
+				},
+			},
+			table: {
+				title: "Consumos Aprovados",
+				header: ["", "Quantidade Consumida", "status", "Data da Solicitação"],
 			},
 		},
 		purchasedProductsByUser: {
