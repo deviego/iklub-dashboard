@@ -3,6 +3,7 @@ import { observer } from "mobx-react-lite";
 import { Flex, Td, Text, Tr } from "@chakra-ui/react";
 import { Table } from "~/components";
 import strings from "~/resources/strings";
+import format from "~/resources/format";
 import api from "~/resources/api";
 import { PaginatedListShelf } from "@startapp/mobx-utils";
 
@@ -29,7 +30,7 @@ export const ConsumptionHistory: React.FC<IProps> = observer((props) => {
 							<Text>{api.translateConsumptionStatus(item.status)}</Text>
 						</Td>
 						<Td>
-							<Text>{item.acceptedAt || pageStrings.notValidated}</Text>
+							<Text>{item.acceptedAt ? format.date(item.acceptedAt) : pageStrings.notValidated}</Text>
 						</Td>
 					</Tr>
 				)}
