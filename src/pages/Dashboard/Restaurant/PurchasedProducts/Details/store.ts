@@ -50,6 +50,8 @@ export default class Store {
 				this.purchasedProductId.value,
 				this.consumeQuantity.value,
 			);
+			this.fetchModelShelf.fetchModel();
+			this.paginetedListShelf.refresh();
 			showSuccessToast(strings.purchasedProducts.details.successMessage(this.consumeQuantity.value));
 		} catch (e) {
 			const error = Errors.treatError(e);
