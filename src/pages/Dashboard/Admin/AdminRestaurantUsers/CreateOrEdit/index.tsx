@@ -19,7 +19,7 @@ interface IParams {
 }
 
 const CreateAdminRestaurantUsers: React.FC = () => {
-	const pageStrings = strings.adminUsers.createOrEdit;
+	const pageStrings = strings.adminRestaurantUsers.createOrEdit;
 	const commonStrings = strings.common;
 
 	const { id } = useParams<IParams>();
@@ -50,7 +50,7 @@ const CreateAdminRestaurantUsers: React.FC = () => {
 		<>
 			<CentralizedCard
 				title={{
-					text: pageStrings.title(false),
+					text: pageStrings.titleRestaurantUser(!!id),
 				}}
 				button={(
 					<Button
