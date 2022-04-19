@@ -7,6 +7,11 @@ import {
 	RiUserLine,
 	RiUserFollowLine,
 } from "react-icons/ri";
+
+import {
+	MdPersonOutline,
+} from "react-icons/md";
+
 import { BiCoffee, BiCart } from "react-icons/bi";
 import { ImGlass } from "react-icons/im";
 import strings from "../resources/strings";
@@ -61,6 +66,11 @@ const useMainRoutes = (currentUser: API.AdminUser | null) => {
 			Icon: AiOutlineHome,
 			text: strings.nav.home,
 			path: createRestaurantRoute(),
+		},
+		{
+			Icon: MdPersonOutline,
+			text: strings.nav.restaurantProfile,
+			path: createRestaurantRoute(`restaurantProfile/${currentUser?.id}`),
 		},
 		{
 			Icon: BiCoffee,

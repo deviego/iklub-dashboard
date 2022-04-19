@@ -78,6 +78,7 @@ const strings = new LocalizedStrings({
 			home: "Home",
 			restaurants: "Restaurantes",
 			adminUsers: "Usuários Adminstrativos",
+			restaurantProfile: "Perfil do Restaurante",
 			products: "Produtos",
 			purchasedProducts: "Produtos Comprados",
 			users: "Usuários",
@@ -374,6 +375,9 @@ const strings = new LocalizedStrings({
 				title: "Lista Produtos Comprados pelo Usuário",
 				header: ["", "Nome do Produto", "Total de Doses", "Doses Disponíveis", "Doses Consumidas", "Data da Compra"],
 			},
+		},
+		restaurantProfile: {
+			title: "Perfil do Restaurante",
 		},
 	},
 });
