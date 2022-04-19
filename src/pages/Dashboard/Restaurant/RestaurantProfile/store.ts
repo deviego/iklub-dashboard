@@ -11,8 +11,6 @@ const pageStrings = strings.restaurants.createOrEdit;
 export default class Store {
 
 	public formShelf = new FormShelf({
-		adminName: "",
-		email: "",
 		name: "",
 		corporateName: "",
 		zipcode: "",
@@ -49,8 +47,6 @@ export default class Store {
 
 	public onAfterFetch = (adminUser: api.AdminUser) => {
 		this.formShelf = new FormShelf({
-			adminName: adminUser.name,
-			email: adminUser.email,
 			name: adminUser.restaurant?.name || "",
 			corporateName: adminUser.restaurant?.corporateName || "",
 			complementary: adminUser.restaurant?.address.complementary || "" || "",
@@ -74,23 +70,19 @@ export default class Store {
 		try {
 
 			const data = this.formShelf.getValues();
-			await api.editCurrentRestaurantAdminUser({
-				name: data.adminName,
-				email: data.email,
-				restaurant: {
-					name: data.name,
-					corporateName: data.corporateName,
-					address: {
-						neighborhood: data.neighborhood,
-						city: data.city,
-						state: this.stateUF.value,
-						street: data.street,
-						streetNumber: data.streetNumber,
-						complementary: data.complementary,
-						zipcode: data.zipcode,
-						countryCode: "BR",
-					},
-					image: this.imageShelf.uncertainfiedImage,
+			await api.editRestaurantOfRestaurantAdminUser({
+				image: this.imageShelf.uncertainfiedImage,
+				name: data.name,
+				corporateName: data.corporateName,
+				address: {
+					neighborhood: data.neighborhood,
+					city: data.city,
+					state: this.stateUF.value,
+					street: data.street,
+					streetNumber: data.streetNumber,
+					complementary: data.complementary,
+					zipcode: data.zipcode,
+					countryCode: "BR",
 				},
 			});
 
