@@ -5,6 +5,7 @@ import Home from "./Home";
 import Products from "./Products";
 import { useAuthRestaurantRoute } from "~/hooks/useAuthRestaurantRoute";
 import PurchasedProducts from "./PurchasedProducts";
+import Consumptions from "./Consumptions";
 
 const Restaurant: React.FC = () => {
 	useAuthRestaurantRoute();
@@ -15,6 +16,7 @@ const Restaurant: React.FC = () => {
 			<Route exact path={restaurantRoutes + "/"} component={Home} />
 			<Route path={restaurantRoutes + "/products"} component={Products} />
 			<Route path={restaurantRoutes + "/purchasedProducts"} component={PurchasedProducts} />
+			<Route path={restaurantRoutes + "/consumptions"} component={Consumptions} />
 
 		</Switch>
 	);
