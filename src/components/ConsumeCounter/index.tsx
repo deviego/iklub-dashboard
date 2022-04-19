@@ -23,12 +23,12 @@ interface IProps {
 	onChangeIsOpen: (newStatus: boolean) => void;
 	quantity: number;
 	onChangeQuantity: (newQuantity: number) => void;
-	maxQuantity: number;
+	availableDoses: number;
 	onConfirm: () => void;
 }
 
 export const ConsumeCounter: React.FC<IProps> = observer((props) => {
-	const { isOpen, quantity, maxQuantity, onChangeIsOpen, onChangeQuantity, onConfirm } = props;
+	const { isOpen, quantity, availableDoses, onChangeIsOpen, onChangeQuantity, onConfirm } = props;
 	const componentStrings = strings.components.consumeCounter;
 
 	const closeModal = () => onChangeIsOpen(false);
@@ -59,7 +59,7 @@ export const ConsumeCounter: React.FC<IProps> = observer((props) => {
 					<NumberInput
 						defaultValue={1}
 						min={1}
-						max={maxQuantity}
+						max={availableDoses}
 						value={quantity}
 						onChange={(value) => onChangeQuantity(parseInt(value))}
 						color="primary.800"

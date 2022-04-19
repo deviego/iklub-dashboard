@@ -19,7 +19,7 @@ interface IConsumeCounterProps {
 	onChangeIsOpen: (newStatus: boolean) => void;
 	quantity: number;
 	onChangeQuantity: (newQuantity: number) => void;
-	maxQuantity: number;
+	availableDoses: number;
 	onConfirm: () => void;
 }
 
@@ -44,7 +44,7 @@ export const DetailsBalance: React.FC<IProps> = observer((props) => {
 				<Box w={{ base: "100%", xl: "30%" }}>
 					<DetailsRow
 						label={commonStrings.fields.availableDoses}
-						value={(purchasedProduct.totalDoses - purchasedProduct.consumedDoses).toString()}
+						value={(consumeCounterProps.availableDoses).toString()}
 					/>
 				</Box>
 				<Box w={{ base: "100%", xl: "30%" }}>
@@ -60,9 +60,11 @@ export const DetailsBalance: React.FC<IProps> = observer((props) => {
 					/>
 				</Box>
 			</Flex>
-			<Button onClick={() => consumeCounterProps.onChangeIsOpen(true)}>
-				{componentStrings.consumeDoses}
-			</Button>
+			{consumeCounterProps.availableDoses > 0 && (
+				<Button onClick={() => consumeCounterProps.onChangeIsOpen(true)}>
+					{componentStrings.consumeDoses}
+				</Button>
+			)}
 			<ConsumeCounter
 				{...consumeCounterProps}
 			/>

@@ -30,7 +30,6 @@ const Details: React.FC = () => {
 	const store = useLocalObservable(() => new Store(id));
 
 	const goBack = () => history.goBack();
-
 	return (
 		<>
 			<CentralizedCard
@@ -59,7 +58,7 @@ const Details: React.FC = () => {
 							consumeCounterProps={{
 								isOpen: store.isConsumeModalOpen.value,
 								onChangeIsOpen: store.isConsumeModalOpen.setValue,
-								maxQuantity: store.fetchModelShelf.fetchedModel.totalDoses,
+								availableDoses: store.fetchModelShelf.fetchedModel.totalDoses - store.fetchModelShelf.fetchedModel.consumedDoses,
 								quantity: store.consumeQuantity.value,
 								onChangeQuantity: store.consumeQuantity.setValue,
 								onConfirm: store.onConsumePurchasedProduct,
