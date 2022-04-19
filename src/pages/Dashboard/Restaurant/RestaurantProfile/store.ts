@@ -6,6 +6,7 @@ import api from "~/resources/api";
 import { showErrorToast, showSuccessToast } from "~/resources/toast";
 import strings from "~/resources/strings";
 
+
 const pageStrings = strings.restaurants.createOrEdit;
 
 export default class Store {
@@ -23,6 +24,16 @@ export default class Store {
 
 	});
 
+	public formShelfBankAccount = new FormShelf({
+		bankCode: "",
+		agency: "",
+		agencyDv: "",
+		account: "",
+		accountDv: "",
+		documentNumber: "",
+	});
+
+	public type = new AttributeShelf(api.BankAccountType.contaCorrente);
 	public stateUF = new AttributeShelf(api.StateUF.AC);
 	public loader = new LoaderShelf();
 	public imageShelf = new ImagePickerShelf(api.uploadImage);
@@ -63,7 +74,44 @@ export default class Store {
 		if (adminUser.restaurant?.address){
 			this.stateUF.setValue(adminUser.restaurant.address.state);
 		}
+		if (adminUser.restaurant.bankAccount) {
+			this.formShelfBankAccount = new FormShelf({
+				account: adminUser.restaurant.bankAccount?.account,
+				accountDv: adminUser.restaurant.bankAccount?.accountDv || "",
+				agency: adminUser.restaurant.bankAccount?.agency,
+				agencyDv: adminUser.restaurant.bankAccount?.agencyDv || "",
+				bankCode: adminUser.restaurant.bankAccount?.bankCode,
+				documentNumber: adminUser.restaurant.bankAccount.documentNumber,
+			});
+			this.type.setValue(adminUser.restaurant.bankAccount.type);
+		}
+
 	};
+
+	public createOrEditBanKAccount = async () => {
+		this.loader.tryStart();
+		try {
+
+			const dataBankAccount = this.formShelfBankAccount.getValues();
+			await api.createOrEditBankAccountForRestaurantAdminUser({
+				account: dataBankAccount.account,
+				accountDv: dataBankAccount.accountDv,
+				agency: dataBankAccount.agency,
+				agencyDv: dataBankAccount.agencyDv,
+				bankCode: dataBankAccount.bankCode,
+				type: this.type.value,
+				documentNumber: dataBankAccount.documentNumber,
+			});
+			showSuccessToast(pageStrings.successBankAccount(!!dataBankAccount.account));
+
+		} catch (e) {
+			const errorMessage = Errors.handleError(e);
+			showErrorToast(errorMessage);
+		} finally {
+			this.loader.end();
+		}
+	};
+
 
 	public EditMyRestaurant = async (onSuccess: () => void) => {
 		this.loader.tryStart();

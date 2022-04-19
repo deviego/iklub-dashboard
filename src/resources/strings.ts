@@ -165,6 +165,17 @@ const strings = new LocalizedStrings({
 				approvedAt: "Aprovado em:",
 				requestedAt: "Solicitação criada em:",
 				status: "Status:",
+				bankAccount: "Conta:",
+				typeAccount: "Tipo da Conta:",
+				bankCode: "Código do Banco",
+				accountDv: "Dígito da conta:",
+				bank: "Banco:",
+				agency: "Agência:",
+				agencyDigit: "Dígito da Agência:",
+				accountNumber: "Número da Conta:",
+				accountDigit: "Dígito da Conta:",
+				cnpj: "CNPJ:",
+
 			},
 			mask: {
 				date: "__/__/____",
@@ -378,6 +389,7 @@ const strings = new LocalizedStrings({
 		},
 		restaurantProfile: {
 			title: "Perfil do Restaurante",
+			bankAccountTitle: (hasBankAccount: boolean) => hasBankAccount ? "Editar Conta Bancária" : "Cadastro de Conta",
 		},
 	},
 });
