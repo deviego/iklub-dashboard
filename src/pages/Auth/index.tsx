@@ -9,7 +9,6 @@ export const Auth = observer(() => {
 	const history = useHistory();
 
 	useEffect(() => {
-		history.replace("/dashboard");
 		authStore.authenticate(
 			() => history.replace("/dashboard"),
 			() => history.replace("/login"),
