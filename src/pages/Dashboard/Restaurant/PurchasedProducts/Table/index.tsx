@@ -42,7 +42,7 @@ const TableView: React.FC = () => {
 							<Text>{item.product.title}</Text>
 						</Td>
 						<Td>
-							<Text>{item.product.price}</Text>
+							<Text>{format.currencyForBR(item.product.price)}</Text>
 						</Td>
 						<Td>
 							<Text>{item.consumedDoses}</Text>
