@@ -27,10 +27,6 @@ export const CpfFilter: React.FC<IProps> = (props) => {
 				sm: 0,
 				md: "auto",
 			}}
-			justifyContent={{
-				sm: "center",
-				md: "flex-start",
-			}}
 		>
 			<TextInput
 				type="text"
