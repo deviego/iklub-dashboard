@@ -34,4 +34,4 @@ export { ConsumptionHistory } from "./ConsumptionHistory";
 export type { IProps as ICentralizedCardProps } from "./CentralizedCard";
 export { DetailsModelShelf } from "./DetailsModelShelf";
 export { CpfFilter } from "./CpfFilter";
-
+export { LabelWithText } from "./LabelWithText";

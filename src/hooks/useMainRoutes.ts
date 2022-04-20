@@ -12,7 +12,7 @@ import {
 	MdPersonOutline,
 } from "react-icons/md";
 
-import { BiCoffee, BiCart } from "react-icons/bi";
+import { BiCoffee, BiCart, BiWallet } from "react-icons/bi";
 import { ImGlass } from "react-icons/im";
 import strings from "../resources/strings";
 import API from "~/resources/api";
@@ -86,6 +86,11 @@ const useMainRoutes = (currentUser: API.AdminUser | null) => {
 			Icon: ImGlass,
 			text: strings.nav.consumptions,
 			path: createRestaurantRoute("consumptions"),
+		},
+		{
+			Icon: BiWallet,
+			text: strings.nav.wallet,
+			path: createRestaurantRoute("wallet/" + currentUser?.restaurant?.id),
 		},
 	];
 
