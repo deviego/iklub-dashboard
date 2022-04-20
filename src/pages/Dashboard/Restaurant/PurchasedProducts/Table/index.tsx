@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { observer, useLocalObservable } from "mobx-react-lite";
 import { Flex, Td, Text, Tr } from "@chakra-ui/react";
 
-import { Table, TableCellWithActionButtons } from "~/components";
+import { CpfFilter, Table, TableCellWithActionButtons } from "~/components";
 
 import format from "~/resources/format";
 import strings from "~/resources/strings";
@@ -19,8 +19,17 @@ const TableView: React.FC = () => {
 
 	const onGoToDetailsPurchasedProducts = (id: string) => history.push(`purchasedProducts/details/${id}`);
 
+	const onConfirmSearch = () => {
+		store.paginetedListShelf.refresh();
+	};
+
 	return (
 		<Flex flexDir="column" p={{ base: "2", lg: "16" }}>
+			<CpfFilter
+				documentNumber={store.documentNumber.value}
+				onChangeDocumentNumber={(cpf) => store.documentNumber.setValue(cpf)}
+				onConfirm={onConfirmSearch}
+			/>
 			<Table
 				data={store.paginetedListShelf.items}
 				headers={pageStrings.header}
