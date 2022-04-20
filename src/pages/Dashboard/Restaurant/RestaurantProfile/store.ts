@@ -37,7 +37,7 @@ export default class Store {
 	public stateUF = new AttributeShelf(api.StateUF.AC);
 	public loader = new LoaderShelf();
 	public imageShelf = new ImagePickerShelf(api.uploadImage);
-
+	public isEditBankAccount = new AttributeShelf(false);
 	public id = new AttributeShelf("");
 
 	public fetchModelShelf: FetchModelShelf<api.AdminUser>;
@@ -84,6 +84,7 @@ export default class Store {
 				documentNumber: adminUser.restaurant.bankAccount.documentNumber,
 			});
 			this.type.setValue(adminUser.restaurant.bankAccount.type);
+			this.isEditBankAccount.setValue(true);
 		}
 	};
 
@@ -101,7 +102,7 @@ export default class Store {
 				type: this.type.value,
 				documentNumber: dataBankAccount.documentNumber,
 			});
-			showSuccessToast(pageStrings.successBankAccount(!!dataBankAccount.account));
+			showSuccessToast(pageStrings.successBankAccount(this.isEditBankAccount.value));
 
 		} catch (e) {
 			const errorMessage = Errors.handleError(e);
