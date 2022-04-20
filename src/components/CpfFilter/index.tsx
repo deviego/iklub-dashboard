@@ -19,9 +19,19 @@ export const CpfFilter: React.FC<IProps> = (props) => {
 	return (
 		<Flex
 			flexDir="row"
-			w="100%"
+			w={{
+				sm: "100%",
+				md: "75%",
+			}}
+			mx={{
+				sm: 0,
+				md: "auto",
+			}}
+			justifyContent={{
+				sm: "center",
+				md: "flex-start",
+			}}
 		>
-
 			<TextInput
 				type="text"
 				mask="999.999.999-99"

@@ -13,7 +13,7 @@ export default class Store {
 		makeAutoObservable(this);
 
 		this.paginetedListShelf = new PaginatedListShelf(
-			(page) => api.getAllPurchasedProductsByUserFilterOptionsForRestaurantAdminUser(page, this.filterCPF),
+			(page) => api.getAllPurchasedProductsByUserFilterOptionsForRestaurantAdminUser(page, this.userFindOptions),
 			{
 				fetchOnConstructor: true,
 				onFetchError: (e) => {
@@ -24,7 +24,7 @@ export default class Store {
 		);
 	}
 
-	public get filterCPF() {
+	public get userFindOptions() {
 		return {
 			name: null,
 			documentNumber: this.documentNumber.value,

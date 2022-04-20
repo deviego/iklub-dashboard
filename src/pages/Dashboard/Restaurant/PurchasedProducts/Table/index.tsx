@@ -25,22 +25,11 @@ const TableView: React.FC = () => {
 
 	return (
 		<Flex flexDir="column" p={{ base: "2", lg: "16" }}>
-			<Flex
-				w={{
-					sm: "100%",
-					md: "75%",
-				}}
-				mx={{
-					sm: 0,
-					md: "auto",
-				}}
-			>
-				<CpfFilter
-					documentNumber={store.documentNumber.value}
-					onChangeDocumentNumber={(cpf) => store.documentNumber.setValue(cpf)}
-					onConfirm={onConfirmSearch}
-				/>
-			</Flex>
+			<CpfFilter
+				documentNumber={store.documentNumber.value}
+				onChangeDocumentNumber={(cpf) => store.documentNumber.setValue(cpf)}
+				onConfirm={onConfirmSearch}
+			/>
 			<Table
 				data={store.paginetedListShelf.items}
 				headers={pageStrings.header}
