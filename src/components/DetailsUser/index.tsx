@@ -49,6 +49,10 @@ export const DetailsUser: React.FC<IProps> = (props) => {
 				value={user.email}
 			/>
 			<DetailsRow
+				label={commonStrings.fields.cpf}
+				value={user.documentNumber || ""}
+			/>
+			<DetailsRow
 				label={commonStrings.fields.phone}
 				value={user.phone}
 			/>
