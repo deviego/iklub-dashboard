@@ -74,7 +74,7 @@ const strings = new LocalizedStrings({
 				consumeDoses: "Consumir doses",
 			},
 			cpfFilter: {
-				searchByCpfPlaceholder: "Procure por cpf...",
+				placeholder: "Digite um cpf...",
 			},
 		},
 		nav: {

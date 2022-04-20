@@ -27,17 +27,14 @@ export const CpfFilter: React.FC<IProps> = (props) => {
 				sm: 0,
 				md: "auto",
 			}}
-			justifyContent={{
-				base: "center",
-				md:"flex-start",
-			}}
+			justifyContent="center"
 		>
 			<TextInput
 				type="text"
 				mask="999.999.999-99"
 				value={documentNumber}
 				onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChangeDocumentNumber(e.target.value)}
-				placeholder={strings.components.cpfFilter.searchByCpfPlaceholder}
+				placeholder={strings.components.cpfFilter.placeholder}
 				borderRadius="0.375rem"
 				py={5}
 			/>
