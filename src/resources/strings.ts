@@ -38,6 +38,13 @@ const strings = new LocalizedStrings({
 				accepted: "Aceito",
 				pending: "Pendente",
 			},
+			BankAccountType: {
+				contaCorrente: "Conta Corrente",
+				contaCorrenteConjunta: "Conta Corrente Conjunta",
+				contaPoupanca: "Conta Poupança",
+				contaPoupancaConjunta: "Conta Poupança Conjunta",
+			},
+
 		},
 		components: {
 			autoCompleteList: {

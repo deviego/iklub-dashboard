@@ -1,4 +1,4 @@
-import { Button, HStack } from "@chakra-ui/react";
+import { Button, Flex, HStack } from "@chakra-ui/react";
 import { observer } from "mobx-react-lite";
 import React from "react";
 import strings from "~/resources/strings";
@@ -84,42 +84,52 @@ export const BankForm: React.FC<IProps> = observer((props) => {
 				errorText={formValues.field("documentNumber").error}
 				{...formValues.field("documentNumber")}
 			/>
-			<HStack m={0}>
+			<Flex
+				flexDirection={{ base: "column", md: "row" }}
+				justifyContent="space-between"
+			>
 				<TextInput
-					boxProps={{ paddingY: 4, w: "100%" }}
+					boxProps={{ w: "100%" }}
 					labelText={commonStrings.fields.bankAccount}
 					type="text"
+					w={{ base: "100%", md: "97%" }}
 					isDisabled={isLoading}
 					errorText={formValues.field("account").error}
 					{...formValues.field("account")}
 				/>
 				<TextInput
-					boxProps={{ paddingY: 4, w: "100%" }}
+					boxProps={{ w: "100%" }}
 					labelText={commonStrings.fields.accountDv}
 					type="text"
+					w={{ base: "100%", md: "97%" }}
 					isDisabled={isLoading}
 					errorText={formValues.field("accountDv").error}
 					{...formValues.field("accountDv")}
 				/>
-			</HStack>
-			<HStack m={0}>
+			</Flex>
+			<Flex
+				flexDirection={{ base: "column", md: "row" }}
+				justifyContent="space-between"
+			>
 				<TextInput
-					boxProps={{ paddingY: 4, w: "100%" }}
+					boxProps={{ w: "100%" }}
 					labelText={commonStrings.fields.agency}
 					type="text"
+					w={{ base: "100%", md: "97%" }}
 					isDisabled={isLoading}
 					errorText={formValues.field("agency").error}
 					{...formValues.field("agency")}
 				/>
 				<TextInput
-					boxProps={{ paddingY: 4, w: "100%" }}
+					boxProps={{ w: "100%" }}
 					labelText={commonStrings.fields.agencyDigit}
 					type="text"
+					w={{ base: "100%", md: "97%" }}
 					isDisabled={isLoading}
 					errorText={formValues.field("agencyDv").error}
 					{...formValues.field("agencyDv")}
 				/>
-			</HStack>
+			</Flex>
 		</CentralizedCard>
 	);
 });
