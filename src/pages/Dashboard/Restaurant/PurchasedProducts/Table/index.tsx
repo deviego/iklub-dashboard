@@ -26,8 +26,14 @@ const TableView: React.FC = () => {
 	return (
 		<Flex flexDir="column" p={{ base: "2", lg: "16" }}>
 			<Flex
-				w="75%"
-				mx="auto"
+				w={{
+					sm: "100%",
+					md: "75%",
+				}}
+				mx={{
+					sm: 0,
+					md: "auto",
+				}}
 			>
 				<CpfFilter
 					documentNumber={store.documentNumber.value}

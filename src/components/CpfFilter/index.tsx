@@ -18,7 +18,7 @@ export const CpfFilter: React.FC<IProps> = (props) => {
 
 	return (
 		<Flex
-			flexDir={["column", "column", "row"]}
+			flexDir="row"
 			w="100%"
 		>
 
@@ -33,7 +33,10 @@ export const CpfFilter: React.FC<IProps> = (props) => {
 			/>
 			<Button
 				onClick={onConfirm}
-				w="25%"
+				w={{
+					sm: "20%",
+					md: "25%",
+				}}
 				mx={2}
 				my={1}
 			>
