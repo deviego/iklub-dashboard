@@ -7,6 +7,7 @@ import { useAuthRestaurantRoute } from "~/hooks/useAuthRestaurantRoute";
 import PurchasedProducts from "./PurchasedProducts";
 import RestaurantProfile from "./RestaurantProfile";
 import Consumptions from "./Consumptions";
+import Wallet from "./Wallet";
 
 const Restaurant: React.FC = () => {
 	useAuthRestaurantRoute();
@@ -19,6 +20,7 @@ const Restaurant: React.FC = () => {
 			<Route path={restaurantRoutes + "/products"} component={Products} />
 			<Route path={restaurantRoutes + "/purchasedProducts"} component={PurchasedProducts} />
 			<Route path={restaurantRoutes + "/consumptions"} component={Consumptions} />
+			<Route path={restaurantRoutes + "/wallet/:id"} component={Wallet} />
 
 		</Switch>
 	);

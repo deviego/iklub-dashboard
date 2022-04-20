@@ -94,6 +94,7 @@ const strings = new LocalizedStrings({
 			users: "Usuários",
 			adminRestaurantUsers: "Usuários Restaurantes",
 			consumptions: "Consumos",
+			wallet: "Meus ganhos",
 			logout: "Sair",
 		},
 		actions: {
@@ -401,6 +402,17 @@ const strings = new LocalizedStrings({
 		restaurantProfile: {
 			title: "Perfil do Restaurante",
 			bankAccountTitle: (hasBankAccount: boolean) => hasBankAccount ? "Editar Conta Bancária" : "Cadastro de Conta",
+		},
+		wallet: {
+			withdrawButton: "Sacar",
+			title: "Saldo",
+			bankAccountTitle: "Conta Bancária",
+			transferred: "Transferido",
+			pending: "Pendente",
+			available: "Disponível",
+			success: "Saldo retirado",
+			withdrawError: "Erro ao tentar retirar saldo",
+			modalHeader: "Informe o valor que deseja retirar. A transação está sujeita a uma taxa de R$ 3,67.",
 		},
 	},
 });
