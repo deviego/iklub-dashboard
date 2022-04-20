@@ -15,6 +15,7 @@ import {
 import { useGlobalStore } from "~/contexts/useGlobalContext";
 
 import strings from "~/resources/strings";
+import format from "~/resources/format";
 
 import Store from "./store";
 import { useDebounce } from "~/hooks/useDebounce";
@@ -86,7 +87,7 @@ const CreateOrEdit: React.FC = () => {
 				{...store.formShelf.field("description")}
 			/>
 			<MoneyInput
-				value={store.price.value.toString()}
+				value={format.currencyForBR(store.price.value)}
 				onChange={(value: string) => store.price.setValue(parseInt(value))}
 			/>
 			<TextInput

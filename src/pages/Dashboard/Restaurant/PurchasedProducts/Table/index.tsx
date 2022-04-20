@@ -18,7 +18,6 @@ const TableView: React.FC = () => {
 	const history = useHistory();
 
 	const onGoToDetailsPurchasedProducts = (id: string) => history.push(`purchasedProducts/details/${id}`);
-
 	return (
 		<Flex flexDir="column" p={{ base: "2", lg: "16" }}>
 			<Table
@@ -33,7 +32,7 @@ const TableView: React.FC = () => {
 							<Text>{item.product.title}</Text>
 						</Td>
 						<Td>
-							<Text>{item.product.price}</Text>
+							<Text>{format.currencyForBR(item.product.price)}</Text>
 						</Td>
 						<Td>
 							<Text>{item.consumedDoses}</Text>

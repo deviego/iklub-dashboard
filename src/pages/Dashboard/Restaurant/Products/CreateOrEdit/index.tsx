@@ -15,6 +15,7 @@ import { useGlobalStore } from "~/contexts/useGlobalContext";
 import strings from "~/resources/strings";
 
 import Store from "./store";
+import format from "~/resources/format";
 
 interface IParams {
 	id?: string;
@@ -81,7 +82,7 @@ const CreateOrEdit: React.FC = () => {
 				{...store.formShelf.field("description")}
 			/>
 			<MoneyInput
-				value={store.price.value.toString()}
+				value={format.currencyForBR(store.price.value)}
 				onChange={(value: string) => store.price.setValue(parseInt(value))}
 			/>
 			<TextInput
