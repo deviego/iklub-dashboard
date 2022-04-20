@@ -1,4 +1,4 @@
-import { Button, Flex, HStack } from "@chakra-ui/react";
+import { Button, Flex } from "@chakra-ui/react";
 import { observer } from "mobx-react-lite";
 import React from "react";
 import strings from "~/resources/strings";
