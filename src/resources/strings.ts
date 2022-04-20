@@ -73,6 +73,9 @@ const strings = new LocalizedStrings({
 			detailsBalance: {
 				consumeDoses: "Consumir doses",
 			},
+			cpfFilter: {
+				searchByCpfPlaceholder: "Procure por cpf...",
+			},
 		},
 		nav: {
 			home: "Home",
@@ -95,6 +98,7 @@ const strings = new LocalizedStrings({
 			back: "Voltar",
 			add: "Adicionar",
 			send: "Enviar",
+			search: "Buscar",
 		},
 		moment: {
 			day: "DD",
