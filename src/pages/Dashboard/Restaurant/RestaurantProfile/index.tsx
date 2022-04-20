@@ -58,7 +58,7 @@ const RestaurantProfile: React.FC = () => {
 				}}
 			/>
 			<BankForm
-				title={pageStrings.bankAccountTitle(!!store.formShelfBankAccount.getValue("account"))}
+				title={pageStrings.bankAccountTitle(store.isEditBankAccount.value)}
 				formValues={{
 					field: store.formShelfBankAccount.field,
 					type: store.type,
@@ -66,7 +66,7 @@ const RestaurantProfile: React.FC = () => {
 				isLoading={store.loader.isLoading}
 				submit={{
 					onClick: onSubmitBankAccount,
-					text: commonStrings.buttons.confirmButton(!!store.formShelfBankAccount.getValue("account")),
+					text: commonStrings.buttons.confirmButton(store.isEditBankAccount.value),
 					isLoading: store.loader.isLoading,
 				}}
 			/>
