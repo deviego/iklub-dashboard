@@ -168,7 +168,7 @@ const strings = new LocalizedStrings({
 				state: "Estado:",
 				totalAmountOfDoses: "Total de Doses:",
 				price: "Preço:",
-				title: "Title:",
+				title: "Nome:",
 				description: "Descrição:",
 				createdAt: "Data de Criação:",
 				purchasedAt: "Data de Compra:",
