@@ -130,7 +130,7 @@ const CreateAdminRestaurantUsers: React.FC = () => {
 							<TextInput
 								labelText={commonStrings.fields.password}
 								labelProps={{ fontWeight: "bold" }}
-								type="text"
+								type="password"
 								isDisabled={store.loader.isLoading}
 								errorText={store.formShelf.fieldError.getFieldError("password")}
 								{...store.formShelf.field("password")}
