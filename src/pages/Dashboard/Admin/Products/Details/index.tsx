@@ -48,7 +48,6 @@ const Details: React.FC = () => {
 								<EditIcon
 									w="24px"
 									h="24px"
-									mt={23}
 									onClick={() => onGoToEditUser(id || "")}
 								/>
 							}
