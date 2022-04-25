@@ -19,7 +19,7 @@ const Login: React.FC = () => {
 
 	const onSuccess = (userName: string) => {
 		toast({status: "success", title: pageStrings.success(userName)});
-		history.replace("/");
+		history.replace("/dashboard");
 	};
 
 	const onError = (errorMessage: string) => {
