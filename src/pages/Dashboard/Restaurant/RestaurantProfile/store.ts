@@ -134,7 +134,7 @@ export default class Store {
 				},
 			});
 
-			showSuccessToast(pageStrings.success(!this.id.value));
+			showSuccessToast(pageStrings.success(!!this.id.value));
 			onSuccess();
 		} catch (e) {
 			const errorMessage = Errors.handleError(e);
