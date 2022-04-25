@@ -31,7 +31,7 @@ const Details: React.FC = () => {
 
 	const store = useLocalObservable(() => new Store(id || ""));
 
-	const onGoToEditUser = (productId: string) => history.push(`/dashboard/admin/products/edit/${productId}`);
+	const onGoToEditProduct = (productId: string) => history.push(`/dashboard/admin/productsForAdmin/edit/${productId}`);
 	const goBack = () => history.goBack();
 
 	return (
@@ -48,7 +48,7 @@ const Details: React.FC = () => {
 								<EditIcon
 									w="24px"
 									h="24px"
-									onClick={() => onGoToEditUser(id || "")}
+									onClick={() => onGoToEditProduct(id || "")}
 								/>
 							}
 						/>
