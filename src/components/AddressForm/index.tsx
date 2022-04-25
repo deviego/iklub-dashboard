@@ -75,12 +75,11 @@ export const AddressForm: React.FC<IProps> = observer((props) => {
 						{...formValues?.field("street")}
 					/>
 					<TextInput
-						mask="999"
 						mb={7}
 						boxProps={{ w: "50%"}}
 						labelText={commonStrings.fields.streetNumber}
 						labelProps={{ fontWeight: "bold" }}
-						type="text"
+						type="number"
 						isDisabled={isLoading}
 						errorText={formValues?.field("streetNumber").error}
 						{...formValues?.field("streetNumber")}
