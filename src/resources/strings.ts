@@ -83,6 +83,9 @@ const strings = new LocalizedStrings({
 			cpfFilter: {
 				placeholder: "Digite um cpf...",
 			},
+			moneyInput: {
+				coin: "R$",
+			},
 		},
 		nav: {
 			home: "Home",
