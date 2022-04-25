@@ -23,6 +23,8 @@ interface IProps {
 
 export const MoneyInput: React.FC<IProps> = (props) => {
 
+	const pageStrings = strings.components.moneyInput;
+
 	const {
 		value,
 		onChange,
@@ -48,7 +50,7 @@ export const MoneyInput: React.FC<IProps> = (props) => {
 					pointerEvents="none"
 					color="primary.700"
 				>
-					R$
+					{pageStrings.coin}
 				</InputLeftElement>
 				<Input
 					minW={150}
