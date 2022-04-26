@@ -27,9 +27,6 @@ export const ConsumptionHistory: React.FC<IProps> = observer((props) => {
 							<Text>{item.amount}</Text>
 						</Td>
 						<Td>
-							<Text>{api.translateConsumptionStatus(item.status)}</Text>
-						</Td>
-						<Td>
 							<Text>{item.acceptedAt ? format.date(item.acceptedAt) : pageStrings.notValidated}</Text>
 						</Td>
 					</Tr>

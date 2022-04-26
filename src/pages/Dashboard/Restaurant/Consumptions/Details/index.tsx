@@ -6,7 +6,6 @@ import { DetailsModelShelf, DetailsRow } from "~/components";
 import Store from "./store";
 import strings from "~/resources/strings";
 import format from "~/resources/format";
-import api from "~/resources/api";
 
 interface IParams {
 	id?: string;
@@ -29,10 +28,6 @@ const Details: React.FC = () => {
 					<DetailsRow
 						label={commonStrings.fields.amount}
 						value={item.amount}
-					/>
-					<DetailsRow
-						label={commonStrings.fields.status}
-						value={api.translateConsumptionStatus(item.status)}
 					/>
 					<DetailsRow
 						label={commonStrings.fields.requestedAt}

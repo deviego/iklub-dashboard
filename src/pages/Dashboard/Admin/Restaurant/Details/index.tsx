@@ -70,7 +70,7 @@ const Details: React.FC = () => {
 			{id && (
 				<CentralizedCard
 					isTable
-					title={{ text: strings.adminRestaurantUsers.table.title }}
+					title={{ text: strings.restaurants.adminUsersTable.title }}
 					button={
 						<Button
 							size="lg"

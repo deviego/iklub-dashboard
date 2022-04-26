@@ -10,7 +10,6 @@ import format from "~/resources/format";
 import strings from "~/resources/strings";
 
 import Store from "./store";
-import api from "~/resources/api";
 
 const TableView: React.FC = () => {
 	const pageStrings = strings.consumptions;
@@ -86,9 +85,6 @@ const TableView: React.FC = () => {
 								<Text>{item.amount}</Text>
 							</Td>
 							<Td>
-								<Text>{api.translateConsumptionStatus(item.status)}</Text>
-							</Td>
-							<Td>
 								<Text>{format.date(item.createdAt)}</Text>
 							</Td>
 							<Td>
@@ -116,9 +112,6 @@ const TableView: React.FC = () => {
 							/>
 							<Td>
 								<Text>{item.amount}</Text>
-							</Td>
-							<Td>
-								<Text>{api.translateConsumptionStatus(item.status)}</Text>
 							</Td>
 							<Td>
 								<Text>{format.date(item.createdAt)}</Text>
