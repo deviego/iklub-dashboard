@@ -1,9 +1,9 @@
-import * as API from "@startapp/cbwhiski-admin-api";
+import * as API from "@startapp/iklub-admin-api";
 
 import { LocalizedStringsMethods } from "localized-strings";
 
-const productionUrl = "https://api.cbwhiski.startapp.one/admin";
-const stagingUrl = "https://api.cbwhiski.startapp.one/admin-staging";
+const productionUrl = "https://api.iklub.startapp.one/admin";
+const stagingUrl = "https://api.iklub.startapp.one/admin-staging";
 
 const bootAPI = (strings: LocalizedStringsMethods) => {
 	let apiURL: string;

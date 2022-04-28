@@ -8,7 +8,7 @@
     "@chakra-ui/react": "^1.8.6",
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
-    "@startapp/cbwhiski-admin-api": "^1.1.498122392",
+    "@startapp/iklub-admin-api": "^1.1.527364639",
     "@startapp/mobx-utils": "^1.1.448525650",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",

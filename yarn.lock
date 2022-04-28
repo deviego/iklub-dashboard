@@ -2811,10 +2811,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@startapp/cbwhiski-admin-api@^1.1.498122392":
-  version "1.1.524295908"
-  resolved "https://npm.startapp.one/@startapp%2fcbwhiski-admin-api/-/cbwhiski-admin-api-1.1.524295908.tgz#57464a2ae44aa3949d1e18d0b7b54415e534cecb"
-  integrity sha512-WOMw+YcCWj+ajAujcIUYCP1njRfPVuywuPA2JZfMhJGchLDW+CjhQnwt20um0Il+YrFqrDpW1CwmvCc3zK0K0Q==
+"@startapp/iklub-admin-api@^1.1.527364639":
+  version "1.1.527364639"
+  resolved "https://npm.startapp.one/@startapp%2fiklub-admin-api/-/iklub-admin-api-1.1.527364639.tgz#d7c9e945c315c97949b0b35e5dd53796748245d6"
+  integrity sha512-rUBKKKVaIYMC+F5q8IWGgPaYvb/2PVJbA0eVmuzd7pj5ClVBzH75kIkAoXBK0nHzsZQuKJumBUwH5MEpZapyUA==
   dependencies:
     "@types/node" "^8.0.29"
     "@types/ua-parser-js" "^0.7.32"
