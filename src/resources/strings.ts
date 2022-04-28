@@ -296,7 +296,7 @@ const strings = new LocalizedStrings({
 				},
 			},
 			adminUsersTable: {
-				title: "Lista de Usuários Admin:",
+				title: "Lista de Usuários Admin do Restaurante:",
 				header: ["", "Usuários Admin", "Email"],
 				delete: (userName: string) => `Usuário ${userName} foi deletado!`,
 				addButtonText: "Adicionar novo usuário admin",

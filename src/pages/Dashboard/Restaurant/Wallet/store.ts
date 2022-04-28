@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { AttributeShelf, LoaderShelf, FetchModelShelf } from "@startapp/mobx-utils";
+import { AttributeShelf, LoaderShelf } from "@startapp/mobx-utils";
 
 import api from "~/resources/api";
 import { Errors } from "~/resources/errors";
@@ -9,21 +9,22 @@ import strings from "~/resources/strings";
 export default class Store {
 
 	public loader = new LoaderShelf();
-	public fetchModelShelf: FetchModelShelf<api.AdminUser>;
+	public bankAccount: AttributeShelf<api.BankAccount | null> = new AttributeShelf(null);
 	public balance: AttributeShelf<api.Balance | null> = new AttributeShelf(null);
 	public withdrawAmount = new AttributeShelf(0);
 
-	constructor(id: string,  onBalanceError?: () => void) {
+	constructor(onBalanceError?: () => void) {
 		makeAutoObservable(this);
-		this.fetchModelShelf = new FetchModelShelf(id, api.getAdminRestaurantUser);
 		this.getBalance(onBalanceError);
 	}
 
 	public getBalance = async(onError?: () => void) => {
 		this.loader.tryStart();
 		try {
+			const bankAccount = await api.getBankAccountForRestaurantAdminUser();
 			const clinicBalance = await api.getRestaurantBalance();
 			this.balance.setValue(clinicBalance);
+			this.bankAccount.setValue(bankAccount);
 		} catch (e) {
 			const errorMessage = Errors.handleError(e);
 			showErrorToast(errorMessage);

@@ -101,6 +101,7 @@ export default class Store {
 				bankCode: dataBankAccount.bankCode,
 				type: this.type.value,
 				documentNumber: dataBankAccount.documentNumber,
+				bankName: "",
 			});
 			showSuccessToast(pageStrings.successBankAccount(this.isEditBankAccount.value));
 

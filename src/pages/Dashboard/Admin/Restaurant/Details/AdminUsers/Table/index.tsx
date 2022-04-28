@@ -49,7 +49,7 @@ const AdminUsersTable: React.FC<IProps> = (props) => {
 	};
 
 	return (
-		<Flex flexDir="column" p={{ base: "2", lg: "16" }} >
+		<Flex>
 			<Table
 				data={store._items}
 				headers={pageStrings.header}
