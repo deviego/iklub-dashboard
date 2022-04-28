@@ -69,6 +69,8 @@ const RestaurantProfile: React.FC = () => {
 					text: commonStrings.buttons.confirmButton(store.isEditBankAccount.value),
 					isLoading: store.loader.isLoading,
 				}}
+				toggleBank={store.toggleBank}
+				getBankNamesAndCodes={store.getBankNamesAndCodes()}
 			/>
 
 		</>

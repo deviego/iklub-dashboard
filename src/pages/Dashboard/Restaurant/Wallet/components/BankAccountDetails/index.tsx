@@ -40,6 +40,10 @@ export const BankAccountDetails: React.FC<IProps> = (props) => {
 			}}
 		>
 			<DetailsRow
+				label={commonStrings.fields.bankName}
+				value={bankAccount.bankName}
+			/>
+			<DetailsRow
 				label={commonStrings.fields.typeAccount}
 				value={api.translateBankAccountType(bankAccount?.type)}
 			/>

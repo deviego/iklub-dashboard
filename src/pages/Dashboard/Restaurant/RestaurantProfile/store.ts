@@ -6,6 +6,10 @@ import api from "~/resources/api";
 import { showErrorToast, showSuccessToast } from "~/resources/toast";
 import strings from "~/resources/strings";
 
+export interface IBankNameAndCode {
+	name: string;
+	code: string;
+}
 
 const pageStrings = strings.restaurants.createOrEdit;
 
@@ -25,6 +29,7 @@ export default class Store {
 	});
 
 	public formShelfBankAccount = new FormShelf({
+		bankName: "",
 		bankCode: "",
 		agency: "",
 		agencyDv: "",
@@ -36,11 +41,69 @@ export default class Store {
 	public type = new AttributeShelf<api.BankAccountType>(api.BankAccountType.contaCorrente);
 	public stateUF = new AttributeShelf(api.StateUF.AC);
 	public loader = new LoaderShelf();
+	public fetchModelShelf: FetchModelShelf<api.AdminUser>;
 	public imageShelf = new ImagePickerShelf(api.uploadImage);
 	public isEditBankAccount = new AttributeShelf(false);
 	public id = new AttributeShelf("");
+	public selectedBankAccountType: api.BankAccountType | null = null;
 
-	public fetchModelShelf: FetchModelShelf<api.AdminUser>;
+	public bankCode = "";
+	public bankName = "";
+
+	public selectBankAccountType = (bankAccountType: api.BankAccountType) => {
+		this.selectedBankAccountType = bankAccountType;
+	};
+
+	public getBankNamesAndCodes = (): IBankNameAndCode[] => [
+		{
+			name: strings.restaurants.createOrEdit.banksCode.code1.name,
+			code: strings.restaurants.createOrEdit.banksCode.code1.code,
+		},
+		{
+			name: strings.restaurants.createOrEdit.banksCode.code2.name,
+			code: strings.restaurants.createOrEdit.banksCode.code2.code,
+		},
+		{
+			name: strings.restaurants.createOrEdit.banksCode.code3.name,
+			code: strings.restaurants.createOrEdit.banksCode.code3.code,
+		},
+		{
+			name: strings.restaurants.createOrEdit.banksCode.code4.name,
+			code: strings.restaurants.createOrEdit.banksCode.code4.code,
+		},
+		{
+			name: strings.restaurants.createOrEdit.banksCode.code5.name,
+			code: strings.restaurants.createOrEdit.banksCode.code5.code,
+		},
+		{
+			name: strings.restaurants.createOrEdit.banksCode.code6.name,
+			code: strings.restaurants.createOrEdit.banksCode.code6.code,
+		},
+		{
+			name: strings.restaurants.createOrEdit.banksCode.code7.name,
+			code: strings.restaurants.createOrEdit.banksCode.code7.code,
+		},
+		{
+			name: strings.restaurants.createOrEdit.banksCode.code8.name,
+			code: strings.restaurants.createOrEdit.banksCode.code8.code,
+		},
+		{
+			name: strings.restaurants.createOrEdit.banksCode.code9.name,
+			code: strings.restaurants.createOrEdit.banksCode.code9.code,
+		},
+		{
+			name: strings.restaurants.createOrEdit.banksCode.code10.name,
+			code: strings.restaurants.createOrEdit.banksCode.code10.code,
+		},
+	];
+
+	public toggleBank = (bankCode: string) => {
+		const bankNameAndCode = this.getBankNamesAndCodes().find((bank) => bank.code === bankCode);
+		if (bankNameAndCode) {
+			this.bankName = bankNameAndCode.name;
+			this.bankCode = bankNameAndCode.code;
+		}
+	};
 
 	constructor(id: string) {
 		makeAutoObservable(this);
@@ -76,6 +139,7 @@ export default class Store {
 		}
 		if (adminUser.restaurant?.bankAccount) {
 			this.formShelfBankAccount = new FormShelf({
+				bankName: adminUser.restaurant.bankAccount.bankName,
 				account: adminUser.restaurant.bankAccount.account,
 				accountDv: adminUser.restaurant.bankAccount.accountDv || "",
 				agency: adminUser.restaurant.bankAccount.agency,
@@ -98,10 +162,10 @@ export default class Store {
 				accountDv: dataBankAccount.accountDv,
 				agency: dataBankAccount.agency,
 				agencyDv: dataBankAccount.agencyDv,
-				bankCode: dataBankAccount.bankCode,
+				bankCode: this.bankCode,
 				type: this.type.value,
 				documentNumber: dataBankAccount.documentNumber,
-				bankName: "",
+				bankName: this.bankName,
 			});
 			showSuccessToast(pageStrings.successBankAccount(this.isEditBankAccount.value));
 
