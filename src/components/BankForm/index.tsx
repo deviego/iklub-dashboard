@@ -91,13 +91,6 @@ export const BankForm: React.FC<IProps> = observer((props) => {
 				tranlateEnum={api.translateBankAccountType}
 			/>
 			<TextInput
-				labelText={commonStrings.fields.bankCode}
-				type="text"
-				isDisabled={isLoading}
-				errorText={formValues.field("bankCode").error}
-				{...formValues.field("bankCode")}
-			/>
-			<TextInput
 				labelText={commonStrings.fields.cnpj}
 				type="text"
 				isDisabled={isLoading}
