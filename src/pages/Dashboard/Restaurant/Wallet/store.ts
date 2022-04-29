@@ -9,16 +9,16 @@ import strings from "~/resources/strings";
 export default class Store {
 
 	public loader = new LoaderShelf();
-	public bankAccount: AttributeShelf<api.BankAccount | null> = new AttributeShelf(null);
 	public balance: AttributeShelf<api.Balance | null> = new AttributeShelf(null);
+	public bankAccount: AttributeShelf<api.BankAccount | null> = new AttributeShelf(null);
 	public withdrawAmount = new AttributeShelf(0);
 
-	constructor(onBalanceError?: () => void) {
+	constructor(onBalanceOrBankError?: () => void) {
 		makeAutoObservable(this);
-		this.getBalance(onBalanceError);
+		this.getBalanceAndBankAccount(onBalanceOrBankError);
 	}
 
-	public getBalance = async(onError?: () => void) => {
+	public getBalanceAndBankAccount = async(onError?: () => void) => {
 		this.loader.tryStart();
 		try {
 			const bankAccount = await api.getBankAccountForRestaurantAdminUser();

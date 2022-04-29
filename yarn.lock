@@ -2811,10 +2811,17 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+<<<<<<< HEAD
 "@startapp/iklub-admin-api@^1.1.527364639":
   version "1.1.527364639"
   resolved "https://npm.startapp.one/@startapp%2fiklub-admin-api/-/iklub-admin-api-1.1.527364639.tgz#d7c9e945c315c97949b0b35e5dd53796748245d6"
   integrity sha512-rUBKKKVaIYMC+F5q8IWGgPaYvb/2PVJbA0eVmuzd7pj5ClVBzH75kIkAoXBK0nHzsZQuKJumBUwH5MEpZapyUA==
+=======
+"@startapp/cbwhiski-admin-api@^1.1.498122392":
+  version "1.1.524190826"
+  resolved "https://npm.startapp.one/@startapp%2fcbwhiski-admin-api/-/cbwhiski-admin-api-1.1.524190826.tgz#b3da00b70323dc1965cc7d8987e1c729a75b7021"
+  integrity sha512-o/PeArKmtkqcm1NkWR9d0/dex5+wdDPDQmtivuQTNR9H8UkM273+lAxMTkMbNsThbp7qHpS1n2ywSxEjtom/LQ==
+>>>>>>> a18a870 (fist version of details bank in wallet)
   dependencies:
     "@types/node" "^8.0.29"
     "@types/ua-parser-js" "^0.7.32"
