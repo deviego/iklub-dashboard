@@ -1,6 +1,8 @@
-import { Button, Flex } from "@chakra-ui/react";
+import { Button, Flex, FormControl, FormLabel, Select } from "@chakra-ui/react";
 import { observer } from "mobx-react-lite";
 import React from "react";
+import { useGlobalStore } from "~/contexts/useGlobalContext";
+import { IBankNameAndCode } from "~/pages/Dashboard/Restaurant/RestaurantProfile/store";
 import strings from "~/resources/strings";
 import {
 	CentralizedCard,
@@ -9,7 +11,7 @@ import {
 } from "..";
 import api from "../../resources/api";
 
-type FieldType = "bankCode" | "agency" | "agencyDv" | "account" | "accountDv" | "documentNumber";
+type FieldType = "bankName" | "bankCode" | "agency" | "agencyDv" | "account" | "accountDv" | "documentNumber";
 
 interface FormValues {
 	field: (field: FieldType) => {
@@ -37,13 +39,17 @@ interface IProps {
 		text: string;
 		isLoading: boolean;
 	};
+	toggleBank: (string: string) => void;
+	getBankNamesAndCodes: IBankNameAndCode[];
 }
 
 export const BankForm: React.FC<IProps> = observer((props) => {
 
-	const { title, isLoading, formValues, submit } = props;
+	const { title, isLoading, formValues, submit, toggleBank, getBankNamesAndCodes } = props;
 
 	const commonStrings = strings.common;
+
+	const { authStore } = useGlobalStore();
 
 	return (
 		<CentralizedCard
@@ -62,19 +68,27 @@ export const BankForm: React.FC<IProps> = observer((props) => {
 				</Button>
 			)}
 		>
+			<FormControl isDisabled={isLoading}>
+				<FormLabel>{commonStrings.fields.bankName}</FormLabel>
+				<Select
+					onChange={(e) => toggleBank(e.target.value)}
+					defaultValue={authStore.currentAdminUser?.restaurant?.bankAccount?.bankCode || undefined}
+					bg="gray.100"
+					color="primary.800"
+				>
+					{getBankNamesAndCodes.map((bank) => (
+						<option aria-selected="true" key={bank.code} value={bank.code}>
+							{commonStrings.fields.concatData(bank.code, bank.name)}
+						</option>
+					))}
+				</Select>
+			</FormControl>
 			<EnumSelect
 				items={api.allValuesBankAccountType()}
 				currentValue={formValues.type.value}
 				label={commonStrings.fields.typeAccount}
 				onChangeEnum={formValues.type.setValue}
 				tranlateEnum={api.translateBankAccountType}
-			/>
-			<TextInput
-				labelText={commonStrings.fields.bankCode}
-				type="text"
-				isDisabled={isLoading}
-				errorText={formValues.field("bankCode").error}
-				{...formValues.field("bankCode")}
 			/>
 			<TextInput
 				labelText={commonStrings.fields.cnpj}

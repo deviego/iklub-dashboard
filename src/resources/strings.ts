@@ -190,7 +190,9 @@ const strings = new LocalizedStrings({
 				accountNumber: "Número da Conta:",
 				accountDigit: "Dígito da Conta:",
 				cnpj: "CNPJ:",
-
+				bankName: "Nome do Banco:",
+				concatData: (left: string, right: string | null) =>
+					right ? `${left} - ${right}` : left,
 			},
 			mask: {
 				date: "__/__/____",
@@ -285,6 +287,48 @@ const strings = new LocalizedStrings({
 				bankAccountTitle: (hasBankAccount: boolean) => hasBankAccount ? "Editar Conta Bancária" : "Cadastro de Conta",
 				banckAccount: "Conta Bancária:",
 				successBankAccount: (isEdit?: boolean) => isEdit ? "Conta editada com sucesso" : "Conta Bancária criada com sucesso",
+				banksCode: {
+					code1: {
+						name: "Banco do Brasil S.A.",
+						code: "001",
+					},
+					code2: {
+						name: "Banco Itaú S.A.",
+						code: "341",
+					},
+					code3: {
+						name: "Banco Santander (Brasil) S.A.",
+						code: "033",
+					},
+					code4: {
+						name: "Banco Real S.A.",
+						code: "356",
+					},
+					code5: {
+						name: "Itaú Unibanco Holding S.A.",
+						code: "652",
+					},
+					code6: {
+						name: "Banco Bradesco S.A.",
+						code: "237",
+					},
+					code7: {
+						name: "Banco Citibank S.A.",
+						code: "745",
+					},
+					code8: {
+						name: "HSBC Bank Brasil S.A. – Banco Múltiplo",
+						code: "399",
+					},
+					code9: {
+						name: "Caixa Econômica Federal",
+						code: "104",
+					},
+					code10: {
+						name: "Banco Mercantil do Brasil S.A.",
+						code: "389",
+					},
+				},
 			},
 			modal: {
 				title: (isRestaurantBlocked: boolean) => ` ${isRestaurantBlocked ? "Habilitar" : "Desabilitar"} Restaurante`,
