@@ -107,6 +107,10 @@ export const BankForm: React.FC<IProps> = observer((props) => {
 					labelText={commonStrings.fields.bankAccount}
 					type="text"
 					w={{ base: "100%", md: "97%" }}
+					mb={{
+						base: 8,
+						md:0,
+					}}
 					isDisabled={isLoading}
 					errorText={formValues.field("account").error}
 					{...formValues.field("account")}
@@ -133,6 +137,10 @@ export const BankForm: React.FC<IProps> = observer((props) => {
 					isDisabled={isLoading}
 					errorText={formValues.field("agency").error}
 					{...formValues.field("agency")}
+					mb={{
+						base: 8,
+						md:0,
+					}}
 				/>
 				<TextInput
 					boxProps={{ w: "100%" }}

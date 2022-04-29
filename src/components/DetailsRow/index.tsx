@@ -1,7 +1,7 @@
 import React from "react";
-import { Box, Stack, Text, Button } from "@chakra-ui/react";
+import { Box, Stack, Text, Button, BoxProps } from "@chakra-ui/react";
 
-export interface IUserInfoCardProps {
+export interface IUserInfoCardProps extends BoxProps {
 	label: string;
 	value: string | string[] | number;
 }
@@ -9,7 +9,7 @@ export interface IUserInfoCardProps {
 export const DetailsRow: React.FC<IUserInfoCardProps> = (props) => {
 	const { value, label } = props;
 	return (
-		<Box w="100%" mb={6} >
+		<Box w="100%" {...props} >
 			{!Array.isArray(value) ?
 				(
 					<Stack spacing={1}>
