@@ -65,6 +65,7 @@ const Details: React.FC = () => {
 				{store.fetchModelShelf.model.value &&
 					<DetailsRestaurant
 						restaurant={store.fetchModelShelf.fetchedModel}
+						dynamicLink={store.restaurantLink}
 					/>}
 			</CentralizedCard>
 			{id && (

@@ -10,6 +10,7 @@ export default class Store{
 	public loader = new LoaderShelf();
 	public fetchModelShelf: FetchModelShelf<api.Restaurant>;
 	public id: string;
+	public restaurantLink: string;
 
 	public paginetedListShelf: PaginatedListShelf<api.Product> | null = null;
 
@@ -38,6 +39,7 @@ export default class Store{
 			},
 		);
 
+		this.getRestaurantDynamicLink(id);
 	}
 
 	private onFecthError = (e: any) => {
@@ -70,6 +72,18 @@ export default class Store{
 
 			showSuccessToast(strings.products.table.statusDisable(disableOrEnable));
 			this.paginetedListShelf?.refresh();
+		} catch (e) {
+			const errorMessage = Errors.handleError(e);
+			showErrorToast(errorMessage);
+		} finally {
+			this.loader.end();
+		}
+	};
+
+	public getRestaurantDynamicLink = async (id: string) => {
+		this.loader.tryStart();
+		try {
+			this.restaurantLink = await api.getRestaurantDynamicLink(id);
 		} catch (e) {
 			const errorMessage = Errors.handleError(e);
 			showErrorToast(errorMessage);

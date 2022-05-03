@@ -40,6 +40,7 @@ const RestaurantProfile: React.FC = () => {
 				isProfile
 				title={pageStrings.title}
 				isLoading={store.loader.isLoading}
+				dynamicLink={store.restaurantLink}
 				formValues={{
 					field: store.formShelf.field,
 					image: {
