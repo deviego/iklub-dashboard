@@ -1,8 +1,8 @@
 import React from "react";
 import {
+	Flex,
 	IconButton,
 	Tooltip,
-	HStack,
 } from "@chakra-ui/react";
 import {
 	CentralizedCard,
@@ -51,30 +51,70 @@ export const BankAccountDetails: React.FC<IProps> = (props) => {
 				label={commonStrings.fields.bankCode}
 				value={bankAccount.bankCode}
 			/>
-			<HStack>
+			<Flex
+				w="100%"
+				flexDirection={{
+					base: "column",
+					md: "row",
+				}}
+				alignItems="center"
+				justifyContent="space-between"
+			>
 				<DetailsRow
 					label={commonStrings.fields.bankAccount}
 					value={bankAccount.account}
+					w={{
+						base: "100%",
+						md: "45%",
+					}}
+					mb={{
+						base: 8,
+						md: 0,
+					}}
 				/>
 				{bankAccount.accountDv && (
 					<DetailsRow
 						label={commonStrings.fields.accountDv}
 						value={bankAccount.accountDv}
+						w={{
+							base: "100%",
+							md: "45%",
+						}}
 					/>
 				)}
-			</HStack>
-			<HStack>
+			</Flex>
+			<Flex
+				w="100%"
+				flexDirection={{
+					base: "column",
+					md: "row",
+				}}
+				alignItems="center"
+				justifyContent="space-between"
+			>
 				<DetailsRow
 					label={commonStrings.fields.agency}
 					value={bankAccount.agency}
+					w={{
+						base: "100%",
+						md: "45%",
+					}}
+					mb={{
+						base: 8,
+						md: 0,
+					}}
 				/>
 				{bankAccount.agencyDv && (
 					<DetailsRow
 						label={commonStrings.fields.agencyDigit}
 						value={bankAccount.agencyDv}
+						w={{
+							base: "100%",
+							md: "45%",
+						}}
 					/>
 				)}
-			</HStack>
+			</Flex>
 		</CentralizedCard>
 	);
 };

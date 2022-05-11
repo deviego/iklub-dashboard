@@ -34,7 +34,7 @@ const Wallet: React.FC = () => {
 
 	const store = useLocalObservable(() => new Store(history.goBack));
 
-	const onGoToEditBankAccount = (restaurantId: string) => history.push(`/dashboard/restaurantProfile/${restaurantId}`);
+	const onGoToEditBankAccount = (adminRestaurantId: string) => history.push(`/dashboard/restaurant/restaurantProfile/${adminRestaurantId}`);
 	const [isOpen, setIsOpen] = React.useState(false);
 
 	const onOpen = () => {
@@ -145,11 +145,11 @@ const Wallet: React.FC = () => {
 				)
 			}
 			{
-				(store.bankAccount.value && authStore.currentAdminUser?.restaurant?.id) &&
+				(store.bankAccount.value && authStore.currentAdminUser?.id) &&
 					<BankAccountDetails
 						title={pageStrings.bankAccountTitle}
 						bankAccount={store.bankAccount.value}
-						onGoToEditRestaurant={() => onGoToEditBankAccount(authStore.currentAdminUser?.restaurant?.id || "")}
+						onGoToEditRestaurant={() => onGoToEditBankAccount(authStore.currentAdminUser?.id || "")}
 					/>
 			}
 		</>
