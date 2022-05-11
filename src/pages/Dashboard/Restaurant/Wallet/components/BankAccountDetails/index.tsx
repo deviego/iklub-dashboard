@@ -54,7 +54,7 @@ export const BankAccountDetails: React.FC<IProps> = (props) => {
 			<Flex
 				w="100%"
 				flexDirection={{
-					sm: "column",
+					base: "column",
 					md: "row",
 				}}
 				alignItems="center"
@@ -64,11 +64,11 @@ export const BankAccountDetails: React.FC<IProps> = (props) => {
 					label={commonStrings.fields.bankAccount}
 					value={bankAccount.account}
 					w={{
-						sm: "100%",
+						base: "100%",
 						md: "45%",
 					}}
 					mb={{
-						sm: 8,
+						base: 8,
 						md: 0,
 					}}
 				/>
@@ -77,7 +77,7 @@ export const BankAccountDetails: React.FC<IProps> = (props) => {
 						label={commonStrings.fields.accountDv}
 						value={bankAccount.accountDv}
 						w={{
-							sm: "100%",
+							base: "100%",
 							md: "45%",
 						}}
 					/>
@@ -86,7 +86,7 @@ export const BankAccountDetails: React.FC<IProps> = (props) => {
 			<Flex
 				w="100%"
 				flexDirection={{
-					sm: "column",
+					base: "column",
 					md: "row",
 				}}
 				alignItems="center"
@@ -96,11 +96,11 @@ export const BankAccountDetails: React.FC<IProps> = (props) => {
 					label={commonStrings.fields.agency}
 					value={bankAccount.agency}
 					w={{
-						sm: "100%",
+						base: "100%",
 						md: "45%",
 					}}
 					mb={{
-						sm: 8,
+						base: 8,
 						md: 0,
 					}}
 				/>
@@ -109,7 +109,7 @@ export const BankAccountDetails: React.FC<IProps> = (props) => {
 						label={commonStrings.fields.agencyDigit}
 						value={bankAccount.agencyDv}
 						w={{
-							sm: "100%",
+							base: "100%",
 							md: "45%",
 						}}
 					/>
