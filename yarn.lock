@@ -2812,9 +2812,9 @@
     "@sinonjs/commons" "^1.7.0"
 
 "@startapp/iklub-admin-api@^1.1.527375349":
-  version "1.1.527375349"
-  resolved "https://npm.startapp.one/@startapp%2fiklub-admin-api/-/iklub-admin-api-1.1.527375349.tgz#445af999e5cf6987a13b6d75bfeb489ac95f9a4e"
-  integrity sha512-DK3TVT5OKhEhWCB6Q4mjWtTR5REcGKvKHAhW9vx38TbAV5VbJP0B1qzOCbdPH/zI57qMVZIZn9RBZgu9AzMTvA==
+  version "1.1.536967777"
+  resolved "https://npm.startapp.one/@startapp%2fiklub-admin-api/-/iklub-admin-api-1.1.536967777.tgz#69473b5ef2cce0543698c3e07f03a24ca0c37db2"
+  integrity sha512-l8ANGnI25YOeNgcCSPHfleWFZtAyZD2whig7s6xp5F2TvEDUIuyaOObyOxA0yCGj/7hfara3TlRRig9Caw8bNQ==
   dependencies:
     "@types/node" "^8.0.29"
     "@types/ua-parser-js" "^0.7.32"

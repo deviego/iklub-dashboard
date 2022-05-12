@@ -38,7 +38,7 @@ interface FormValues {
 interface IProps {
 	title: string;
 	isLoading: boolean;
-	dynamicLink: string;
+	dynamicLink?: string;
 	isProfile?: boolean;
 	formValues: FormValues;
 	submit?: {
@@ -84,10 +84,13 @@ export const RestaurantForm: React.FC<IProps> = observer((props) => {
 					src={formValues.image.src}
 				/>
 			</Box>
-			<DetailsRow
-				label={commonStrings.fields.link}
-				value={dynamicLink}
-			/>
+			{
+				dynamicLink &&
+					<DetailsRow
+						label={commonStrings.fields.link}
+						value={dynamicLink}
+					/>
+			}
 			<TextInput
 				labelText={commonStrings.fields.name}
 				labelProps={{ fontWeight: "bold" }}
