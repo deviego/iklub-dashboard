@@ -1,9 +1,10 @@
 import React from "react";
+import { observer } from "mobx-react-lite";
 import { Icon, Flex, Image } from "@chakra-ui/react";
 import { DrawerContainer, DrawerProfile } from "../../../components";
 import { AiOutlineMenu } from "react-icons/ai";
 
-export const NavbarContent: React.FC = () => {
+export const NavbarContent: React.FC = observer(() => {
 	const [isOpen, setIsOpen] = React.useState<boolean>(false);
 	const [isOpenProfile, setIsOpenProfile] = React.useState<boolean>(false);
 
@@ -25,7 +26,7 @@ export const NavbarContent: React.FC = () => {
 				/>
 				<Image
 					alt="logo"
-					src="/logo.svg"
+					src="/logo_squared.svg"
 					h={{ base: "2.5rem", sm: "3.5rem" }}
 				/>
 			</Flex>
@@ -39,4 +40,4 @@ export const NavbarContent: React.FC = () => {
 			/>
 		</>
 	);
-};
+});

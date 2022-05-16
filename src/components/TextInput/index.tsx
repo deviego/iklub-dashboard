@@ -41,7 +41,7 @@ export const TextInput: React.FC<IProps> = observer((props) => {
 	} = props;
 
 	return (
-		<Box {...boxProps}>
+		<Box {...boxProps} >
 			<FormControl isInvalid={!!errorText} position="relative">
 				<Label
 					marginBottom={1}

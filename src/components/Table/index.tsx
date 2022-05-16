@@ -80,7 +80,7 @@ export const Table = <DataType,>(props: IProps<DataType>) => {
 				maxW={{ base:"100%", md: isCard ? "100%" : "75%" }}
 				px={0}
 				borderRadius={12}
-				boxShadow={isCard ? 0 : "lg"}
+				boxShadow={isCard ? "none" : "lg"}
 				bg="white"
 				{...rest}
 			>
@@ -151,7 +151,8 @@ export const Table = <DataType,>(props: IProps<DataType>) => {
 			{onAdd && (
 				<Button
 					w="100%"
-					maxW={280}
+					maxW={360}
+					fontSize='1.3rem'
 					size="lg"
 					mt={10}
 					onClick={onAdd}

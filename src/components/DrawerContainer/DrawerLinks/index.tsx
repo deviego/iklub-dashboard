@@ -1,20 +1,21 @@
 import React from "react";
-import { Text, Box, Icon, Image, Flex } from "@chakra-ui/react";
+import { observer } from "mobx-react-lite";
+import { Text, Box, Icon, Link, Image, Flex } from "@chakra-ui/react";
 import strings from "../../../resources/strings";
-// import useMainRoutes from "../../../hooks/useMainRoutes";
+import useMainRoutes from "../../../hooks/useMainRoutes";
 import { useGlobalStore } from "../../../contexts/useGlobalContext";
 import { AiOutlineLogout } from "react-icons/ai";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link as RouterLink } from "react-router-dom";
 
 interface IProps {
 	onClose: () => void;
 }
 
-export const DrawerLinks: React.FC<IProps> = () => {
+export const DrawerLinks: React.FC<IProps> = observer((props) => {
 
-	// const { onClose } = props;
+	const { onClose } = props;
 	const { authStore } = useGlobalStore();
-	// const routes = useMainRoutes(authStore.currentAdminUser);
+	const routes = useMainRoutes(authStore.currentAdminUser);
 	const fontSizeBreakPoint = { base: "sm", lg: "md" };
 	const history = useHistory();
 
@@ -31,8 +32,13 @@ export const DrawerLinks: React.FC<IProps> = () => {
 				display="flex"
 				flexDirection="column"
 			>
-				<Image mb="6" src="/logo.svg" />
-				{/* {routes.map((mainLink) => (
+				<Image
+					mb="6"
+					src="/logo_m.svg"
+					w="90%"
+					p={5}
+				/>
+				{routes.map((mainLink) => (
 					mainLink &&
 						<Link
 							as={RouterLink}
@@ -63,7 +69,7 @@ export const DrawerLinks: React.FC<IProps> = () => {
 								{mainLink.text}
 							</Text>
 						</Link>
-				))} */}
+				))}
 				<Flex
 					justifyContent="center"
 					alignItems="center"
@@ -91,4 +97,4 @@ export const DrawerLinks: React.FC<IProps> = () => {
 			</Box>
 		</>
 	);
-};
+});

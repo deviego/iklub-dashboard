@@ -1,120 +1,100 @@
-// import {
-// 	AiOutlineHome,
-// 	// AiOutlineUsergroupAdd,
-// } from "react-icons/ai";
+import {
+	AiOutlineHome,
+} from "react-icons/ai";
 
-// import {
-// 	RiUserLine,
-// 	RiUserFollowLine,
-// 	RiHealthBookLine,
-// } from "react-icons/ri";
+import {
+	RiRestaurant2Line,
+	RiUserLine,
+	RiUserFollowLine,
+} from "react-icons/ri";
 
-// import {
-// 	BiClinic,
-// 	BiPackage,
-// 	BiWallet,
-// } from "react-icons/bi";
+import {
+	MdPersonOutline,
+} from "react-icons/md";
 
-// import {
-// 	FaUserNurse,
-// } from "react-icons/fa";
+import { BiCoffee, BiCart, BiWallet } from "react-icons/bi";
+import { ImGlass } from "react-icons/im";
+import strings from "../resources/strings";
+import API from "~/resources/api";
 
-// import {
-// 	VscPackage,
-// 	VscAccount,
-// } from "react-icons/vsc";
+const useMainRoutes = (currentUser: API.AdminUser | null) => {
+	const isRestaurantAdminUser = !!currentUser?.restaurant;
 
-// import {
-// 	HiOutlineClipboardList,
-// } from "react-icons/hi";
+	const createAdminRoute = (path?: string) => `/dashboard/admin${path ? "/" + path : ""}`;
+	const createRestaurantRoute = (path?: string) => `/dashboard/restaurant${path ? "/" + path : ""}`;
 
-// import {
-// 	ImProfile,
-// } from "react-icons/im";
+	const adminRoutes = [
+		{
+			Icon: AiOutlineHome,
+			text: strings.nav.home,
+			path: createAdminRoute(),
+		},
+		{
+			Icon: RiUserFollowLine,
+			text: strings.nav.adminUsers,
+			path: createAdminRoute("adminUsers"),
+		},
+		{
+			Icon: RiUserFollowLine,
+			text: strings.nav.adminRestaurantUsers,
+			path: createAdminRoute("adminRestaurantUsers"),
+		},
+		{
+			Icon: RiUserLine,
+			text: strings.nav.users,
+			path: createAdminRoute("users"),
+		},
+		{
+			Icon: RiRestaurant2Line,
+			text: strings.nav.restaurants,
+			path: createAdminRoute("restaurants"),
+		},
+		{
+			Icon: BiCoffee,
+			text: strings.nav.products,
+			path: createAdminRoute("productsForAdmin"),
+		},
+		{
+			Icon: BiCart,
+			text: strings.nav.purchasedProducts,
+			path: createAdminRoute("purchasedProducts"),
+		},
+	];
 
-// import strings from "../resources/strings";
-// import api from "../resources/api";
+	const restaurantAdminUserRoutes = [
+		{
+			Icon: AiOutlineHome,
+			text: strings.nav.home,
+			path: createRestaurantRoute(),
+		},
+		{
+			Icon: MdPersonOutline,
+			text: strings.nav.restaurantProfile,
+			path: createRestaurantRoute(`restaurantProfile/${currentUser?.id}`),
+		},
+		{
+			Icon: BiCoffee,
+			text: strings.nav.products,
+			path: createRestaurantRoute("products"),
+		},
+		{
+			Icon: BiCart,
+			text: strings.nav.purchasedProducts,
+			path: createRestaurantRoute("purchasedProducts"),
+		},
+		{
+			Icon: ImGlass,
+			text: strings.nav.consumptions,
+			path: createRestaurantRoute("consumptions"),
+		},
+		{
+			Icon: BiWallet,
+			text: strings.nav.wallet,
+			path: createRestaurantRoute("wallet/" + currentUser?.restaurant?.id),
+		},
+	];
 
-// const useMainRoutes = (adminUser: api.AdminUser | null) => {
-// 	const adminClinicUser = adminUser && adminUser.clinic;
-// 	const commonRoutes = [
-// 		{
-// 			Icon: AiOutlineHome,
-// 			text: strings.nav.home,
-// 			path: "/dashboard",
-// 		},
-// 		{
-// 			Icon: RiUserFollowLine,
-// 			text: strings.nav.adminClinicUsers,
-// 			path: "/dashboard/adminclinicUsers",
-// 		},
-// 		!adminClinicUser &&
-// 			{
-// 				Icon: RiUserFollowLine,
-// 				text: strings.nav.adminUsers,
-// 				path: "/dashboard/adminUsers",
-// 			},
-// 		!adminClinicUser &&
-// 			{
-// 				Icon: RiUserLine,
-// 				text: strings.nav.users,
-// 				path: "/dashboard/users",
-// 			},
-// 		!adminClinicUser &&
-// 			{
-// 				Icon: BiClinic,
-// 				text: strings.nav.clinics,
-// 				path: "/dashboard/clinics",
-// 			},
-// 		!adminClinicUser &&
-// 			{
-// 				Icon: FaUserNurse,
-// 				text: strings.nav.professionals,
-// 				path: "/dashboard/professionals",
-// 			},
-// 		!adminClinicUser &&
-// 			{
-// 				Icon: RiHealthBookLine,
-// 				text: strings.nav.medicalProcedures,
-// 				path: "/dashboard/medicalProcedures",
-// 			},
-// 		adminClinicUser &&
-// 			{
-// 				Icon: ImProfile,
-// 				text: strings.nav.clinicProfessionals,
-// 				path: "/dashboard/clinicProfessionals",
-// 			},
-// 		{
-// 			Icon: VscPackage,
-// 			text: strings.nav.packages,
-// 			path: "/dashboard/packages",
-// 		},
-// 		{
-// 			Icon: HiOutlineClipboardList,
-// 			text: strings.nav.orders,
-// 			path: "/dashboard/orders",
-// 		},
-// 		adminClinicUser &&
-// 			{
-// 				Icon: BiPackage,
-// 				text: strings.nav.clinicPackages,
-// 				path: "/dashboard/clinicPackages",
-// 			},
-// 		adminClinicUser &&
-// 			{
-// 				Icon: VscAccount,
-// 				text: strings.nav.clinicProfile,
-// 				path: `/dashboard/clinicProfile/${adminClinicUser.id}`,
-// 			},
-// 		adminClinicUser &&
-// 			{
-// 				Icon: BiWallet,
-// 				text: strings.nav.clinicWallet,
-// 				path: `/dashboard/clinicWallet/${adminClinicUser.id}`,
-// 			},
-// 	];
+	return isRestaurantAdminUser ? restaurantAdminUserRoutes : adminRoutes;
+};
 
-// 	return commonRoutes;
-// };
-
-// export default useMainRoutes;
+export default useMainRoutes;
