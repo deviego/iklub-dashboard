@@ -11,11 +11,12 @@ import imagePlaceholder from "../../../static/pick_image.svg";
 
 interface IProps {
 	restaurant: API.Restaurant;
+	dynamicLink: string;
 }
 
 export const DetailsRestaurant: React.FC<IProps> = (props) => {
 
-	const { restaurant } = props;
+	const { restaurant, dynamicLink } = props;
 
 	const commonStrings = strings.common;
 
@@ -36,6 +37,10 @@ export const DetailsRestaurant: React.FC<IProps> = (props) => {
 				/>
 			</Box>
 			<Box>
+				<DetailsRow
+					label={commonStrings.fields.link}
+					value={dynamicLink}
+				/>
 				<DetailsRow
 					label={commonStrings.fields.name}
 					value={restaurant.name}

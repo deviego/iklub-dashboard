@@ -46,6 +46,7 @@ export default class Store {
 	public isEditBankAccount = new AttributeShelf(false);
 	public id = new AttributeShelf("");
 	public selectedBankAccountType: api.BankAccountType | null = null;
+	public restaurantLink: string;
 
 	public bankCode = "";
 	public bankName = "";
@@ -117,6 +118,8 @@ export default class Store {
 				onAfterFetch: this.onAfterFetch,
 			},
 		);
+
+		this.getRestaurantDynamicLink(id);
 	}
 
 	public onAfterFetch = (adminUser: api.AdminUser) => {
@@ -201,6 +204,18 @@ export default class Store {
 
 			showSuccessToast(pageStrings.success(!!this.id.value));
 			onSuccess();
+		} catch (e) {
+			const errorMessage = Errors.handleError(e);
+			showErrorToast(errorMessage);
+		} finally {
+			this.loader.end();
+		}
+	};
+
+	public getRestaurantDynamicLink = async (id: string) => {
+		this.loader.tryStart();
+		try {
+			this.restaurantLink = await api.getRestaurantDynamicLink(id);
 		} catch (e) {
 			const errorMessage = Errors.handleError(e);
 			showErrorToast(errorMessage);
