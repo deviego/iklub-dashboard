@@ -7,6 +7,7 @@ import {
 	TextInput,
 	Label,
 	ImagePicker,
+	DetailsRow,
 } from "..";
 import { EnumSelect } from "../EnumSelect";
 import api from "~/resources/api";
@@ -37,6 +38,7 @@ interface FormValues {
 interface IProps {
 	title: string;
 	isLoading: boolean;
+	dynamicLink?: string;
 	isProfile?: boolean;
 	formValues: FormValues;
 	submit?: {
@@ -49,7 +51,7 @@ interface IProps {
 
 export const RestaurantForm: React.FC<IProps> = observer((props) => {
 
-	const { title, isLoading, formValues, isProfile, submit } = props;
+	const { title, isLoading, formValues, isProfile, submit, dynamicLink } = props;
 
 	const commonStrings = strings.common;
 
@@ -82,6 +84,13 @@ export const RestaurantForm: React.FC<IProps> = observer((props) => {
 					src={formValues.image.src}
 				/>
 			</Box>
+			{
+				dynamicLink &&
+					<DetailsRow
+						label={commonStrings.fields.link}
+						value={dynamicLink}
+					/>
+			}
 			<TextInput
 				labelText={commonStrings.fields.name}
 				labelProps={{ fontWeight: "bold" }}
