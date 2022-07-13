@@ -45,6 +45,13 @@ const CreateOrEdit: React.FC = () => {
 		}
 	};
 
+	React.useEffect(
+		() => {
+			store.restaurantPaginatedList.refresh();
+		},
+		[],
+	);
+
 	return (
 		<CentralizedCard
 			title={{
