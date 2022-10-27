@@ -5,19 +5,19 @@ import { Errors } from "~/resources/errors";
 import api from "~/resources/api";
 
 export default class Store {
-
-	public paginetedListShelf: PaginatedListShelf<api.PurchasedProduct> = new PaginatedListShelf(
-		api.getAllPurchasedProducts,
-		{
-			fetchOnConstructor: true,
-			onFetchError: (e) => {
-				const error = Errors.treatError(e);
-				showErrorToast(error.message);
-			},
-		},
-	);
+	public paginetedListShelf: PaginatedListShelf<api.PurchasedProduct>;
 
 	constructor() {
 		makeAutoObservable(this);
+		this.paginetedListShelf = new PaginatedListShelf(
+			(page) => api.getAllPurchasedProducts(page + 1),
+			{
+				fetchOnConstructor: true,
+				onFetchError: (e) => {
+					const error = Errors.treatError(e);
+					showErrorToast(error.message);
+				},
+			},
+		);
 	}
 }
