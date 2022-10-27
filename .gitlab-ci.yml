@@ -17,7 +17,7 @@ before_script:
       - yarn code-check
 
 "[Build] React":
-    image: node
+    image: node:14
     stage: build
     only:
         - master
