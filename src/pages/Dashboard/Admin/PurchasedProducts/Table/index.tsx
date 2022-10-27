@@ -14,7 +14,6 @@ const TableView: React.FC = () => {
 	const pageStrings = strings.purchasedProducts.table;
 
 	const store = useLocalObservable(() => new Store());
-
 	const history = useHistory();
 
 	const onGoToDetailsPurchasedProducts = (id: string) => history.push(`purchasedProducts/details/${id}`);

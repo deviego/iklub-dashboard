@@ -96,6 +96,34 @@ export default class Store {
 			name: strings.restaurants.createOrEdit.banksCode.code10.name,
 			code: strings.restaurants.createOrEdit.banksCode.code10.code,
 		},
+		{
+			name: strings.restaurants.createOrEdit.banksCode.code11.name,
+			code: strings.restaurants.createOrEdit.banksCode.code11.code,
+		},
+		{
+			name: strings.restaurants.createOrEdit.banksCode.code12.name,
+			code: strings.restaurants.createOrEdit.banksCode.code12.code,
+		},
+		{
+			name: strings.restaurants.createOrEdit.banksCode.code13.name,
+			code: strings.restaurants.createOrEdit.banksCode.code13.code,
+		},
+		{
+			name: strings.restaurants.createOrEdit.banksCode.code14.name,
+			code: strings.restaurants.createOrEdit.banksCode.code14.code,
+		},
+		{
+			name: strings.restaurants.createOrEdit.banksCode.code15.name,
+			code: strings.restaurants.createOrEdit.banksCode.code15.code,
+		},
+		{
+			name: strings.restaurants.createOrEdit.banksCode.code16.name,
+			code: strings.restaurants.createOrEdit.banksCode.code16.code,
+		},
+		{
+			name: strings.restaurants.createOrEdit.banksCode.code17.name,
+			code: strings.restaurants.createOrEdit.banksCode.code17.code,
+		},
 	];
 
 	public toggleBank = (bankCode: string) => {

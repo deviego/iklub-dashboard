@@ -289,45 +289,73 @@ const strings = new LocalizedStrings({
 				banckAccount: "Conta Bancária:",
 				successBankAccount: (isEdit?: boolean) => isEdit ? "Conta editada com sucesso" : "Conta Bancária criada com sucesso",
 				banksCode: {
-					code1: {
+					code1 :{
 						name: "Banco do Brasil S.A.",
 						code: "001",
 					},
-					code2: {
+					code2 :{
 						name: "Banco Itaú S.A.",
 						code: "341",
 					},
-					code3: {
+					code3 :{
 						name: "Banco Santander (Brasil) S.A.",
 						code: "033",
 					},
-					code4: {
+					code4 :{
 						name: "Banco Real S.A.",
 						code: "356",
 					},
-					code5: {
+					code5 :{
 						name: "Itaú Unibanco Holding S.A.",
 						code: "652",
 					},
-					code6: {
+					code6 :{
 						name: "Banco Bradesco S.A.",
 						code: "237",
 					},
-					code7: {
+					code7 :{
 						name: "Banco Citibank S.A.",
 						code: "745",
 					},
-					code8: {
+					code8 :{
 						name: "HSBC Bank Brasil S.A. – Banco Múltiplo",
 						code: "399",
 					},
-					code9: {
+					code9 :{
 						name: "Caixa Econômica Federal",
 						code: "104",
 					},
-					code10: {
+					code10 :{
 						name: "Banco Mercantil do Brasil S.A.",
 						code: "389",
+					},
+					code11 :{
+						name: "Nubank S.A.",
+						code: "260",
+					},
+					code12 :{
+						name: "Banco Inter",
+						code: "077",
+					},
+					code13 :{
+						name: "Neon Pagamentos S.A",
+						code: "735",
+					},
+					code14 :{
+						name: "Digio",
+						code: "335",
+					},
+					code15 :{
+						name: "Next",
+						code: "237",
+					},
+					code16 :{
+						name: "Banco PAN",
+						code: "623",
+					},
+					code17 :{
+						name: "C6 Bank",
+						code: "336",
 					},
 				},
 			},
