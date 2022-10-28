@@ -2812,9 +2812,9 @@
     "@sinonjs/commons" "^1.7.0"
 
 "@startapp/iklub-admin-api@^1.1.527375349":
-  version "1.1.536967777"
-  resolved "https://npm.startapp.one/@startapp%2fiklub-admin-api/-/iklub-admin-api-1.1.536967777.tgz#69473b5ef2cce0543698c3e07f03a24ca0c37db2"
-  integrity sha512-l8ANGnI25YOeNgcCSPHfleWFZtAyZD2whig7s6xp5F2TvEDUIuyaOObyOxA0yCGj/7hfara3TlRRig9Caw8bNQ==
+  version "1.1.680129698"
+  resolved "https://npm.startapp.one/@startapp%2fiklub-admin-api/-/iklub-admin-api-1.1.680129698.tgz#586d96063512582e3bafdf65331027718c600018"
+  integrity sha512-FDixpFDwCnEoslQRVBFxmbxwBoTGrLCD50W2E2RqK/xZpbcnCDIsySckXESoprJ3Pc74VhueNTsGaqSf3cg5cQ==
   dependencies:
     "@types/node" "^8.0.29"
     "@types/ua-parser-js" "^0.7.32"
@@ -9607,9 +9607,9 @@ module-alias@^2.2.2:
   integrity sha512-A/78XjoX2EmNvppVWEhM2oGk3x4lLxnkEA4jTbaK97QKSDjkIoOsKQlfylt/d3kKKi596Qy3NP5XrXJ6fZIC9Q==
 
 moment@^2.17.1:
-  version "2.29.3"
-  resolved "https://npm.startapp.one/moment/-/moment-2.29.3.tgz#edd47411c322413999f7a5940d526de183c031f3"
-  integrity sha512-c6YRvhEo//6T2Jz/vVtYzqBzwvPT95JBQ+smCytzf7c50oMZRsR/a4w88aD34I+/QVSfnoAnSBFPJHItlOMJVw==
+  version "2.29.4"
+  resolved "https://npm.startapp.one/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
+  integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
 
 moment@^2.29.1:
   version "2.29.1"
@@ -13519,9 +13519,9 @@ typescript@^4.6.2:
   integrity sha512-HM/hFigTBHZhLXshn9sN37H085+hQGeJHJ/X7LpBWLID/fbc2acUMfU+lGD98X81sKP+pFa9f0DZmCwB9GnbAg==
 
 ua-parser-js@^0.7.14:
-  version "0.7.31"
-  resolved "https://npm.startapp.one/ua-parser-js/-/ua-parser-js-0.7.31.tgz#649a656b191dffab4f21d5e053e27ca17cbff5c6"
-  integrity sha512-qLK/Xe9E2uzmYI3qLeOmI0tEOt+TBBQyUIAh4aAgU05FVYzeZrKUdkAZfBNVGRaHVgV0TDkdEngJSw/SyQchkQ==
+  version "0.7.32"
+  resolved "https://npm.startapp.one/ua-parser-js/-/ua-parser-js-0.7.32.tgz#cd8c639cdca949e30fa68c44b7813ef13e36d211"
+  integrity sha512-f9BESNVhzlhEFf2CHMSj40NWOjYPl1YKYbrvIr/hFTDEmLq7SRbWvm7FcdcpCYT95zrOhC7gZSxjdnnTpBcwVw==
 
 unbox-primitive@^1.0.1:
   version "1.0.1"

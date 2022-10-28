@@ -10,7 +10,7 @@ export default class Store {
 	constructor() {
 		makeAutoObservable(this);
 		this.paginetedListShelf = new PaginatedListShelf(
-			(page) => api.getAllPurchasedProducts(page + 1),
+			(page) => api.getAllPurchasedProducts(page),
 			{
 				fetchOnConstructor: true,
 				onFetchError: (e) => {
