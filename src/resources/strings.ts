@@ -182,6 +182,7 @@ const strings = new LocalizedStrings({
 				requestedAt: "Solicitação criada em:",
 				status: "Status:",
 				bankAccount: "Conta:",
+				bankSelect: "Clique e selecione o seu banco",
 				typeAccount: "Tipo da Conta:",
 				bankCode: "Código do Banco",
 				accountDv: "Dígito da conta:",

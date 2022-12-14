@@ -76,7 +76,7 @@ export const BankForm: React.FC<IProps> = observer((props) => {
 					bg="gray.100"
 					color="primary.800"
 				>
-					<option>Clique e selecione o seu banco</option>
+					<option>{commonStrings.fields.bankSelect}</option>
 					{getBankNamesAndCodes.map((bank) => (
 						<option aria-selected="true" key={bank.code} value={bank.code}>
 							{commonStrings.fields.concatData(bank.code, bank.name)}
