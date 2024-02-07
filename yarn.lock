@@ -2812,9 +2812,9 @@
     "@sinonjs/commons" "^1.7.0"
 
 "@startapp/iklub-admin-api@^1.1.527375349":
-  version "1.1.680177223"
-  resolved "https://npm.startapp.one/@startapp%2fiklub-admin-api/-/iklub-admin-api-1.1.680177223.tgz#bd2690c4a95eeedee783f6140a2df0b6c30901ca"
-  integrity sha512-fzdWLEAWXKrGQgSMwJDDN+vgxksvMqOWdGe3Anoxl0XA8YwxOKHHOfR56zwZl36SgyvmuJChbqJWy9aK6X6Jxw==
+  version "1.1.1168364703"
+  resolved "https://npm.startapp.one/@startapp%2fiklub-admin-api/-/iklub-admin-api-1.1.1168364703.tgz#e0f8f24746b2886b54a9b4681cb454f018d92f22"
+  integrity sha512-cO9gX4uLutppZJ18cHygoaWCTO1zrSogoBS9UsyruqUwqKYM3aejZjrx8zLpO6118TRuPui+yatsayJcMenKIQ==
   dependencies:
     "@types/node" "^8.0.29"
     "@types/ua-parser-js" "^0.7.32"
@@ -3401,9 +3401,9 @@
   integrity sha512-F5DIZ36YVLE+PN+Zwws4kJogq47hNgX3Nx6WyDJ3kcplxyke3XIzB8uK5n/Lpm1HBsbGzd6nmGehL8cPekP+Tg==
 
 "@types/ua-parser-js@^0.7.32":
-  version "0.7.36"
-  resolved "https://npm.startapp.one/@types%2fua-parser-js/-/ua-parser-js-0.7.36.tgz#9bd0b47f26b5a3151be21ba4ce9f5fa457c5f190"
-  integrity sha512-N1rW+njavs70y2cApeIw1vLMYXRwfBy+7trgavGuuTfOd7j1Yh7QTRc/yqsPl6ncokt72ZXuxEU0PiCp9bSwNQ==
+  version "0.7.39"
+  resolved "https://npm.startapp.one/@types%2fua-parser-js/-/ua-parser-js-0.7.39.tgz#832c58e460c9435e4e34bb866e85e9146e12cdbb"
+  integrity sha512-P/oDfpofrdtF5xw433SPALpdSchtJmY7nsJItf8h3KXqOslkbySh8zq4dSWXH2oTjRvJ5PczVEoCZPow6GicLg==
 
 "@types/warning@^3.0.0":
   version "3.0.0"
@@ -9607,9 +9607,9 @@ module-alias@^2.2.2:
   integrity sha512-A/78XjoX2EmNvppVWEhM2oGk3x4lLxnkEA4jTbaK97QKSDjkIoOsKQlfylt/d3kKKi596Qy3NP5XrXJ6fZIC9Q==
 
 moment@^2.17.1:
-  version "2.29.4"
-  resolved "https://npm.startapp.one/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
-  integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
+  version "2.30.1"
+  resolved "https://npm.startapp.one/moment/-/moment-2.30.1.tgz#f8c91c07b7a786e30c59926df530b4eac96974ae"
+  integrity sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==
 
 moment@^2.29.1:
   version "2.29.1"
@@ -13519,9 +13519,9 @@ typescript@^4.6.2:
   integrity sha512-HM/hFigTBHZhLXshn9sN37H085+hQGeJHJ/X7LpBWLID/fbc2acUMfU+lGD98X81sKP+pFa9f0DZmCwB9GnbAg==
 
 ua-parser-js@^0.7.14:
-  version "0.7.32"
-  resolved "https://npm.startapp.one/ua-parser-js/-/ua-parser-js-0.7.32.tgz#cd8c639cdca949e30fa68c44b7813ef13e36d211"
-  integrity sha512-f9BESNVhzlhEFf2CHMSj40NWOjYPl1YKYbrvIr/hFTDEmLq7SRbWvm7FcdcpCYT95zrOhC7gZSxjdnnTpBcwVw==
+  version "0.7.37"
+  resolved "https://npm.startapp.one/ua-parser-js/-/ua-parser-js-0.7.37.tgz#e464e66dac2d33a7a1251d7d7a99d6157ec27832"
+  integrity sha512-xV8kqRKM+jhMvcHWUKthV9fNebIzrNy//2O9ZwWcfiBFR5f25XVZPLlEajk/sf3Ra15V92isyQqnIEXRDaZWEA==
 
 unbox-primitive@^1.0.1:
   version "1.0.1"
