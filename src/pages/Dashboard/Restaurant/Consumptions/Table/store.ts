@@ -9,7 +9,7 @@ export default class Store {
 
 	public loader = new LoaderShelf();
 
-	public pendingConsumptionsListShelf: PaginatedListShelf<api.ConsumptionWithUser> = new PaginatedListShelf(
+	public pendingConsumptionsListShelf: PaginatedListShelf<api.ConsumptionDetailed> = new PaginatedListShelf(
 		api.getAllPendingConsumptionsForRestaurantAdmin,
 		{
 			fetchOnConstructor: true,
@@ -20,7 +20,7 @@ export default class Store {
 		},
 	);
 
-	public consumptionsListShelf: PaginatedListShelf<api.ConsumptionWithUser> = new PaginatedListShelf(
+	public consumptionsListShelf: PaginatedListShelf<api.ConsumptionDetailed> = new PaginatedListShelf(
 		api.getAllAcceptedConsumptionsForRestaurantAdmin,
 		{
 			fetchOnConstructor: true,

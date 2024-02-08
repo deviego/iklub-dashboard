@@ -82,6 +82,9 @@ const TableView: React.FC = () => {
 								onRefuse={() => openDeleteDialog(item.id)}
 							/>
 							<Td>
+								<Text>{item.purchasedProduct.product.title}</Text>
+							</Td>
+							<Td>
 								<Text>{item.amount}</Text>
 							</Td>
 							<Td>
@@ -110,6 +113,9 @@ const TableView: React.FC = () => {
 							<TableCellWithActionButtons
 								onView={() => onGoToDetailsPurchasedProducts(item.id)}
 							/>
+							<Td>
+								<Text>{item.purchasedProduct.product.title}</Text>
+							</Td>
 							<Td>
 								<Text>{item.amount}</Text>
 							</Td>
