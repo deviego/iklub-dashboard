@@ -2,6 +2,9 @@
   "name": "iklub-dashboard",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "18.x"
+  },
   "dependencies": {
     "@babel/runtime": "^7.17.7",
     "@chakra-ui/icons": "^1.1.7",
@@ -42,8 +45,8 @@
     "dev": "react-app-rewired start",
     "devWindows": "react-app-rewired start",
     "start": "react-app-rewired start",
-    "build": "NODE_ENV=$NODE_ENV && ./node_modules/.bin/parcel build src/index.html",
-    "test": "npx ./node_modules/.bin/parcel build src/test.ts -d out --no-minify --target=node && node out/test.js",
+    "build": "react-app-rewired build",
+    "test": "react-scripts test",
     "prepare": "husky install",
     "lint": "prettier --config .prettierrc --write",
     "up-sdk": "yarn upgrade @startapp/iklub-admin-api",
@@ -93,9 +96,6 @@
     "eslint-plugin-standard": "^5.0.0",
     "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^7.0.4",
-    "parcel": "^2.3.2",
-    "parcel-bundler": "^1.12.5",
-    "parcel-plugin-static-files-copy": "^2.6.0",
     "react-app-rewired": "^2.2.1"
   }
 }
