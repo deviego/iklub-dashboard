@@ -2,7 +2,7 @@ import React from "react";
 import { observer } from "mobx-react-lite";
 import { Center, IconButton, Image, Tooltip } from "@chakra-ui/react";
 import { DeleteIcon } from "@chakra-ui/icons";
-import imagePicker from "../../../static/pick_image.svg";
+import imagePicker from "~/assets/pick_image.svg";
 import { Loading } from "../Loading";
 import strings from "../../resources/strings";
 

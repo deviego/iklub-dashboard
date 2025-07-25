@@ -10,7 +10,7 @@ import API from "~/resources/api";
 
 import { DetailsRow, Label } from "..";
 
-import imagePlaceholder from "../../../static/pick_image.svg";
+import imagePlaceholder from "~/assets/pick_image.svg";
 
 import { AddressDetails } from "../AddressDetails";
 

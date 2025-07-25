@@ -7,7 +7,7 @@ import {
 	Image,
 } from "@chakra-ui/react";
 import { AddressDetails, DetailsRow, Label } from "..";
-import imagePlaceholder from "../../../static/pick_image.svg";
+import imagePlaceholder from "~/assets/pick_image.svg";
 
 interface IProps {
 	restaurant: API.Restaurant;

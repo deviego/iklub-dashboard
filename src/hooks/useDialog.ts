@@ -1,5 +1,20 @@
 import React from "react";
-import { IDialogProps } from "../components";
+import { ButtonProps } from "@chakra-ui/react";
+
+interface IDialogProps {
+	isOpen: boolean;
+	ref?: React.MutableRefObject<undefined>;
+	title?: string;
+	closeOnOverlayClick?: boolean;
+	description?: string;
+	onClose: () => void;
+	buttons?: Array<{
+		title: string;
+		onPress: () => void;
+		buttonProps?: ButtonProps;
+		outlined?: boolean;
+	}>;
+}
 
 export interface IDialog {
 	dialogProps: IDialogProps;

@@ -41,6 +41,7 @@
     "reset-modules": "rm -rf node_modules && rm -rf .cache && rm -rf dev && yarn install",
     "dev": "NODE_ENV=production && ./node_modules/.bin/parcel src/index.html -d dev --port 3000 || @echo 'set is only for windows' && yarn devWindows",
     "devWindows": "set NODE_ENV=develop && ./node_modules/.bin/parcel src/index.html -d dev --port 3000",
+    "start": "react-app-rewired start",
     "build": "NODE_ENV=$NODE_ENV && ./node_modules/.bin/parcel build src/index.html",
     "test": "npx ./node_modules/.bin/parcel build src/test.ts -d out --no-minify --target=node && node out/test.js",
     "prepare": "husky install",
@@ -94,6 +95,7 @@
     "husky": "^7.0.4",
     "parcel": "^2.3.2",
     "parcel-bundler": "^1.12.5",
-    "parcel-plugin-static-files-copy": "^2.6.0"
+    "parcel-plugin-static-files-copy": "^2.6.0",
+    "react-app-rewired": "^2.2.1"
   }
 }

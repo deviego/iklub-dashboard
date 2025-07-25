@@ -7,7 +7,7 @@ import {
 } from "@chakra-ui/react";
 import { observer } from "mobx-react-lite";
 
-import { Pagination, Fetchable, IPaginationProps } from "~/components";
+import { Pagination, Fetchable } from "~/components";
 
 import strings from "~/resources/strings";
 
@@ -15,7 +15,12 @@ export interface IProps<DataType>{
 	data: DataType[];
 	renderItem: (data: DataType, index?: number) => React.ReactElement;
 	loading: boolean;
-	paginantionProps?: IPaginationProps;
+	paginantionProps?: {
+		currentPage: number;
+		prevPage: () => void;
+		nextPage: () => void;
+		hasNextPage: boolean;
+	};
 }
 
 export const List = observer(<T,>(props: IProps<T>) => {
