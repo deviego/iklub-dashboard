@@ -39,8 +39,8 @@
   "scripts": {
     "upgrade-packages": "yarn upgrade",
     "reset-modules": "rm -rf node_modules && rm -rf .cache && rm -rf dev && yarn install",
-    "dev": "NODE_ENV=production && ./node_modules/.bin/parcel src/index.html -d dev --port 3000 || @echo 'set is only for windows' && yarn devWindows",
-    "devWindows": "set NODE_ENV=develop && ./node_modules/.bin/parcel src/index.html -d dev --port 3000",
+    "dev": "react-app-rewired start",
+    "devWindows": "react-app-rewired start",
     "start": "react-app-rewired start",
     "build": "NODE_ENV=$NODE_ENV && ./node_modules/.bin/parcel build src/index.html",
     "test": "npx ./node_modules/.bin/parcel build src/test.ts -d out --no-minify --target=node && node out/test.js",
