@@ -51,8 +51,7 @@
     "lint": "prettier --config .prettierrc --write",
     "up-sdk": "yarn upgrade @startapp/iklub-admin-api",
     "code-check": "yarn eslint ./src && yarn tsc",
-    "chakra-types": "chakra-cli tokens ./src/themes",
-    "postinstall": "yarn chakra-types"
+    "chakra-types": "chakra-cli tokens ./src/themes"
   },
   "eslintConfig": {
     "extends": [
